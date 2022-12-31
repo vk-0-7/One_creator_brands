@@ -1,0 +1,48 @@
+.logo{
+    height:70px ;
+    width: 175px;
+    position: absolute;
+    left: 50px;
+    top: 10px;
+}
+
+.btn{
+    position: absolute;
+    top: 25px;
+    right: 10vw;
+    height: 40px;
+    width: 140px;
+    border: 2px solid red;
+    border-radius: 10px;
+    font-size: 1rem;
+
+}
+.usericon{
+    margin-right:5px;
+}
+@media(max-width:450px){
+    .logo{
+        height:55px ;
+        width: 130px;
+        position: absolute;
+        left: 30px;
+        top: 5px;
+    }
+    
+    .btn{
+        position: absolute;
+        top: 18px;
+        right:6vw;
+        height: 33px;
+        width: 100px;
+        border: 1.5px solid red;
+        border-radius: 8px;
+        font-size: 0.8rem;
+    
+    }
+    .usericon{
+        margin-right:5px;
+        height: 10px;
+        
+    }
+}
