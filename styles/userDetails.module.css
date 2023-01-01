@@ -1,0 +1,260 @@
+.leftBox{
+    height: 130vh;
+    width: 32vw;
+    /* border: 1px solid black; */
+    position: absolute;
+    top: 20%;
+    left: 15vw;
+}
+
+
+.userImage{
+    height: 50%;
+    width: 100%;
+    border: none;
+    
+
+}
+.Image {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+.name{
+    font-size: 1.8rem;
+    text-align: left;
+    margin: 10px;
+    width: fit-content;
+    /* border: 1px solid red; */
+}
+.city{
+    font-size: 1.1rem;
+    /* border: 1px solid red; */
+    margin-top: -10px;
+    padding-left: 15px;
+    width: 50%;
+    color: grey;
+}
+.icons{
+    position: relative;
+    bottom: 25px;
+    left: 20vw;
+    /* border: 1px solid red; */
+    width: fit-content;
+}
+.icons > button{
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 0.5px solid rgb(202, 192, 192);
+}
+#ic{
+    color: rgb(190, 52, 85);
+}
+
+.oneliner{
+    font-size: 1.3rem;
+    margin-left: 10px;
+}
+.talents{
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+    }
+    #talent{
+        /* border: 0.5px solid red; */
+        background-color: #f3f1cf;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 8px;
+        display: flex;
+        
+    }
+
+    #music{
+        padding-right: 4px;
+        
+        
+    }
+    .description{
+        margin: 25px 10px 10px 10px;
+        font-family: sans-serif;
+        font-size: 0.95rem;
+    }
+
+
+    .rightBox{
+        height: 130vh;
+        width: 32vw;
+        /* border: 1px solid black; */
+        position: absolute;
+        top: 20%;
+        right: 15vw;
+    }
+
+    .videobox{
+        height: 25%;
+        width: 96%;
+        border: 1px solid grey;
+        margin: 10px;
+        border-radius: 15px;
+    }
+    .price_and_contact{
+        height: 13%;
+        width: 96%;
+        margin: 10px;
+        border: 0.4px solid rgb(218, 210, 210);
+        border-radius: 15px;
+        padding: 10px;
+    }
+    .price{
+        display: flex;
+        font-size: 1.25rem;
+        padding-top: 10px;
+    }
+    .price > h5{
+        text-align: end;
+        font-size: 1.2rem;
+        float: right;
+        position: absolute;
+       
+        left: 23vw;
+    }
+    .contact_btn{
+        height: 32px;
+        width: 90%;
+    }
+    .contact_btn >button{
+        height: 100%;
+        width: 100%;
+        background-color:  rgb(190, 52, 85);
+        border: none;
+        border-radius: 10px;
+        margin-top: 22px;
+        margin-left: 18px;
+        color: white;
+    }
+    .performances{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #performance{
+        background-color: #f3f1cf;
+        border: none;
+        border-radius: 15px;
+        padding: 8px;
+        margin: 5px;
+    }
+    #performance >div > p{
+        font-weight: 1000;
+        margin-right: 6px;
+    }
+    #performance >div > h6{
+        font-weight: 1000;
+        margin-top: 4px;
+    }
+    #performance > div{
+        display: flex;
+        flex-direction: row;
+        /* border: 1px solid black; */
+        padding-inline: 3px;
+       
+    }
+    #performance > h5{
+        font-size: 0.9rem;
+        margin:15px 2px 2px 2px;
+    }
+    .terms{
+        font-size: 1.4rem;
+        margin: 10px 2px 2px 10px;
+    }
+    .terms > p{
+        font-size: 1rem;
+        margin-top: 15px;
+    }
+
+    @media(max-width:850px){
+        .leftBox{
+            height: 130vh;
+            width: 42vw;
+            left: 5vw;
+           
+        }
+        .rightBox{
+            height: 130vh;
+            width: 42vw;
+            /* border: 1px solid black; */
+            position: absolute;
+            top: 20%;
+            right: 5vw;
+        }
+    }
+
+    @media(max-width:500px){
+
+     .rightBox{
+        margin: auto;
+        position: absolute;
+        top: 130%;
+        left: 10vw;
+        height: 100vh;
+        width: 80vw;
+        /* border: 1px solid black; */
+     }
+     .leftBox{
+        height: 100vh;
+        width: 80vw;
+        /* border: 1px solid black; */
+        position: absolute;
+        top: 20%;
+        left: 10vw;
+        margin: auto;
+    }
+    .userImage{
+        height: 50%;
+        width: 100%;
+        border: none;
+        
+    
+    }
+    .Image {
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+    .icons{
+       
+        left: 45vw;
+       
+    }
+    .icons > button{
+        height: 25px;
+        width: 25px;
+        margin: 5px;
+       
+    }
+    .price > h5{
+        text-align: end;
+        font-size: 1.2rem;
+        float: right;
+        position: relative;
+       
+        left: 25vw;
+    }
+
+    .contact_btn >button{
+       
+        margin-top: 10px;
+        margin-left: 12px;
+        color: white;
+    }
+    .performances{
+        justify-content: center;
+       align-items: center;
+    }
+    }
