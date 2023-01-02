@@ -1,4 +1,4 @@
-import React from "react";
+
 import Navbar1 from "../components/navbar1";
 import Footer from "../components/footer";
 import styles from "../styles/index.module.css";
@@ -14,6 +14,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Coursesdata } from "../Data/data";
 import Link from "next/link";
+import Image from "next/image"
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -114,16 +115,16 @@ const index = () => {
 
       <div className={styles.second_div}>
         <p className={styles.top_influencer}>Top Influencers</p>
-        <button className={styles.see_all_btn}>
+       <Link href='/jobs'> <button className={styles.see_all_btn}>
          <p>see all influencers</p>  <FontAwesomeIcon id={styles.greater_icon} icon={faGreaterThan} />
-        </button>
+        </button> </Link>
         <p className={styles.txt}>Discover your ideal Experience</p>
         <div className={styles.box2_carousel}>
           <Slider dots={true} {...settings}>
             {Coursesdata.map((item) => (
               <div className={styles.card}>
                 <div className={styles.card_top}>
-                  <img src={item.Imglink} alt={item.title} />
+                  <Image src={item.Imglink} alt={item.title} width="300" height="400"></Image>
                   <h1>First and Last Name</h1>
                 </div>
                 <div className={styles.card_bottom}>
@@ -167,16 +168,16 @@ const index = () => {
 
       <div className={styles.third_div}>
         <p className={styles.top_influencer}>Categories</p>
-        <button className={styles.see_all_btn2}>
+       <Link href='/jobs'> <button className={styles.see_all_btn2}>
         <p> see all categories</p>  <FontAwesomeIcon id={styles.greater_icon} icon={faGreaterThan} />
-        </button>
+        </button> </Link>
 
         <div className={styles.box3_carousel}>
           <Slider dots={true} {...settings}>
             {Coursesdata.map((item) => (
               <div className={styles.card2}>
                 <div className={styles.card_top2}>
-                  <img src={item.Imglink} alt={item.title} />
+                  <Image src={item.Imglink} alt={item.title} width="300" height="400" ></Image>
                   <p className={styles.category_name}>Fashion</p>
                 </div>
               </div>
