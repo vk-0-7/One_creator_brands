@@ -1,14 +1,18 @@
-
+import { useState,useEffect } from "react";
 import Navbar1 from "../components/navbar1";
+import SignIn from "../components/signin"
+import Script from "next/script";
 import Footer from "../components/footer";
 import styles from "../styles/index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faGreaterThan } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight ,faChevronLeft} from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faSnapchat } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -17,19 +21,14 @@ import Link from "next/link";
 import Image from "next/image"
 
 function SampleNextArrow(props) {
+
   const { className, style, onClick } = props;
   return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        background: "red",
-        borderRadius: "10px",
-        Color: "black",
-      }}
+    <div 
+      className={className} id={styles.arrow_body}
+      
       onClick={onClick}
-    />
+      > <FontAwesomeIcon icon={faChevronRight} id={styles.arrow}/> </div>
   );
 }
 
@@ -38,19 +37,27 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{
-        ...style,
-        display: "block",
-        background: "red",
-        borderRadius: "10px",
-        Color: "black",
-      }}
       onClick={onClick}
-    />
+    ><FontAwesomeIcon icon={faChevronLeft}  className={styles.arrw}/></div>
   );
 }
 
+
 const index = () => {
+ 
+  const [showModal,setShowModal]= useState(false);
+
+ useEffect(() => {
+   if (showModal) {
+    document.body.style.backgroundColor= 'rgba(0,0,0,0.3)'
+   }
+   else
+   document.body.style.backgroundColor= 'rgba(0,0,0,0)'
+
+ }, [showModal])
+
+  
+
   const settings = {
     dots: false,
     infinite: false,
@@ -59,7 +66,7 @@ const index = () => {
     slidesToScroll: 4,
     initialSlide: 0,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    prevArrow: <SamplePrevArrow  />,
     responsive: [
       {
         breakpoint: 1024,
@@ -90,7 +97,10 @@ const index = () => {
 
   return (
     <>
-      <Navbar1 />
+      
+
+        <Navbar1 show={showModal} set={setShowModal}/>
+        <div> <SignIn show={showModal} set={setShowModal} /> </div>
       <div className={styles.main_div}>
         <p className={styles.main_text}>
           {" "}

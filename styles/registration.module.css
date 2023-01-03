@@ -1,0 +1,111 @@
+.main_div{
+    padding: 20px;
+    height: max-content;
+    width: 50vw;
+    border: 1px solid black;
+    position: absolute;
+    top: 16vh;
+    left: 10vw;
+    font-family: 'Poppins';
+}
+.main_heading{
+    
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+.info_profileimg > h4{
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+.info_profileimg > h6{
+    font-size: 0.95rem;
+   
+    font-style: normal;
+    font-weight: 300;
+
+}
+.form{
+    display: flex;
+    margin-top: 10px;
+    width: max-content;
+    /* border: 1px solid red; */
+   
+}
+.usericon{
+   height: 30px;
+  
+}
+.icn{
+    height: 80px;
+    width: 80px;
+    background-color: rgb(227, 227, 227);
+    border: none;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.file_upload > input[type="file"]{
+    display: none;
+}
+
+.form button{
+    height: 40px;
+    width: 110px;
+   margin: 20px 0px 0px 20px;
+   background-color: black;
+   color: white;
+   border-radius: 13px;
+   
+    
+}
+.other_info{
+    margin-top: 20px;
+}
+.name,.username,.number{
+    /* border: 1px solid red; */
+    margin-bottom: 5px;
+    padding: 5px;
+}
+#inpt{
+    height: 38px;
+    width: 452px;
+    border: 2px solid #F0F0F0;
+    border-radius: 12px;
+    padding-left: 10px;
+    font-size: 0.8rem;
+    
+}
+
+.state_city{
+    /* border: 1px solid red; */
+    display: flex;
+}
+.city > input{
+    height: 38px;
+    width: 220px;
+    border: 2px solid #F0F0F0;
+    border-radius: 12px;
+    padding-left: 10px;
+    font-size: 0.8rem;
+    margin-right: 12px;
+    margin-left: 3px;
+}
+.city >label{
+    margin-left: 3px;
+}
+
+
+#mark{
+    font-size: 0.85rem;
+    margin-left: 5px;
+}
+
+
+
+
+#mark::after{
+    content: "*";
+}

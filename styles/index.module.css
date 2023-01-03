@@ -16,6 +16,11 @@
 
 }
 
+.class{
+    height: 30rem;
+    background-color: black;
+}
+
 .form {
     height: 60px;
     width: 60%;
@@ -110,7 +115,7 @@
     height: 82%;
     position: absolute;
     /* border: 1px solid red; */
-
+  z-index: 1;
 
 
 
@@ -183,7 +188,31 @@
 
 }
 
+#arrow{
+    height: 22px;
+    width: 22px;
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+    background-color:#BE3455;
+    padding: 8px;
+    position: relative;
+    bottom: 30px;
+    right: 30px;
+    border-radius: 50%;
+}
+.arrw{
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+    background-color:#BE3455;
+    padding: 8px;
+    position: relative;
+   
+   
 
+}
 
 
 
