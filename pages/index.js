@@ -36,7 +36,7 @@ function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={className}
+      className={className} id={styles.arrow_body}
       onClick={onClick}
     ><FontAwesomeIcon icon={faChevronLeft}  className={styles.arrw}/></div>
   );
@@ -126,7 +126,7 @@ const index = () => {
       <div className={styles.second_div}>
         <p className={styles.top_influencer}>Top Influencers</p>
        <Link href='/jobs'> <button className={styles.see_all_btn}>
-         <p>see all influencers</p>  <FontAwesomeIcon id={styles.greater_icon} icon={faGreaterThan} />
+         <p>see all influencers</p>  <FontAwesomeIcon id={styles.greater_icon} icon={faChevronRight} />
         </button> </Link>
         <p className={styles.txt}>Discover your ideal Experience</p>
         <div className={styles.box2_carousel}>
@@ -179,7 +179,7 @@ const index = () => {
       <div className={styles.third_div}>
         <p className={styles.top_influencer}>Categories</p>
        <Link href='/jobs'> <button className={styles.see_all_btn2}>
-        <p> see all categories</p>  <FontAwesomeIcon id={styles.greater_icon} icon={faGreaterThan} />
+        <p> see all categories</p>  <FontAwesomeIcon id={styles.greater_icon} icon={faChevronRight} />
         </button> </Link>
 
         <div className={styles.box3_carousel}>
