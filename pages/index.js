@@ -1,12 +1,13 @@
 import { useState,useEffect } from "react";
+import search from "../icons/search.svg"
 import Navbar1 from "../components/navbar1";
 import SignIn from "../components/signin"
+import Signup from "../components/signup"
 import Script from "next/script";
 import Footer from "../components/footer";
 import styles from "../styles/index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { faGreaterThan } from "@fortawesome/free-solid-svg-icons";
+
 import { faChevronRight ,faChevronLeft} from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
@@ -38,13 +39,14 @@ function SamplePrevArrow(props) {
     <div
       className={className} id={styles.arrow_body}
       onClick={onClick}
-    ><FontAwesomeIcon icon={faChevronLeft}  className={styles.arrw}/></div>
+    ><FontAwesomeIcon icon={faChevronLeft}  id={styles.arrw}/></div>
   );
 }
 
 
 const index = () => {
- 
+
+ const [showsignup,setShowSignup] =useState(false)
   const [showModal,setShowModal]= useState(false);
 
  useEffect(() => {
@@ -100,8 +102,10 @@ const index = () => {
       
 
         <Navbar1 show={showModal} set={setShowModal}/>
-        <div> <SignIn show={showModal} set={setShowModal} /> </div>
+        <div> <SignIn show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div>
+       { showsignup ? <div> <Signup show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div> :null}
       <div className={styles.main_div}>
+           <div className={styles.inside_main_box}>
         <p className={styles.main_text}>
           {" "}
           Discover Right Influencer <br /> for Your Campaign
@@ -114,21 +118,24 @@ const index = () => {
           or category"
           />
           <button className={styles.search_icon}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            <Image src={search} id={styles.search}></Image>
           </button>
         </form>
         <p className={styles.main_text2}>
           Finally, a solution that lets you Discover Influencer for what you
           need, when you need.
         </p>
+        </div>
       </div>
+
+      {/* div for top influencer carousel */}
 
       <div className={styles.second_div}>
         <p className={styles.top_influencer}>Top Influencers</p>
        <Link href='/jobs'> <button className={styles.see_all_btn}>
          <p>see all influencers</p>  <FontAwesomeIcon id={styles.greater_icon} icon={faChevronRight} />
         </button> </Link>
-        <p className={styles.txt}>Discover your ideal Experience</p>
+        <p className={styles.txt}>Discover Top Influencers from the Country</p>
         <div className={styles.box2_carousel}>
           <Slider dots={true} {...settings}>
             {Coursesdata.map((item) => (
@@ -176,6 +183,64 @@ const index = () => {
         </div>
       </div>
 
+      {/* div for new influencer carousel */}
+
+      
+      <div className={styles.second_div} id={styles.sec_div}>
+        <p className={styles.top_influencer}>New Influencers</p>
+       {/* <Link href='/jobs'> <button className={styles.see_all_btn}>
+         <p>see all influencers</p>  <FontAwesomeIcon id={styles.greater_icon} icon={faChevronRight} />
+        </button> </Link> */}
+        <p className={styles.txt}>Discover the Newest Influencers from the Country</p>
+        <div className={styles.box2_carousel}>
+          <Slider dots={true} {...settings}>
+            {Coursesdata.map((item) => (
+              <div className={styles.card}>
+                <div className={styles.card_top}>
+                  <Image src={item.Imglink} alt={item.title} width="300" height="400"></Image>
+                  <h1>First and Last Name</h1>
+                </div>
+                <div className={styles.card_bottom}>
+                  <h4>Categories</h4>
+                  <div className={styles.icon_btn_all}>
+                    <button>
+                      {" "}
+                      <FontAwesomeIcon
+                        icon={faInstagram}
+                        classname={styles.insta}
+                      />
+                    </button>
+                    <button>
+                      {" "}
+                      <FontAwesomeIcon
+                        icon={faYoutube}
+                        classname={styles.insta}
+                      />
+                    </button>
+                    <button>
+                      {" "}
+                      <FontAwesomeIcon
+                        icon={faFacebook}
+                        classname={styles.insta}
+                      />
+                    </button>
+                    <button>
+                      {" "}
+                      <FontAwesomeIcon
+                        icon={faSnapchat}
+                        classname={styles.insta}
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </div>
+
+      {/* div for categories carousel */}
+
       <div className={styles.third_div}>
         <p className={styles.top_influencer}>Categories</p>
        <Link href='/jobs'> <button className={styles.see_all_btn2}>
@@ -183,7 +248,7 @@ const index = () => {
         </button> </Link>
 
         <div className={styles.box3_carousel}>
-          <Slider dots={true} {...settings}>
+          <Slider dots={true} {...settings  }>
             {Coursesdata.map((item) => (
               <div className={styles.card2}>
                 <div className={styles.card_top2}>

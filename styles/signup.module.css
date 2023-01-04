@@ -1,0 +1,120 @@
+
+#center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+.signin_box{
+    z-index: 1000;
+    height: 70vh;
+    width: 34vw;
+    background-color: white;
+    /* border: 2px solid rgb(7, 7, 7); */
+    color: rgb(8, 8, 8);
+    border-radius: 20px;
+}
+
+.container{
+    padding: 20px;
+    margin-top: 20px;
+    height: 75%;
+    width: 95%;
+    position: absolute;
+    /* border: 1px solid rgb(27, 26, 26); */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% ,-50%);
+    
+}
+
+.mainText{
+    font-size: 2em;
+    text-align: center;
+    margin: 15px;
+    
+    
+}
+.crossIcon{
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+.firstInput{
+    margin-top: 10px;
+}
+
+.firstInput > p{
+    font-size: 0.9rem;
+}
+.firstInput > p::after{
+    content: "*";
+}
+.firstInput > input {
+    background-color: white;
+    margin-top: 3px;
+    color: black;
+    font-size: 1rem;
+    height: 45px;
+    width: 100%;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 5px;
+}
+.secondInput{
+    margin-top: 13px;
+}
+.secondInput > p{
+    font-size: 0.9rem;
+}
+.secondInput > p::after{
+    content: "*";
+}
+.secondInput > input {
+    margin-top: 3px;
+    padding: 5px;
+    font-size: 1rem;
+    background-color: white;
+    color: black;
+    height: 45px;
+    width: 100%;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+.thirdInput{
+    margin-top: 13px;
+}
+.thirdInput > p{
+    font-size: 0.9rem;
+}
+.thirdInput > p::after{
+    content: "*";
+}
+.thirdInput > input {
+    margin-top: 3px;
+    padding: 5px;
+    font-size: 1.1rem;
+    background-color: white;
+    color: black;
+    height: 45px;
+    width: 100%;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+
+
+.signup_btn{
+    color: white;
+    margin-top: 20px;
+    width: 100%;
+    height: 45px;
+    background-color: rgb(190, 52, 85);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}

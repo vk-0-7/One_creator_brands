@@ -1,15 +1,22 @@
+.nav{
+    background-color: #EAEAEA;
+    height: 13vh;
+    width: 100vw;
+}
+
 .logo{
     height:70px ;
     width: 175px;
     position: absolute;
-    left: 50px;
+    left: 84px;
     top: 10px;
 }
 
 .btn{
+    display: flex;
     position: absolute;
     top: 25px;
-    right: 10vw;
+    right: 6vw;
     height: 40px;
     width: 140px;
     border: 2px solid red;
@@ -19,7 +26,18 @@
 
 }
 .usericon{
-    margin-right:5px;
+    height: 18px;
+    width: 15px;
+   position: relative;
+   top: 9px;
+   left: 25px;
+    
+}
+
+.btn  p{
+    position: relative;
+    top: 10px;
+    left: 31px;
 }
 @media(max-width:450px){
     .logo{

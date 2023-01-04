@@ -1,18 +1,28 @@
 .main_div {
-    height: 60vh;
-    width: 86vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 404px;
+    width: 83vw;
     background-color: rgb(190, 52, 85);
     position: absolute;
     top: 20%;
-    left: 7vw;
-    border-radius: 10px;
+    left: 8.5vw;
+    border-radius: 20px;
+   
+}
+.inside_main_box{
+    /* border: 1px solid black; */
+    height: 260px;
+    width: 60vw;
 }
 
 .main_text {
     color: white;
-    font-size: 2.6rem;
+    font-size: 3.1rem;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 12px;
+    font-weight: 500;
 
 }
 
@@ -22,22 +32,22 @@
 }
 
 .form {
-    height: 60px;
-    width: 60%;
+    height: 62px;
+    width: 73%;
     /* border: 1px solid black; */
 
     position: absolute;
-    top: 160px;
-    left: 21%;
+    top: 206px;
+    left: 13.5%;
 
 }
 
 .form>input {
-    height: 80%;
+    height: 90%;
     width: 100%;
     border: none;
     border-radius: 20px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding-inline: 40px;
 
 
@@ -45,21 +55,28 @@
 
 .search_icon {
     position: absolute;
-    top: 10px;
+    top: 16px;
     right: 40px;
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     background-color: transparent;
     border: none;
 }
+#search{
+    height: 80%;
+    width: 80%;
+}
 
 .main_text2 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: white;
     position: absolute;
-    top: 58%;
-    left: 24%;
+    top: 70%;
+    left: 17%;
+    
 }
+
+
 
 .second_div {
     padding: 5px;
@@ -84,6 +101,7 @@
     flex-direction: row;
     position: relative;
     bottom: 30px;
+    right: 15px;
     cursor: pointer;
     float: right;
     height: 40px;
@@ -115,7 +133,7 @@
     height: 82%;
     position: absolute;
     /* border: 1px solid red; */
-  z-index: 1;
+     
 
 
 
@@ -202,20 +220,23 @@
     right: 30px;
     border-radius: 50%;
 }
-.arrw{
-    border-radius: 50%;
-    height: 22px;
-    width: 22px;
-    font-size: 10px;
+#arrw{
+    height: 15px;
+    width: 15px;
     color: rgb(255, 255, 255);
     background-color:#BE3455;
-    padding: 8px;
+    padding: 12px;
+    
     position: relative;
-   
-   
+    bottom: 30px;
+    left: 5px;
+    border-radius: 50%;
 
 }
-
+#sec_div{
+    position: absolute;
+    top: 165%;
+}
 
 
 
@@ -225,7 +246,7 @@
     width: 86vw;
     /* border: 2px solid black; */
     position: absolute;
-    top: 165%;
+    top: 240%;
     left: 7vw;
     border-radius: 10px;
 }
@@ -289,7 +310,7 @@
 
 .footer {
     position: absolute;
-    top: 240%;
+    top: 310%;
 }
 
 @media(max-width:450px) {
@@ -383,8 +404,6 @@
        
     }
 
-   
-
     .category_name {
         margin-left: 95px;
         font-size: 1.25rem;
@@ -392,6 +411,6 @@
 
     .footer {
         position: absolute;
-        top: 200%;
+        top: 205%;
     }
 }

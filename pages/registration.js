@@ -1,8 +1,13 @@
-import Navbar from "../components/navbar2"
+import {useState,useEffect} from 'react';
+import Navbar from "../components/navbar3"
 import styles from "../styles/registration.module.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import Script from "next/script"
+
+
+
+
 
 
 const registration = () => {

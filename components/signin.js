@@ -4,7 +4,7 @@
    import Link from "next/link"
    import Head from "next/head";
   
-const signin = ({show,set}) => {
+const signin = ({show,set,showsignup,setsignup}) => {
   return (
     <>
     <Head> 
@@ -26,7 +26,7 @@ const signin = ({show,set}) => {
          
            <button className={styles.login_btn}  onClick={()=>{}}>Login</button>
            <p className={styles.or}>Or</p>
-         <Link href="/registration" > <button className={styles.signup_btn}  >Sign up</button></Link> 
+          <button className={styles.signup_btn} onClick={()=>{setsignup(true)}} >Sign up</button>
            </div>
          
       </div> : null}
