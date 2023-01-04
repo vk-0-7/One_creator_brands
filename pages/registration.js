@@ -10,6 +10,7 @@ import Script from "next/script"
 
 
 
+
 const registration = () => {
   return (
     <>

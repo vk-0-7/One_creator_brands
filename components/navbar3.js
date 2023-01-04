@@ -1,6 +1,6 @@
 import Image from "next/image"
 import di from "../Images/di.png"
-
+import Link from "next/link"
 import styles from "../styles/navbar1.module.css"
 
 const navbar1 = () => {
