@@ -3,7 +3,7 @@ import search from "../icons/search.svg"
 import Navbar1 from "../components/navbar1";
 import SignIn from "../components/signin"
 import Signup from "../components/signup"
-import Script from "next/script";
+
 import Footer from "../components/footer";
 import styles from "../styles/index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
