@@ -52,6 +52,9 @@
 
 
 }
+.form >input:focus{
+    outline: none;
+}
 
 .search_icon {
     position: absolute;

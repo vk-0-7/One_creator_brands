@@ -3,7 +3,7 @@ import search from "../icons/search.svg"
 import Navbar1 from "../components/navbar1";
 import SignIn from "../components/signin"
 import Signup from "../components/signup"
-
+import Head from  "next/head"
 import Footer from "../components/footer";
 import styles from "../styles/index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -99,7 +99,12 @@ const index = () => {
 
   return (
     <>
-      
+      <Head>
+       <title>
+         Discover Influencers | Search by Name, Username, Category, City | Top Creators in India
+       </title>
+
+      </Head>
 
         <Navbar1 show={showModal} set={setShowModal}/>
         <div> <SignIn show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div>

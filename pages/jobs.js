@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import Image from "next/image"
+import searchn from "../icons/searchn.svg"
 import styles from "../styles/jobs.module.css"
 import Navbar from "../components/navbar1"
 import { Coursesdata } from "../Data/data";
+import {InfluencerCategory} from "../Data/data"
+import {Industry} from "../Data/data"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
@@ -16,10 +19,18 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const jobs = () => {
 
-    const [count,setCount]=useState(3)
+    const [industry,setIndustry] =useState(6)
+    const [influencer,setInfluencer] =useState(6)
+    const [count,setCount]=useState(6)
 
    const handleclick=()=>{
         setCount(count+3)
+    }
+    const handleInfluencer=()=>{
+         setInfluencer(influencer+6)
+    }
+    const handleIndustry=()=>{
+         setIndustry(industry+6)
     }
  
     // useEffect(() =>{
@@ -69,64 +80,57 @@ const jobs = () => {
 
       <div className={styles.filter_category2} id={styles.filters}>
       <h3>Influencer Category</h3>
-      <input type="checkbox" id={styles.actor} name="Actor" value="actor"/>
-             <label for="Actor"> Actor</label><br/>
+      {InfluencerCategory.slice(0,influencer).map((elem) =>(
+       <div> 
+       <input type="checkbox" id={styles.checkbox} name="national_indian" value="national_indian"/>
+        <label for="influencer"> {elem}</label><br/>
 
-      <input type="checkbox" id={styles.artist} name="Artist" value="Artist"/>
-             <label for="Artist"> Artist</label><br/>
+        </div>
 
-      <input type="checkbox" id={styles.author} name="Author" value="Author"/>
-             <label for="Author"> Author</label><br/>
-
-      <input type="checkbox" id={styles.automobile} name="Automobile Reviewer" value="Automobile Reviewer"/>
-             <label for="Automobile"> Automobile Reviewer</label><br/>
-
-      <input type="checkbox" id={styles.Band} name="Band" value="Band"/>
-             <label for="Band"> Band</label><br/>
-
-      <input type="checkbox" id={styles.Blogger} name="Blogger" value="Blogger"/>
-             <label for="Blogger"> Blogger</label><br/>
-
+))}
+      <div className={styles.seemore}>
+          <p onClick={handleInfluencer}> see more</p>
+      </div>
       </div>
       <div className={styles.filter_category3} id={styles.filters}>
-      <h3>Fields</h3>
-      <input type="checkbox" id={styles.national_indian} name="national_indian" value="national_indian"/>
-             <label for="national_indian"> Accessories-Man</label><br/>
+      <h3>Industry</h3>
+      {Industry.slice(0,industry).map((elem) =>(
+       <div> 
+       <input type="checkbox" id={styles.checkbox} name="national_indian" value="national_indian"/>
+        <label for="influencer"> {elem}</label><br/>
 
-      <input type="checkbox" id={styles.AccessoriesW} name="AccessoriesW" value="AccessoriesW"/>
-             <label for="AccessoriesW"> Accessories-Women</label><br/>
+        </div>
 
-      <input type="checkbox" id={styles.Accessories} name="Accessories" value="Accessories"/>
-             <label for="Accessories"> Accessories</label><br/>
+))}
+        <div className={styles.seemore2}>
+          <p onClick={handleIndustry}> see more</p>
+      </div>
 
-      <input type="checkbox" id={styles.twenty_to_thirty} name="twenty_to_thirty " value="twenty_to_thirty "/>
-             <label for="twenty_to_thirty"> 20-30 Days </label><br/>
-
-      <input type="checkbox" id={styles.thirtyone_to_forty} name="thirtyone_to_forty" value="thirtyone_to_forty"/>
-             <label for="thirtyone_to_forty"> 31-40 Days</label><br/>
-
-      <input type="checkbox" id={styles.fortyone_to_sixty} name="fortyone_to_sixty" value="fortyone_to_sixty"/>
-             <label for="fortyone_to_sixty"> 41-60 Days</label><br/>
-
-      <input type="checkbox" id={styles.morethan_sixty} name="morethan_sixty" value="morethan_sixty"/>
-             <label for="morethan_sixty"> more than 60 Days</label><br/>
       </div>
       <div className={styles.filter_category4} id={styles.filters}>
-      <h3>City</h3>
-
-      <input type="checkbox" id={styles.national_indian} name="national" value="national"/>
-             <label for="national"> National/Indian</label><br/>
-
-      <input type="checkbox" id={styles.regional} name="regional" value="regional"/>
-             <label for="regional"> Regional</label><br/>
-
-      <input type="checkbox" id={styles.international} name="international" value="international"/>
-             <label for="international"> International</label><br/>
-
+        <h3>City</h3>
+      <Image src={searchn} id={styles.searchimg}></Image>
+       <input type="search" className={styles.citySearch} />
 
      
       </div>
-      <div className={styles.filter_category5} id={styles.filters}>
+
+     <div className={styles.gender} id={styles.filters}>
+         <h3>Gender</h3>
+         <input type="checkbox" id={styles.checkbox}  value="a"/>
+        <label for="influencer"> Male</label><br/>
+
+        <input type="checkbox" id={styles.checkbox}  value="a"/>
+        <label for="influencer"> Female</label><br/>
+
+        <input type="checkbox" id={styles.checkbox}  value="a"/>
+        <label for="influencer"> nonbinary</label><br/>
+
+     </div>
+
+
+
+      {/* <div className={styles.filter_category5} id={styles.filters}>
 
         <h3>Budget</h3>
         <div className={styles.price_range}>
@@ -137,7 +141,7 @@ const jobs = () => {
         <button className={styles.apply_price}>Apply Price</button>
         
       </div>
-      
+       */}
       </div>
       <form className={styles.form}>
           <input
@@ -201,6 +205,10 @@ const jobs = () => {
   <button className={styles.load_more_btn} onClick={handleclick} > <p>See More</p>  <FontAwesomeIcon icon={faAngleDown} /> </button>
 
     </div>
+
+
+
+
     </div>
     
     </>

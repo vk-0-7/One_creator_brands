@@ -1,4 +1,4 @@
-export const Coursesdata=[
+  export const Coursesdata=[
 
     {
      id:'1',
@@ -78,29 +78,169 @@ export const Coursesdata=[
     
     },
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     ]
+
+export const InfluencerCategory=["Actor",  "Anchor",
+  
+  "Artist",
+  
+  "Author",
+  
+  "Automobile Reviewer",
+  
+  "Band" ,
+  
+  "Blogger",
+  
+  "Chef",
+  
+  "Dancer",
+  
+  "Designer",
+  
+  "Digital Creator",
+  
+  "DJ",
+  
+  "Doctor",
+  
+  "Educator",
+  
+  "Entrepreneur",
+  
+  "Fashion Model",
+
+'Fashion Stylist',
+
+"Food Reviewer",
+
+"Fitness Trainer",
+
+"Founder",
+
+"Gaming Video Creator",
+
+"Investor",
+
+"Motivational Speaker",
+
+"Musician",
+
+"Nutritionist",
+
+"Photographer",
+
+"Traveler",
+
+"Video Creator",
+
+"Yoga Trainer"
+
+]
+
+
+
+export const Industry=[
+
+  "Accessories - Women",
+
+ " Accessories - Men",
+  
+  "Accessories - Unisex",
+  
+  "Apps",
+  
+  "Automobile",
+  
+  "Baby Products",
+  
+"Baby Clothing",
+  
+  "Beauty Products",
+  
+  "Books",
+  
+  "Business",
+  
+  "Clothing - Women",
+  
+  "Clothing - Men",
+  
+  "Clothing - Unisex",
+  
+  "Compute & Hardware",
+  
+  "Consumer Products",
+  
+  "Cosmetics",
+  
+  "Crafts and DIY",
+  
+  "Designer",
+  
+  "Dance",
+  
+  "Education",
+  
+  "Electronic Products",
+  
+  "Entertainment",
+  
+  "Family & Relationships",
+  
+  "Fashion & Shopping",
+  
+ " Finance & Investing",
+  
+  "Fitness & Gym",
+  
+ " Food - Packed",
+  
+  "Food - Restaurant/Cafe",
+  
+  "Games",
+  
+  "Health & Medicine",
+  
+  "Hobbies & Leisure",
+  
+  "Hotel",
+  
+  "Interior Design & Home",
+  
+  "IT & Software",
+  
+  "Jewellery",
+  
+  "Luxury Products",
+  
+  "Movies & Theatre",
+  
+  "New & Media",
+  
+  "Personal care",
+  
+  "Pets & Animals",
+  
+  "Politics & Government",
+  
+  "Real Estate",
+  
+  "Religion",
+  
+  "Science",
+  
+  "Spiritualism & Meditations",
+  
+  "Sports",
+  
+  "Travel & Tourism",
+  
+  "Wellness Products"
+
+
+
+]
+
+
+   

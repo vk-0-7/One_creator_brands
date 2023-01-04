@@ -7,9 +7,8 @@
 const signin = ({show,set,showsignup,setsignup}) => {
   return (
     <>
-    <Head> 
-    <title>SignIn Page</title>
-   </Head>
+    
+     
       { show ? <div className={styles.signin_box} id={styles.center}>
         <p className={styles.mainText}>Sign in</p>
         <FontAwesomeIcon className={styles.crossIcon} icon={faXmark} onClick={()=>set(false)} /> 
