@@ -19,24 +19,18 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const searchInfluencer = () => {
 
-    const [industry,setIndustry] =useState(6)
-    const [influencer,setInfluencer] =useState(6)
+   
     const [count,setCount]=useState(6)
 
    const handleclick=()=>{
         setCount(count+3)
     }
-    const handleInfluencer=()=>{
-         setInfluencer(influencer+6)
-    }
-    const handleIndustry=()=>{
-         setIndustry(industry+6)
-    }
+   
  
     // useEffect(() =>{
            
     //   }, [c0unt]);
-    
+     
   return (
     <>
     <Head>
@@ -80,38 +74,46 @@ const searchInfluencer = () => {
 
       <div className={styles.filter_category2} id={styles.filters}>
       <h3>Influencer Category</h3>
-      {InfluencerCategory.slice(0,influencer).map((elem) =>(
-       <div> 
+      <div id={styles.search}>
+      <Image src={searchn} id={styles.searchimg}></Image>
+       <input type="search" className={styles.citySearch} />
+       </div>
+       <div className={styles.influencer_checkbox}>
+      {InfluencerCategory.map((elem) =>(
+         <>
        <input type="checkbox" id={styles.checkbox} name="national_indian" value="national_indian"/>
         <label for="influencer"> {elem}</label><br/>
+        </>
+       
 
-        </div>
-
-))}
-      <div className={styles.seemore}>
-          <p onClick={handleInfluencer}> see more</p>
-      </div>
+))}  </div>
+      
       </div>
       <div className={styles.filter_category3} id={styles.filters}>
       <h3>Industry</h3>
-      {Industry.slice(0,industry).map((elem) =>(
-       <div> 
+      <div id={styles.search}>
+      <Image src={searchn} id={styles.searchimg}></Image>
+       <input type="search" className={styles.citySearch} />
+       </div>
+
+       <div className={styles.industry_checkbox}> 
+      {Industry.map((elem) =>(
+       <>
        <input type="checkbox" id={styles.checkbox} name="national_indian" value="national_indian"/>
         <label for="influencer"> {elem}</label><br/>
+        </>
+       
 
-        </div>
-
-))}
-        <div className={styles.seemore2}>
-          <p onClick={handleIndustry}> see more</p>
-      </div>
+))} </div>
+        
 
       </div>
       <div className={styles.filter_category4} id={styles.filters}>
         <h3>City</h3>
+        <div id={styles.search}>
       <Image src={searchn} id={styles.searchimg}></Image>
        <input type="search" className={styles.citySearch} />
-
+       </div>
      
       </div>
 

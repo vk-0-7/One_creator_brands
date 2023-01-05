@@ -15,7 +15,7 @@ const registration = () => {
   return (
     <>
 
-    <Navbar/>
+    <Navbar/> 
      <div className={styles.main_div}>
        <h3 className={styles.main_heading}>Influencer Registration</h3>
       <div className={styles.info_profileimg}>

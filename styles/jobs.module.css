@@ -1,8 +1,9 @@
 
 .main_heading{
+    font-size: 1.6rem;
     position: absolute;
-    top: 20vh;
-    left: 15vw;
+    top: 130px;
+    left: 7vw;
 }
 
 
@@ -11,20 +12,56 @@
  width: 20vw;
  position: absolute;
  top: 25vh;
- left: 8vw;
+ left: 4vw;
  /* border: 1px solid black; */
  margin: 10px;
  padding: 10px;
 
 }
-.seemore,.seemore2{
-    color:#BE3455;
-    cursor: pointer;
-    position: absolute;
-    left: 90px;
+#search{
     margin-top: 10px;
-    font-size: 0.9rem;
+    /* border: 1px solid red; */
 }
+
+
+.influencer_checkbox{
+    margin-top: 25px;
+    /* border: 1px solid red; */
+    height: 200px;
+    overflow-y: auto;
+    
+}
+.influencer_checkbox::-webkit-scrollbar {
+    width: 6px;
+  }
+  .influencer_checkbox::-webkit-scrollbar-track {
+    background: #dcdbdb; 
+  }
+  .influencer_checkbox::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255); 
+    border-radius: 5px;
+  }
+
+   
+.industry_checkbox{
+    margin-top: 25px;
+    /* border: 1px solid red; */
+    height: 200px;
+    overflow-y: auto;
+    
+}
+
+.industry_checkbox::-webkit-scrollbar {
+    width: 6px;
+  }
+  .industry_checkbox::-webkit-scrollbar-track {
+    background: #dcdbdb; 
+  }
+  .industry_checkbox::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255); 
+    border-radius: 5px;
+  }
+
 #filters{
     /* border: 1px solid red; */
     margin: 20px 20px;
@@ -125,7 +162,7 @@
 
 .all_profiles_div{
    height: max-content;
-   width: 57vw;
+   width: 63vw;
    /* border: 1px solid red; */
    position: absolute;
    top: 30vh;
@@ -146,7 +183,7 @@
     height: 350px;
     color: white;
     border-radius: 15px;
-    width: 220px;
+    width: 250px;
 
 }
 

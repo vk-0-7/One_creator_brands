@@ -104,8 +104,20 @@
 }
 
 
-
-
 #mark::after{
     content: "*";
+}
+
+
+.description{
+    margin-top: 20px;
+    height: 250px;
+    width: 500px;
+    border: 1px solid red;
+}
+
+.description input{
+    height: 90%;
+    width: 90%;
+    
 }

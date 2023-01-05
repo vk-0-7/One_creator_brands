@@ -7,7 +7,7 @@ import Head from  "next/head"
 import Footer from "../components/footer";
 import styles from "../styles/index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import Script from "next/script"
 import { faChevronRight ,faChevronLeft} from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
@@ -102,6 +102,9 @@ const index = () => {
   return (
     <>
       <Head>
+        
+      
+
       <meta charset="UTF-8"/>
        <meta name="description" content="Discover Influencer"/>
        <meta name="keywords" content="Discover Influencer"/>
@@ -111,7 +114,13 @@ const index = () => {
          Discover Influencers | Search by Name, Username, Category, City | Top Creators in India
        </title>
 
+      
+
       </Head>
+        <body>
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8T8ZQV"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
 
         <Navbar1 show={showModal} set={setShowModal}/>
         <div> <SignIn show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div>
@@ -273,6 +282,8 @@ const index = () => {
         </div>
       </div>
      <div className={styles.footer}> <Footer/></div>
+
+     </body>
     </>
   );
 };
