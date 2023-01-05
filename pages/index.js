@@ -18,8 +18,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Coursesdata } from "../Data/data";
+import { ImagesDivThree } from "../Data/data";
 import Link from "next/link";
 import Image from "next/image"
+import automobile from "../Images/automobile.webp"
 
 function SampleNextArrow(props) {
 
@@ -100,6 +102,11 @@ const index = () => {
   return (
     <>
       <Head>
+      <meta charset="UTF-8"/>
+       <meta name="description" content="Discover Influencer"/>
+       <meta name="keywords" content="Discover Influencer"/>
+       <meta name="author" content="CFT labs"/>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
        <title>
          Discover Influencers | Search by Name, Username, Category, City | Top Creators in India
        </title>
@@ -254,11 +261,11 @@ const index = () => {
 
         <div className={styles.box3_carousel}>
           <Slider dots={true} {...settings  }>
-            {Coursesdata.map((item) => (
+            {ImagesDivThree.map((item) => (
               <div className={styles.card2}>
                 <div className={styles.card_top2}>
-                  <Image src={item.Imglink} alt={item.title} width="300" height="400" ></Image>
-                  <p className={styles.category_name}>Fashion</p>
+                  <Image src={item.Img} alt={item.title} width="300" height="400" ></Image>
+                  <p className={styles.category_name}>{item.category}</p>
                 </div>
               </div>
             ))}

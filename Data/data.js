@@ -241,6 +241,23 @@ export const Industry=[
 
 
 ]
+import automobile from "../Images/automobile.webp"
+import fashion from "../Images/fashion.webp"
+import food from "../Images/food.webp"
+import health from "../Images/health.webp"
+import travel from "../Images/travel.webp"
+
+export const ImagesDivThree=[
+ { Img: fashion,category:"Fashion"}
+ ,{ Img: travel,category:"Travel"},
+ { Img: automobile,category:"Automobile"},
+ { Img: health,category:"Health"},
+ { Img: food,category:"Food"}
+  // ,"../Images/fashion.webp","../Images/health.webp", "../Images/travel.webp","../Images/food.webp"
+
+
+
+]
 
 
    
