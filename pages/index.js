@@ -21,7 +21,7 @@ import { Coursesdata } from "../Data/data";
 import { ImagesDivThree } from "../Data/data";
 import Link from "next/link";
 import Image from "next/image"
-import automobile from "../Images/automobile.webp"
+
 
 function SampleNextArrow(props) {
 
@@ -102,22 +102,23 @@ const index = () => {
   return (
     <>
       <Head>
-        
-      
-
-      <meta charset="UTF-8"/>
        <meta name="description" content="Discover Influencer"/>
-       <meta name="keywords" content="Discover Influencer"/>
+       </Head>
+      <Head>
        <meta name="author" content="CFT labs"/>
+       </Head>
+       <Head>
        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+       </Head>
+
+       <Head>
        <title>
          Discover Influencers | Search by Name, Username, Category, City | Top Creators in India
        </title>
 
-      
+       </Head>
 
-      </Head>
-        <body>
+        
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8T8ZQV"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
@@ -283,7 +284,7 @@ const index = () => {
       </div>
      <div className={styles.footer}> <Footer/></div>
 
-     </body>
+     
     </>
   );
 };
