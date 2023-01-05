@@ -1,6 +1,6 @@
 .nav{
     background-color: #EAEAEA;
-    height: 13vh;
+    height: 80px;
     width: 100vw;
 }
 
@@ -45,6 +45,13 @@
     left: 31px;
 }
 @media(max-width:450px){
+
+    .nav{
+       
+        height: 70px;
+        width: 100vw;
+    }
+
     .logo{
         height:55px ;
         width: 130px;
@@ -64,9 +71,20 @@
         font-size: 0.8rem;
     
     }
+    
+   
     .usericon{
-        margin-right:5px;
-        height: 10px;
+        height: 13px;
+        width: 13px;
+       position: relative;
+       top: 10px;
+       left: 10px;
         
+    }
+    
+    .btn  p{
+        position: relative;
+        top: 10px;
+        left: 18px;
     }
 }

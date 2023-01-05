@@ -6,7 +6,7 @@
     width: 83vw;
     background-color: rgb(190, 52, 85);
     position: absolute;
-    top: 20%;
+    top: 125px;
     left: 8.5vw;
     border-radius: 20px;
    
@@ -87,7 +87,7 @@
     width: 86vw;
     /* border: 2px solid black; */
     position: absolute;
-    top: 90%;
+    top: 590px;
     left: 7vw;
     border-radius: 10px;
 }
@@ -238,7 +238,7 @@
 }
 #sec_div{
     position: absolute;
-    top: 165%;
+    top: 1050px;
 }
 
 
@@ -249,7 +249,7 @@
     width: 86vw;
     /* border: 2px solid black; */
     position: absolute;
-    top: 240%;
+    top: 1500px;
     left: 7vw;
     border-radius: 10px;
 }
@@ -313,23 +313,23 @@
 
 .footer {
     position: absolute;
-    top: 310%;
+    top: 1980px;
 }
 
 @media(max-width:450px) {
     .main_div {
-        height: 47vh;
+        height: 327px;
         width: 86vw;
-        top: 16%;
+        top: 100px;
 
     }
 
     .main_text {
-        font-size: 1.9rem;
+        font-size: 1.8rem;
     }
 
     .form {
-        height: 60px;
+        height: 50px;
         width: 80%;
         position: absolute;
         top: 150px;
@@ -344,23 +344,28 @@
     }
 
     .search_icon {
-        top: 13px;
-        right: 20px;
-        height: 25px;
-        width: 25px;
+        top: 15px;
+        right: 21px;
+        height: 19px;
+        width: 19px;
     }
 
     .main_text2 {
-        font-size: 1.0rem;
-
-        top: 68%;
+        font-size: 1.1rem;
+        
         left: 10vw;
+        top: 212px;
     }
 
     .second_div {
-         height: 70vh;
-         top: 74%;
+        /* border: 1px solid red; */
+         height: 440px;
+         top: 470px;
      }
+     #sec_div{
+        position: absolute;
+        top: 940px;
+    }
 
     .top_influencer {
        
@@ -374,6 +379,7 @@
         bottom: 25px;
         height: 30px;
         width: 105px;
+        right: -3px;
        
     }
     .see_all_btn2 {
@@ -382,6 +388,7 @@
         bottom: 25px;
         height: 30px;
         width: 105px;
+        right: -1px;
        
     }
     .see_all_btn,.see_all_btn2 >p{
@@ -400,10 +407,10 @@
 
     .third_div {
         padding: 5px;
-        height: 69vh;
+        height: 410px;
         width: 86vw;
        
-        top: 140%;
+        top: 1400px;
        
     }
 
@@ -414,6 +421,6 @@
 
     .footer {
         position: absolute;
-        top: 205%;
+        top: 1850px;
     }
 }

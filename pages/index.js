@@ -137,7 +137,7 @@ const index = () => {
 
       <div className={styles.second_div}>
         <p className={styles.top_influencer}>Top Influencers</p>
-       <Link href='/jobs'> <button className={styles.see_all_btn}>
+       <Link href='/searchInfluencer'> <button className={styles.see_all_btn}>
          <p>see all influencers</p>  <FontAwesomeIcon id={styles.greater_icon} icon={faChevronRight} />
         </button> </Link>
         <p className={styles.txt}>Discover Top Influencers from the Country</p>
@@ -248,7 +248,7 @@ const index = () => {
 
       <div className={styles.third_div}>
         <p className={styles.top_influencer}>Categories</p>
-       <Link href='/jobs'> <button className={styles.see_all_btn2}>
+       <Link href='/searchInfluencer'> <button className={styles.see_all_btn2}>
         <p> see all categories</p>  <FontAwesomeIcon id={styles.greater_icon} icon={faChevronRight} />
         </button> </Link>
 

@@ -17,7 +17,7 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 
 
-const jobs = () => {
+const searchInfluencer = () => {
 
     const [industry,setIndustry] =useState(6)
     const [influencer,setInfluencer] =useState(6)
@@ -40,7 +40,7 @@ const jobs = () => {
   return (
     <>
     <Head>
-        <title> Jobs Page</title>
+        <title> SearchInfluencer-Filter</title>
         
     </Head>
     
@@ -215,4 +215,4 @@ const jobs = () => {
   )
 }
 
-export default jobs
+export default searchInfluencer

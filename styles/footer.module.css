@@ -1,22 +1,25 @@
+
+
 #footer{
     background-color: #D6D6D6;
-    height: 16vh;
+    height: 80px;
     width: 100vw;
-   display: flex;
+    display: flex;
     color: #101010;
+    
 }
 .copyright{
     font-size: 0.99rem;
     position: absolute;
-    top: 40px;
+    top: 32px;
     left: 90px;
 
 }
 .policies{
     /* border: 1px solid red; */
     display: flex;
-   line-height: 40px;
-   padding-top: 12px;
+   line-height: 37px;
+   margin-top: 3px;
    position: absolute;
    left: 22vw;
    font-size: 1.0rem;
@@ -30,7 +33,7 @@
     position: absolute;
     right: 25vw;
     display: flex;
-    top: 30px;
+    top: 20px;
 }
 
 #icon_box{
@@ -43,12 +46,12 @@
     width: 15px;
 
 }
-.footerIm{
+.footerIm{ 
     width: 255px;
     height: 50px;
     position: absolute;
     right: 5vw;
-    top: 24px;
+    top: 15px;
 }
 .ftr{
     width: 100%;
@@ -57,27 +60,48 @@
 
 @media(max-width:450px){
 
-    .columns{
-        height: 90%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        padding: 20px ;
+    #footer{
+        
+        height: 200px;
+        width: 100vw;
+       
+        
     }
 
-    #col{
-        /* border: 1px solid black; */
-        width: 80%;
-        height: 100%;
-        padding-left: 30px;
-        margin: 10px auto;
-        text-align: left;
+    .policies{
+        /* border: 1px solid red; */
+      
+       margin-top: 15px;
+       position: absolute;
+       left: 22vw;
+       font-size: 1.0rem;
+      
     }
+
+    
+    .media_icons{
+        /* border: 1px solid red; */
+        position: absolute;
+        right: 30vw;
+        display: flex;
+        top: 90px;
+    }
+
+    .footerIm{ 
+        width: 255px;
+        height: 50px;
+        position: absolute;
+        left: 17vw;
+        top: 120px;
+    }
+
     .copyright {
         position: relative;
-        top: 460px;
-        text-align: left;
-        margin-left: 100px;
-        padding-bottom: 30px;
+        top: 170px;
+        left: 30vw;
+        text-align: center;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+       
     }
 }
