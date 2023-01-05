@@ -19,6 +19,7 @@
     right: 6vw;
     height: 40px;
     width: 140px;
+    
     border: 2px solid  rgb(190, 52, 85);
     border-radius: 10px;
     font-size: 1rem;
@@ -26,9 +27,20 @@
 
 }
 .btn:hover{
-      background-color:  rgb(190, 52, 85);
+      background-color:  rgb(172, 50, 79);
       color: white;
 
+}
+.btn:hover #nonhovericon{
+      display: none;
+}
+.btn:hover #hovericon{
+      display: block;
+}
+.btn:hover p{
+    position: relative;
+    top: 10px;
+    left: 45px;
 }
 .usericon{
     height: 18px;
@@ -37,6 +49,10 @@
    top: 9px;
    left: 25px;
     
+}
+#hovericon{
+    position: absolute;
+    display: none;
 }
 
 .btn  p{

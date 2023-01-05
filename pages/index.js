@@ -34,13 +34,24 @@ function SampleNextArrow(props) {
       > <FontAwesomeIcon icon={faChevronRight} id={styles.arrow}/> </div>
   );
 }
+function SecondNextArrow(props) {
+
+  const { className, style, onClick } = props;
+  return (
+    <div 
+      className={className} id={styles.arrow_body}
+      
+      onClick={onClick}
+      > <FontAwesomeIcon icon={faChevronRight} id={styles.arrow}/> </div>
+  );
+}
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
       className={className} id={styles.arrow_body}
-      onClick={onClick}
+      onClick={onClick}  style={{zIndex:"5"}}
     ><FontAwesomeIcon icon={faChevronLeft}  id={styles.arrw}/></div>
   );
 }
@@ -70,6 +81,42 @@ const index = () => {
     slidesToScroll: 4,
     initialSlide: 0,
     nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow  />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+  const setting = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    nextArrow: <SecondNextArrow />,
     prevArrow: <SamplePrevArrow  />,
     responsive: [
       {
@@ -268,7 +315,7 @@ const index = () => {
         </button> </Link>
 
         <div className={styles.box3_carousel}>
-          <Slider dots={true} {...settings  }>
+          <Slider dots={true} {...setting  }>
             {ImagesDivThree.map((item) => (
               <div className={styles.card2}>
                 <div className={styles.card_top2}>
