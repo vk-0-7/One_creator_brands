@@ -119,9 +119,7 @@ const index = () => {
        </Head>
 
         
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8T8ZQV"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
+       
 
         <Navbar1 show={showModal} set={setShowModal}/>
         <div> <SignIn show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div>
