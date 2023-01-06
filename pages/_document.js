@@ -15,16 +15,11 @@ export default function Document() {
                 />
             </Head>
             <body>
-                <Main />
+               
+                <noscript dangerouslySetInnerHTML={{ __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8T8ZQV"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>`}}></noscript>
+               <Main />
                 <NextScript />
-                <noscript>
-                    <iframe
-                        src="https://www.googletagmanager.com/ns.html?id=GTM-N8T8ZQV"
-                        height="0"
-                        width="0"
-                        style={{ display: "none", visibility: "hidden" }}
-                    ></iframe>
-                </noscript>
             </body>
         </Html>
     )};

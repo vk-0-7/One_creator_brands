@@ -19,7 +19,8 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const searchInfluencer = () => {
 
-   
+   const [searchInf,setSearchInf] =useState("")
+   const [searchIndustry,setSearchIndustry] =useState("")
     const [count,setCount]=useState(6)
 
    const handleclick=()=>{
@@ -76,10 +77,18 @@ const searchInfluencer = () => {
       <h3>Influencer Category</h3>
       <div id={styles.search}>
       <Image src={searchn} id={styles.searchimg}></Image>
-       <input type="search" className={styles.citySearch} />
+       <input type="text" className={styles.citySearch} onChange={(event)=>{setSearchInf(event.target.value)}}/>
        </div>
        <div className={styles.influencer_checkbox}>
-      {InfluencerCategory.map((elem) =>(
+      {InfluencerCategory.filter((val)=>{
+             if (searchInf=="") {
+                  return val
+             }
+             else if(val.toLowerCase().includes(searchInf.toLowerCase()))
+             return val
+      }
+      
+      ).map((elem) =>(
          <>
        <input type="checkbox" id={styles.checkbox} name="national_indian" value="national_indian"/>
         <label for="influencer"> {elem}</label><br/>
@@ -93,11 +102,19 @@ const searchInfluencer = () => {
       <h3>Industry</h3>
       <div id={styles.search}>
       <Image src={searchn} id={styles.searchimg}></Image>
-       <input type="search" className={styles.citySearch} />
+       <input type="text" className={styles.citySearch} onChange={(event)=>{setSearchIndustry(event.target.value)}}/>
        </div>
 
        <div className={styles.industry_checkbox}> 
-      {Industry.map((elem) =>(
+      {Industry.filter((val)=>{
+           if (searchIndustry=="") {
+                 return val
+           }
+           else if(val.toLowerCase().includes(searchIndustry.toLowerCase()))
+               return val;
+
+
+      }).map((elem) =>(
        <>
        <input type="checkbox" id={styles.checkbox} name="national_indian" value="national_indian"/>
         <label for="influencer"> {elem}</label><br/>
