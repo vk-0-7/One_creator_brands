@@ -1,12 +1,16 @@
 .main_div{
     padding: 20px;
     height: max-content;
-    width: 50vw;
-    border: 1px solid black;
+    width: 40vw;
+    /* border: 1px solid black; */
     position: absolute;
     top: 16vh;
-    left: 10vw;
-    font-family: 'Poppins';
+    left: 11vw;
+   
+}
+.main_div label{
+    margin-left: 5px;
+   
 }
 .main_heading{
     
@@ -22,6 +26,7 @@
    
     font-style: normal;
     font-weight: 300;
+    margin-bottom: 20px;
 
 }
 .form{
@@ -48,25 +53,41 @@
 }
 
 .file_upload > input[type="file"]{
-    display: none;
+    opacity:0 ;
+    position: relative;
+    top: 25px;
+    left: 20px;
+  font-size: 1.1rem;
 }
 
-.form button{
-    height: 40px;
-    width: 110px;
-   margin: 20px 0px 0px 20px;
-   background-color: black;
-   color: white;
-   border-radius: 13px;
-   
-    
+#add_another{
+    margin-left: 10px;
+    /* border: 1px solid red; */
+    width: max-content;
+    color: rgb(133, 130, 130);
 }
+
+.file_btn{
+    position: relative;
+    top: -3px;
+    left: 18px;
+    height: 35px;
+    width: 110px;
+    z-index: -10;
+    background-color: black;
+    color: white;
+    padding: 9px 0px 0px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+
 .other_info{
     margin-top: 20px;
 }
-.name,.username,.number{
+#register{
     /* border: 1px solid red; */
-    margin-bottom: 5px;
+    margin-top: 5px;
     padding: 5px;
 }
 #inpt{
@@ -76,25 +97,32 @@
     border-radius: 12px;
     padding-left: 10px;
     font-size: 0.8rem;
+    margin-top: 4px;
     
 }
 
 .state_city{
     /* border: 1px solid red; */
+    margin-top: 8px;
     display: flex;
 }
-.city > input{
+#select_city , #select_state{
     height: 38px;
     width: 220px;
     border: 2px solid #F0F0F0;
     border-radius: 12px;
     padding-left: 10px;
     font-size: 0.8rem;
-    margin-right: 12px;
-    margin-left: 3px;
+  
+    margin: 4px 12px 0px 3px;
 }
+
 .city >label{
-    margin-left: 3px;
+    margin-left: 8px;
+    
+}
+#select_language{
+  margin-top: 4px;
 }
 
 
@@ -107,17 +135,101 @@
 #mark::after{
     content: "*";
 }
-
-
-.description{
-    margin-top: 20px;
-    height: 250px;
-    width: 500px;
-    border: 1px solid red;
+.dob{
+    margin-top: 10px;
 }
 
-.description input{
-    height: 90%;
-    width: 90%;
+.language{
+    margin-top: 10px;
+}
+
+#select_language{
+    height: 38px;
+    width: 452px;
+    border: 2px solid #F0F0F0;
+    border-radius: 12px;
+    padding-left: 10px;
+    font-size: 0.8rem;
     
+}
+
+.agency_btn{
+    display: flex;
+
+}
+.agency_btn button{
+    height: 38px;
+    width: 220px;
+    border: 2px solid #F0F0F0;
+    background-color: white;
+    border-radius: 12px;
+    padding-left: 10px;
+    font-size: 0.8rem;
+    margin-right: 12px;
+    margin-left: 3px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.social_media{
+    display: flex;
+    margin-top: 6px;
+}
+.medialink input{
+    height: 38px;
+    width: 220px;
+    border: 2px solid #F0F0F0;
+    border-radius: 12px;
+    padding-left: 10px;
+    font-size: 0.8rem;
+    margin-right: 12px;
+    margin-left: 3px;
+    margin-top: 4px;
+}
+.services_body{
+    display: flex;
+    margin-top: 4px;
+
+}
+#last{
+    margin-top: 5px;
+    height: 60px;
+    /* border: 1px solid red; */
+}
+#last input ,#last select{
+    height: 38px;
+    width: 140px;
+    border: 2px solid #F0F0F0;
+    border-radius: 12px;
+    padding-left: 10px;
+    font-size: 0.8rem;
+    margin-right: 12px;
+    margin-left: 3px;
+    margin-top: 4px;
+}
+.terms_and_condition{
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+}
+.terms_and_condition input{
+    margin-right: 5px;
+}
+
+.create_profile{
+   
+    height: 40px;
+    width: 400px;
+    margin: 10px 0px 50px 30px;
+}
+.create_profile button{
+    height: 100%;
+    width: 100%;
+    border-radius: 13px;
+    border: none;
+    background-color: 
+    rgba(41, 45, 50, 1);
+    color: white;
 }

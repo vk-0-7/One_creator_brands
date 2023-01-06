@@ -13,7 +13,7 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faSnapchat } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-
+import banner from "../Images/banner.webp"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -42,7 +42,7 @@ function SecondNextArrow(props) {
       className={className} id={styles.arrow_body}
       
       onClick={onClick}
-      > <FontAwesomeIcon icon={faChevronRight} id={styles.arrow}/> </div>
+      > <FontAwesomeIcon icon={faChevronRight} id={styles.thirdarrow}/> </div>
   );
 }
 
@@ -53,6 +53,15 @@ function SamplePrevArrow(props) {
       className={className} id={styles.arrow_body}
       onClick={onClick}  style={{zIndex:"5"}}
     ><FontAwesomeIcon icon={faChevronLeft}  id={styles.arrw}/></div>
+  );
+}
+function SecondPrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className} id={styles.arrow_body}
+      onClick={onClick}  style={{zIndex:"5"}}
+    ><FontAwesomeIcon icon={faChevronLeft}  id={styles.thirdarrw}/></div>
   );
 }
 
@@ -117,7 +126,7 @@ const index = () => {
     slidesToScroll: 4,
     initialSlide: 0,
     nextArrow: <SecondNextArrow />,
-    prevArrow: <SamplePrevArrow  />,
+    prevArrow: <SecondPrevArrow  />,
     responsive: [
       {
         breakpoint: 1024,
@@ -165,13 +174,11 @@ const index = () => {
 
        </Head>
 
-        
-       
-
-        <Navbar1 show={showModal} set={setShowModal}/>
+      <Navbar1 show={showModal} set={setShowModal}/>
         <div> <SignIn show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div>
        { showsignup ? <div> <Signup show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div> :null}
       <div className={styles.main_div}>
+          
            <div className={styles.inside_main_box}>
         <p className={styles.main_text}>
           {" "}

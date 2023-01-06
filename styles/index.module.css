@@ -1,15 +1,22 @@
 .main_div {
+    background-image:url("../Images/banner.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 404px;
     width: 83vw;
-    background-color: rgb(190, 52, 85);
+    /* background-color: rgb(190, 52, 85); */
     position: absolute;
     top: 125px;
     left: 8.5vw;
     border-radius: 20px;
    
+}
+.main_div_image{
+    height: 404px;
+    width: 83vw;
 }
 .inside_main_box{
     /* border: 1px solid black; */
@@ -223,11 +230,37 @@
     right: 30px;
     border-radius: 50%;
 }
+
+#thirdarrow{
+    height: 15px;
+    width: 15px;
+    color: rgb(255, 255, 255);
+    background-color:#050505;
+    padding: 12px;
+    
+    position: relative;
+    bottom: 30px;
+    right: 30px;
+    border-radius: 50%;
+}
 #arrw{
     height: 15px;
     width: 15px;
     color: rgb(255, 255, 255);
     background-color:#BE3455;
+    padding: 12px;
+    z-index: 1 !important;
+    position: relative;
+    bottom: 30px;
+    left: 5px;
+    border-radius: 50%;
+
+}
+#thirdarrw{
+    height: 15px;
+    width: 15px;
+    color: rgb(255, 255, 255);
+    background-color:#0b0b0b;
     padding: 12px;
     z-index: 1 !important;
     position: relative;

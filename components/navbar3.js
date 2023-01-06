@@ -6,12 +6,13 @@ import styles from "../styles/navbar1.module.css"
 const navbar1 = () => {
   return (
     <>
+    <div className={styles.nav}>
     <Link href="/"> <Image className={styles.logo}
     
     src={di} ></Image>
 </Link>
 
-    
+    </div>
     </>
   )
 }
