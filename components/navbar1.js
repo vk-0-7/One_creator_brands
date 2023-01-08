@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState ,useEffect} from "react"
 import Image from "next/image"
 import Link from "next/link"
 import SignIn from "../components/signin"
@@ -8,6 +8,7 @@ import loginHover from "../icons/loginHover.svg"
 import styles from "../styles/navbar1.module.css"
 import {IoLogIn} from "react-icons/io5"
 const navbar1 = ({show,set}) => {
+
 
   
 

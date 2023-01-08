@@ -16,11 +16,11 @@ return (
      <div className={styles.container} id={styles.center}>
      <div className={styles.firstInput} >
      <p>Enter your name</p>
-     <input type="text" name="username" placeholder="vivek kumar" />
+     <input type="text" name="username" placeholder="Your name" />
      </div> 
      <div className={styles.secondInput} >
      <p>Enter your Email</p>
-     <input type="text" name="username" placeholder="vivekr4400@gmail.com" />
+     <input type="text" name="username" placeholder="Your Email" />
      </div> 
      <div className={styles.thirdInput}>
      <p>Password</p>

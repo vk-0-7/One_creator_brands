@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image"
+import Link from "next/link"
 import searchn from "../icons/searchn.svg"
 import styles from "../styles/jobs.module.css"
 import Navbar from "../components/navbar1"
@@ -21,17 +22,14 @@ const searchInfluencer = () => {
 
    const [searchInf,setSearchInf] =useState("")
    const [searchIndustry,setSearchIndustry] =useState("")
-    const [count,setCount]=useState(6)
+    const [count,setCount]=useState(9)
 
    const handleclick=()=>{
         setCount(count+3)
     }
    
  
-    // useEffect(() =>{
-           
-    //   }, [c0unt]);
-     
+   
   return (
     <>
     <Head>
@@ -41,7 +39,7 @@ const searchInfluencer = () => {
     
    
    
-    {/* <Script src="/script.js"></Script> */}
+    
     
     <Navbar/>
    <div className={styles.main_heading}> <h2>Discover Influencer</h2></div>
@@ -95,7 +93,7 @@ const searchInfluencer = () => {
         </>
        
 
-))}  </div>
+))}  </div> 
       
       </div>
       <div className={styles.filter_category3} id={styles.filters}>
@@ -136,31 +134,19 @@ const searchInfluencer = () => {
 
      <div className={styles.gender} id={styles.filters}>
          <h3>Gender</h3>
-         <input type="checkbox" id={styles.checkbox}  value="a"/>
+         <input type="checkbox" id={styles.checkbox}  value=""/>
         <label for="influencer"> Male</label><br/>
 
-        <input type="checkbox" id={styles.checkbox}  value="a"/>
+        <input type="checkbox" id={styles.checkbox}  value=""/>
         <label for="influencer"> Female</label><br/>
 
-        <input type="checkbox" id={styles.checkbox}  value="a"/>
+        <input type="checkbox" id={styles.checkbox}  value=""/>
         <label for="influencer"> nonbinary</label><br/>
 
      </div>
 
 
-
-      {/* <div className={styles.filter_category5} id={styles.filters}>
-
-        <h3>Budget</h3>
-        <div className={styles.price_range}>
-        <input type="number"  placeholder="$1" className={styles.starting_price}/>
-        <input type="number"  placeholder="$1,000,000" className={styles.starting_price}/>
-
-        </div>
-        <button className={styles.apply_price}>Apply Price</button>
-        
-      </div>
-       */}
+       
       </div>
       <form className={styles.form}>
           <input
@@ -178,7 +164,7 @@ const searchInfluencer = () => {
     <div className={styles.all_profiles_div}>
      
     {Coursesdata.slice(0,count).map((item) => (
-              <div className={styles.card}>
+            <Link href='/userDetails'> <div className={styles.card}>
                 <div className={styles.card_top}>
                   <Image src={item.Imglink} alt={item.title} width="400" height="300"></Image>
                   <h1>First and Last Name</h1>
@@ -216,7 +202,7 @@ const searchInfluencer = () => {
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> </Link> 
             ))}
     
 

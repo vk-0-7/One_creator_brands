@@ -51,11 +51,16 @@
     justify-content: center;
 
 }
+.file_upload{
+    /* border: 1px solid red; */
+    width: 200px;
+}
 
 .file_upload > input[type="file"]{
     opacity:0 ;
     position: relative;
     top: 25px;
+    width: 90%;
     left: 20px;
   font-size: 1.1rem;
 }
@@ -84,6 +89,7 @@
 
 .other_info{
     margin-top: 20px;
+    /* border: 1px solid red; */
 }
 #register{
     /* border: 1px solid red; */
@@ -96,7 +102,7 @@
     border: 2px solid #F0F0F0;
     border-radius: 12px;
     padding-left: 10px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin-top: 4px;
     
 }
@@ -105,6 +111,7 @@
     /* border: 1px solid red; */
     margin-top: 8px;
     display: flex;
+    flex-wrap: wrap;
 }
 #select_city , #select_state{
     height: 38px;
@@ -122,7 +129,7 @@
     
 }
 #select_language{
-  margin-top: 4px;
+  margin-top: 5px;
 }
 
 
@@ -158,23 +165,31 @@
 
 }
 .agency_btn button{
+    cursor: pointer;
     height: 38px;
     width: 220px;
     border: 2px solid #F0F0F0;
     background-color: white;
     border-radius: 12px;
     padding-left: 10px;
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     margin-right: 12px;
     margin-left: 3px;
-    margin-top: 4px;
+    margin-top: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+.agency_btn button:hover {
+    background-color: rgb(190, 52, 85);
+    color: white;
+}
+
 .social_media{
     display: flex;
-    margin-top: 6px;
+    flex-wrap: wrap;
+    margin-top: 9px;
 }
 .medialink input{
     height: 38px;
@@ -190,10 +205,11 @@
 .services_body{
     display: flex;
     margin-top: 4px;
+    flex-wrap: wrap;
 
 }
 #last{
-    margin-top: 5px;
+    margin-top: 8px;
     height: 60px;
     /* border: 1px solid red; */
 }
@@ -210,6 +226,7 @@
 }
 .terms_and_condition{
     display: flex;
+   
     margin-top: 30px;
     align-items: center;
     justify-content: center;
@@ -232,4 +249,84 @@
     background-color: 
     rgba(41, 45, 50, 1);
     color: white;
+}
+
+@media(max-width:450px){
+
+
+    .main_div{
+        padding: 20px;
+        height: max-content;
+        width: 90vw;
+        border: 1px solid black;
+        position: absolute;
+        top: 100px;
+        left: 5vw;
+       
+    }
+   
+    .main_heading{
+        
+        font-size: 1.7rem;
+        margin-bottom: 25px;
+    }
+    .info_profileimg > h4{
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+    .info_profileimg > h6{
+        font-size: 0.95rem;
+       
+        font-style: normal;
+        font-weight: 300;
+        margin-bottom: 20px;
+    
+    }
+    
+
+    #inpt{
+        height: 38px;
+        width: 100%;
+        border: 2px solid #F0F0F0;
+        border-radius: 12px;
+        padding-left: 10px;
+        font-size: 0.9rem;
+        margin-top: 4px;
+        
+    }
+    #select_language{
+        height: 38px;
+        width: 100%;
+        border: 2px solid #F0F0F0;
+        border-radius: 12px;
+        padding-left: 10px;
+        font-size: 0.8rem;
+        
+    }
+    #last input ,#last select{
+       
+        width: 110px;
+        border: 2px solid #F0F0F0;
+        border-radius: 12px;
+        padding-left: 10px;
+        font-size: 0.8rem;
+        margin-right: 12px;
+        margin-left: 3px;
+        margin-top: 4px;
+    }
+    .create_profile{
+   
+        height: 40px;
+        width: 200px;
+        margin: 10px 0px 50px 30px;
+    }
+    .create_profile button{
+        height: 100%;
+        width: 100%;
+        border-radius: 13px;
+        border: none;
+        background-color: 
+        rgba(41, 45, 50, 1);
+        color: white;
+    }
 }

@@ -4,7 +4,7 @@
    import Link from "next/link"
    import Head from "next/head";
   
-const signin = ({show,set,showsignup,setsignup}) => {
+const signin = ({show,set,showsignup,setsignup}) => { 
   return (
     <>
     

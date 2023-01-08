@@ -14,6 +14,7 @@ import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faSnapchat } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import banner from "../Images/banner.webp"
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -74,9 +75,11 @@ const index = () => {
  useEffect(() => {
    if (showModal) {
     document.body.style.backgroundColor= 'rgba(0,0,0,0.3)'
+   
    }
-   else
-   document.body.style.backgroundColor= 'rgba(0,0,0,0)'
+   else{
+   document.body.style.backgroundColor= 'rgba(0,0,0,0)';
+  }
 
  }, [showModal])
 
@@ -178,11 +181,11 @@ const index = () => {
         
        
 
-      <Navbar1 show={showModal} set={setShowModal}/>
+         <div className={styles.navbar} ><Navbar1 show={showModal} set={setShowModal}/>  </div> 
         <div> <SignIn show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div>
        { showsignup ? <div> <Signup show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div> :null}
       <div className={styles.main_div}>
-          
+         
            <div className={styles.inside_main_box}>
         <p className={styles.main_text}>
           {" "}
@@ -196,7 +199,7 @@ const index = () => {
           or category"
           />
           <button className={styles.search_icon}>
-            <Image src={search} id={styles.search}></Image>
+            <Image src={search} alt="search" id={styles.search}></Image>
           </button>
         </form>
         <p className={styles.main_text2}>
@@ -340,18 +343,7 @@ const index = () => {
       </div>
      <div className={styles.footer}> <Footer/></div>
 
-        
-     {/* <Script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/63b70cac47425128790be185/1gm1gj1kp';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</Script> */}
+    
 
 
 

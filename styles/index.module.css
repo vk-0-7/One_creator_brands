@@ -3,17 +3,19 @@
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
+    
     align-items: center;
     justify-content: center;
     height: 404px;
     width: 83vw;
-    /* background-color: rgb(190, 52, 85); */
+    background-color: rgba(0, 0, 0,0.3);
     position: absolute;
     top: 125px;
     left: 8.5vw;
     border-radius: 20px;
    
 }
+
 .main_div_image{
     height: 404px;
     width: 83vw;

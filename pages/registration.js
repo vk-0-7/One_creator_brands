@@ -4,7 +4,10 @@ import styles from "../styles/registration.module.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import Script from "next/script"
-import {states} from "../Data/data"
+// import {states} from "../Data/data"
+import {states} from "../Data/places"
+import {s_a} from "../Data/places"
+
 
 
 
@@ -13,8 +16,37 @@ import {states} from "../Data/data"
 
 
 const registration = () => {
+    const [state,setState]=useState(1)
+
+    const [city,setCity] =useState([])
+
+      
+
+
+
+
+    useEffect(() => {
+      console.log(state)
+      setCity(s_a[state].split('|'))
+      
+    
+    },[state])
+    
+    useEffect(() => {
+      console.log(city);
+    
+    },[city])
+    
+
+
+   
+
+   
+
   return (
     <>
+  
+   
 
     <Navbar/> 
      <div className={styles.main_div}>
@@ -25,7 +57,7 @@ const registration = () => {
         <h6>Let people get to know you better through your influencer profile. Be clear, detailed, and authentic!</h6>
         <form className={styles.form}>
            <div className={styles.icn}><FontAwesomeIcon icon={faUser} className={styles.usericon} /></div>
-           <div className={styles.file_upload}>
+           <div className={styles.file_upload}> 
            <input type="file" id={styles.file} accept="image/*"/>
            <p className={styles.file_btn}> Upload Photo </p> 
            </div>
@@ -49,7 +81,7 @@ const registration = () => {
                                             {/* Business */}
 
             <div className={styles.business} id={styles.register}>
-           <label for="name"><b id={styles.mark} >Business Name/Alias</b></label><br />
+           <label for="name"><b >Business Name/Alias</b></label><br />
            <input type="text" id={styles.inpt} placeholder="Enter Business name" name="business" required/>
           </div>
 
@@ -66,43 +98,52 @@ const registration = () => {
              <option value="">Select</option>
              <option value="dog">English</option>
              <option value="cat">Hindi</option>
-          </select>
+          </select> 
           </div>
           <div id={styles.add_another} >
             <h5>+ Add another Language</h5>
           </div>
           <div className={styles.state_city}>
+
+
+             {/* states */}
+             <div className={styles.state}>
+          <label for="state"><b id={styles.mark}>State</b></label><br />
+          <select name="states" id={styles.select_state} onChange={e=>setState(e.target.value)}>
+
+             {states.map((elem,key)=>(<>
+             <option value="" disabled selected hidden>Select</option>
+             
+             <option value={key} >{elem}</option>
+             </>
+             ))}
+            
+          </select>
+
+            </div>
+
                           {/* city */}
 
             <div className={styles.city}>
            <label for="uname"><b id={styles.mark}>City</b></label><br />
            <select name="language" id={styles.select_city}>
-             <option value="">Select</option>
-             <option value="dog">jalandhar</option>
-             <option value="cat">Ludhiana</option>
+              <option value="" disabled selected hidden>Select</option>
+           {city.map((elem)=>(
+            <>
+             <option value={elem}>{elem}</option>
+            </>
+       ))}
+
           </select>
              </div>    
-                          {/* states */}
-             <div className={styles.state}>
-          <label for="state"><b id={styles.mark}>State</b></label><br />
-          <select name="states" id={styles.select_state}>
+             
 
-             <option value="">Select</option>
-             {states.map((elem)=>(<>
-             <option value="dog">{elem}</option>
-             </>
-             ))}
-             <option value="dog">Maharashtra</option>
-             <option value="cat">punjab</option>
-          </select>
-
-            </div>
           </div>
                                  {/* number */}
 
           <div className={styles.number} id={styles.register}>
            <label for="uname"><b id={styles.mark}>Whatsapp Number(Personal Only) </b></label><br />
-          <input type="text"  id={styles.inpt}  placeholder="+91-4726482345" name="number" required/>
+          <input type="number"  id={styles.inpt}  placeholder="+91-4726482345" name="number" required/>
           </div>
                            {/* email */}
 
@@ -155,7 +196,7 @@ const registration = () => {
                    {/* brands */}
 
           <div className={styles.brands} id={styles.register}>
-           <label for="brands"><b id={styles.mark} >Brands you've previously worked with</b></label><br />
+           <label for="brands"><b  >Brands you've previously worked with</b></label><br />
            <input type="text" id={styles.inpt} placeholder="Name of the Brand/Company" name="brands" required/>
           </div>
 
@@ -167,8 +208,11 @@ const registration = () => {
             <div className={styles.agency} id={styles.register}>
            <label for="uname"><b id={styles.mark}>Are you represented by an Agency</b></label><br />
              <div className={styles.agency_btn}>
-              <button>Yes</button>
-              <button>No</button>
+              <button id={styles.butn} 
+             
+              >Yes</button>
+              <button id={styles.butn} 
+                >No</button>
              </div>    
              
              </div>
@@ -219,7 +263,7 @@ const registration = () => {
 
          <div className={styles.services_price} id={styles.last}>
          <label for="social_media"><b id={styles.mark}>Service starting price</b></label><br />
-         <input type="text" placeholder='₹ 1500' />
+         <input type="number" placeholder='₹ 1500' />
 
          </div>
 
