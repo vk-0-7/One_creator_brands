@@ -174,7 +174,7 @@ const index = () => {
        <title>
          Discover Influencers | Search by Name, Username, Category, City | Top Creators in India
        </title>
-
+       <link rel="icon" href="/favicon.ico"  sizes="16x16 32x32 64x64"/>
        </Head>
 
        <body>
