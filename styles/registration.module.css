@@ -70,6 +70,7 @@
     /* border: 1px solid red; */
     width: max-content;
     color: rgb(133, 130, 130);
+    cursor: pointer;
 }
 
 .file_btn{

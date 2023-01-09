@@ -7,6 +7,7 @@ import Script from "next/script"
 // import {states} from "../Data/data"
 import {states} from "../Data/places"
 import {s_a} from "../Data/places"
+import languages from '../Data/language';
 
 
 
@@ -20,10 +21,13 @@ const registration = () => {
 
     const [city,setCity] =useState([])
 
-      
+    const [count,setCount]=useState([0])
+    
+    
 
-
-
+   const handlecount=() => {
+      setCount([1,...count]);
+    }
 
     useEffect(() => {
       console.log(state)
@@ -92,17 +96,25 @@ const registration = () => {
           </div>
 
                               {/* language  */}
-            <div className={styles.language} id={styles.register}>
+           {count.map((elem)=>(<div className={styles.language} id={styles.register}>
            <label for="name"><b id={styles.mark} >Language</b></label><br />
-                <select name="language" id={styles.select_language}>
-             <option value="">Select</option>
-             <option value="dog">English</option>
-             <option value="cat">Hindi</option>
+               <select name="language" id={styles.select_language}>
+              <option value="" disabled hidden selected>Select</option>
+            {languages.map((elem)=>(<>
+             <option value="" disabled selected hidden>Select</option>
+             
+             <option >{elem.name}</option>
+             </>
+             
+            ))}
           </select> 
           </div>
+          ))  } 
+
           <div id={styles.add_another} >
-            <h5>+ Add another Language</h5>
+            <h5 onClick={handlecount}>+ Add another Language</h5>
           </div>
+
           <div className={styles.state_city}>
 
 
