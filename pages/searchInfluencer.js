@@ -2,14 +2,18 @@ import { useState, useEffect } from "react";
 import Image from "next/image"
 import Link from "next/link"
 import searchn from "../icons/searchn.svg"
+import redbgfb from "../icons/redbgfb.svg"
+import snap from "../icons/snap.svg"
+import tube from "../icons/tube.svg"
+import redinsta from "../icons/redinsta.svg"
+import arrow from "../icons/arrow-left.svg"
 import styles from "../styles/jobs.module.css"
 import Navbar from "../components/navbar1"
 import { Coursesdata } from "../Data/data";
-import {InfluencerCategory} from "../Data/data"
-import {Industry} from "../Data/data"
+import {influencerCategory} from "../Data/data"
+import {Interest} from "../Data/data"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+
 import Head from "next/head";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
@@ -78,7 +82,7 @@ const searchInfluencer = () => {
        <input type="text" className={styles.citySearch} onChange={(event)=>{setSearchInf(event.target.value)}}/>
        </div>
        <div className={styles.influencer_checkbox}>
-      {InfluencerCategory.filter((val)=>{
+      {influencerCategory.filter((val)=>{
              if (searchInf=="") {
                   return val
              }
@@ -97,14 +101,14 @@ const searchInfluencer = () => {
       
       </div>
       <div className={styles.filter_category3} id={styles.filters}>
-      <h3>Industry</h3>
+      <h3>Interest</h3>
       <div id={styles.search}>
       <Image src={searchn} id={styles.searchimg}></Image>
        <input type="text" className={styles.citySearch} onChange={(event)=>{setSearchIndustry(event.target.value)}}/>
        </div>
 
        <div className={styles.industry_checkbox}> 
-      {Industry.filter((val)=>{
+      {Interest.filter((val)=>{
            if (searchIndustry=="") {
                  return val
            }
@@ -156,7 +160,7 @@ const searchInfluencer = () => {
           or category"
           />
           <button className={styles.search_icon}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            <Image src={searchn} id={styles.search_Icon} />
           </button>
         </form>
 
@@ -172,32 +176,33 @@ const searchInfluencer = () => {
                 <div className={styles.card_bottom}>
                   <h4>Categories</h4>
                   <div className={styles.icon_btn_all}>
+                   
                     <button>
                       {" "}
-                      <FontAwesomeIcon
-                        icon={faInstagram}
-                        classname={styles.insta}
+                      <Image
+                        src={tube}
+                        className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
-                      <FontAwesomeIcon
-                        icon={faYoutube}
-                        classname={styles.insta}
+                      <Image
+                        src={redbgfb}
+                        className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
-                      <FontAwesomeIcon
-                        icon={faFacebook}
-                        classname={styles.insta}
+                      <Image
+                        src={snap}
+                        className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
-                      <FontAwesomeIcon
-                        icon={faSnapchat}
-                        classname={styles.insta}
+                      <Image
+                        src={redinsta}
+                        className={styles.insta}
                       />
                     </button>
                   </div>
@@ -207,7 +212,7 @@ const searchInfluencer = () => {
     
 
     <div className={styles.load_more}>
-  <button className={styles.load_more_btn} onClick={handleclick} > <p>See More</p>  <FontAwesomeIcon icon={faAngleDown} /> </button>
+  <button className={styles.load_more_btn} onClick={handleclick} > <p>See More</p>  <Image src={arrow} /> </button>
 
     </div>
 

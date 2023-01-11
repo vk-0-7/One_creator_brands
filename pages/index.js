@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
-import search from "../icons/search.svg"
+import search from "../icons/searchn.svg"
+import arrowleft from "../icons/arrow-left.svg"
 import Navbar1 from "../components/navbar1";
 import SignIn from "../components/signin"
 import Signup from "../components/signup"
@@ -13,8 +14,8 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faSnapchat } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import banner from "../Images/banner.webp"
 
+import axios from 'axios';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -53,7 +54,7 @@ function SamplePrevArrow(props) {
     <div
       className={className} id={styles.arrow_body}
       onClick={onClick}  style={{zIndex:"5"}}
-    ><FontAwesomeIcon icon={faChevronLeft}  id={styles.arrw}/></div>
+    ><Image src={arrowleft}  id={styles.arrw} alt="arrow"/></div>
   );
 }
 function SecondPrevArrow(props) {
@@ -69,6 +70,9 @@ function SecondPrevArrow(props) {
 
 const index = () => {
 
+  const [topdata,setTopdata] =useState([]);
+  const [newdata,setNewdata] =useState([]);
+
  const [showsignup,setShowSignup] =useState(false)
   const [showModal,setShowModal]= useState(false);
 
@@ -83,6 +87,35 @@ const index = () => {
 
  }, [showModal])
 
+
+   const   getInfluencerTop= async()=>{
+         try {
+            const res= await axios.get('https://backend.discoverinfluencer.in/user/top');
+            const data=res.data.topUsers;
+            setTopdata(data)
+            const response= await axios.get('https://backend.discoverinfluencer.in/user/all');
+            const datas=response.data.users;
+            setNewdata(datas)
+            
+         } catch (error) {
+            console.log('error fetching all top data',error.message)
+         }
+   }
+
+
+
+
+   useEffect(()=>{
+    getInfluencerTop();
+   
+
+ },[])
+
+
+
+ 
+ 
+ 
   
 
   const settings = {
@@ -160,6 +193,8 @@ const index = () => {
 
   return (
     <>
+    {console.log(topdata)}
+    {console.log(newdata)}
       <Head>
        <meta name="description" content="Discover Influencer"/>
        </Head>
@@ -177,7 +212,7 @@ const index = () => {
        <link rel="icon" href="/favicon.ico"  sizes="16x16 32x32 64x64"/>
        </Head>
 
-       <body>
+       
         
        
 
@@ -199,7 +234,7 @@ const index = () => {
           or category"
           />
           <button className={styles.search_icon}>
-            <Image src={search} alt="search" id={styles.search}></Image>
+            <Image src={search} alt="search" id={styles.search} priority></Image>
           </button>
         </form>
         <p className={styles.main_text2}>
@@ -219,41 +254,41 @@ const index = () => {
         <p className={styles.txt}>Discover Top Influencers from the Country</p>
         <div className={styles.box2_carousel}>
           <Slider dots={true} {...settings}>
-            {Coursesdata.map((item) => (
+            {topdata.map((item,key) => (
               <div className={styles.card}>
-                <div className={styles.card_top}>
-                  <Image src={item.Imglink} alt={item.title} width="300" height="400"></Image>
-                  <h1>First and Last Name</h1>
+                <div className={styles.card_top} key={key}>
+                  <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>
+                  <h1>{item.name}</h1>
                 </div>
                 <div className={styles.card_bottom}>
-                  <h4>Categories</h4>
+                  <h4>{item.category[0]}</h4>
                   <div className={styles.icon_btn_all}>
                     <button>
                       {" "}
                       <FontAwesomeIcon
                         icon={faInstagram}
-                        classname={styles.insta}
+                      className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
                       <FontAwesomeIcon
                         icon={faYoutube}
-                        classname={styles.insta}
+                      className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
                       <FontAwesomeIcon
                         icon={faFacebook}
-                        classname={styles.insta}
+                      className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
                       <FontAwesomeIcon
                         icon={faSnapchat}
-                        classname={styles.insta}
+                      className={styles.insta}
                       />
                     </button>
                   </div>
@@ -268,48 +303,46 @@ const index = () => {
 
       
       <div className={styles.second_div} id={styles.sec_div}>
-        <p className={styles.top_influencer}>New Influencers</p>
-       {/* <Link href='/jobs'> <button className={styles.see_all_btn}>
-         <p>see all influencers</p>  <FontAwesomeIcon id={styles.greater_icon} icon={faChevronRight} />
-        </button> </Link> */}
+        <p className={styles.top_influencer}>Discover New Influencers Faster</p>
+       
         <p className={styles.txt}>Discover the Newest Influencers from the Country</p>
         <div className={styles.box2_carousel}>
           <Slider dots={true} {...settings}>
-            {Coursesdata.map((item) => (
+            {newdata.map((item,key) => (
               <div className={styles.card}>
-                <div className={styles.card_top}>
-                  <Image src={item.Imglink} alt={item.title} width="300" height="400"></Image>
-                  <h1>First and Last Name</h1>
+                <div className={styles.card_top} key={key}>
+                  <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>
+                  <h1>{item.name}</h1>
                 </div>
                 <div className={styles.card_bottom}>
-                  <h4>Categories</h4>
+                  <h4>{item.category[0]}</h4>
                   <div className={styles.icon_btn_all}>
                     <button>
                       {" "}
                       <FontAwesomeIcon
                         icon={faInstagram}
-                        classname={styles.insta}
+                      className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
                       <FontAwesomeIcon
                         icon={faYoutube}
-                        classname={styles.insta}
+                      className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
                       <FontAwesomeIcon
                         icon={faFacebook}
-                        classname={styles.insta}
+                      className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
                       <FontAwesomeIcon
                         icon={faSnapchat}
-                        classname={styles.insta}
+                      className={styles.insta}
                       />
                     </button>
                   </div>
@@ -330,10 +363,10 @@ const index = () => {
 
         <div className={styles.box3_carousel}>
           <Slider dots={true} {...setting  }>
-            {ImagesDivThree.map((item) => (
-              <div className={styles.card2}>
-                <div className={styles.card_top2}>
-                  <Image src={item.Img} alt={item.title} width="300" height="400" ></Image>
+            {ImagesDivThree.map((item,key) => (
+              <div className={styles.card2} key={key}>
+                <div className={styles.card_top2} >
+                  <Image src={item.Img} alt={item.title} width="300" height="400" priority ></Image>
                   <p className={styles.category_name}>{item.category}</p>
                 </div>
               </div>
@@ -347,7 +380,7 @@ const index = () => {
 
 
 
-     </body>
+    
      
     </>
   );

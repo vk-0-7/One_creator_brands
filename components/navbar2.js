@@ -10,10 +10,10 @@ const navbar1 = () => {
     <>
     <Link href="/"> <Image className={styles.logo}
     
-    src={di} ></Image>
+    src={di} alt='logo.png'/>
 </Link>
 
-     <button className={styles.btn}> <Image className={styles.usericon} src={logout} ></Image><p>Sign out</p> </button>
+     <button className={styles.btn}> <Image className={styles.usericon} src={logout}  alt='logo.png'/><p>Sign out</p> </button>
     
     </>
   )

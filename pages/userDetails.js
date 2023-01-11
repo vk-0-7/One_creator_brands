@@ -2,17 +2,14 @@ import Navbar1 from "../components/navbar1"
 import Image from "next/image"
 import styles from "../styles/userDetails.module.css"
 import img from "../Images/img.jpg";
-import vector from "../icons/Vector.svg"
+import star from "../icons/star.svg"
 import music from "../icons/musicnote.svg"
 import redinsta from "../icons/redinsta.svg"
 import redfb from "../icons/redfb.svg"
 import cloud from "../icons/cloud.svg"
 import category from "../icons/category.svg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faCloud } from "@fortawesome/free-solid-svg-icons";
-import { faMusic } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const userDetails = () => { 
@@ -23,7 +20,7 @@ const userDetails = () => {
       <div className={styles.username}>
           <p>@username</p>
           <div id={styles.category}>
-            <Image src={vector} id={styles.vector} alt="category"></Image>
+            <Image src={star} id={styles.vector} alt="category"></Image>
             <p>Influencer Category</p>
           </div>
 

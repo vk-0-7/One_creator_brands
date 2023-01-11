@@ -1,0 +1,22 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "name": "Vivek Kumar",
+      "email": "vivekr4400@gmail.com",
+      "password": "vivek123"
+    },
+    {
+      "id": "4d717f28-0ae9-4257-8aae-01c20cd61e83",
+      "name": "abcd",
+      "email": "abc@gmail.com",
+      "password": "abcdefgh"
+    },
+    {
+      "id": "81c430de-db71-4cb0-839c-1532bb37bd09",
+      "name": "aman",
+      "email": "aman@gmail.com",
+      "password": "password"
+    }
+  ]
+}

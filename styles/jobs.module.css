@@ -229,7 +229,7 @@
 }
 
 .icon_btn_all {
-    /* border: 1px solid white; */
+    border: 1px solid white;
     display: flex;
     margin-top: 8px;
 }

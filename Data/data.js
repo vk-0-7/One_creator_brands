@@ -80,7 +80,48 @@
     
     ]
 
-export const InfluencerCategory=["Actor",  "Anchor",
+
+
+    export const SocialMedia=[
+         
+      "Instagram",
+
+      "Facebook",
+      
+      "Linkedin",
+      
+      "Twitter",
+      
+      "Snapchat",
+      
+      "YouTube",
+      
+      "Pinterest",
+      
+     " Tik Tok",
+      
+      "Moj",
+      
+      "Koo",
+
+
+
+    ]
+
+
+  export const Service =[
+    "Post",
+
+  "  Blog/Article",
+    
+    "Story",
+    
+    "Short Video/Reel",
+    
+    "Long Video",
+  ]
+
+export const influencerCategory=["Actor",  "Anchor",
   
   "Artist",
   
@@ -140,7 +181,7 @@ export const InfluencerCategory=["Actor",  "Anchor",
 
 
 
-export const Industry=[
+export const Interest=[
 
   "Accessories - Women",
 
@@ -188,9 +229,9 @@ export const Industry=[
   
   "Family & Relationships",
   
-  "Fashion & Shopping",
+  "Fashion ",
   
- " Finance & Investing",
+ " Finance ",
   
   "Fitness & Gym",
   
@@ -200,23 +241,33 @@ export const Industry=[
   
   "Games",
   
-  "Health & Medicine",
+  "Health",
   
   "Hobbies & Leisure",
+
+  "Home Decor",
   
   "Hotel",
   
-  "Interior Design & Home",
+  "Interior Design",
+
+   "Investing",
   
   "IT & Software",
   
   "Jewellery",
+
+  "Keto Diet",
   
   "Luxury Products",
+  "Media",
+  "Medicine",
+  "Meditation",
   
   "Movies & Theatre",
   
-  "New & Media",
+  "New",
+  "Non-Veg Diet",
   
   "Personal care",
   
@@ -229,14 +280,19 @@ export const Industry=[
   "Religion",
   
   "Science",
+
+  "shopping",
   
-  "Spiritualism & Meditations",
+  "Spiritualism",
   
   "Sports",
   
   "Travel & Tourism",
+  "Vegan",
   
-  "Wellness Products"
+  "Wellness Products",
+
+  "Yoga",
 
 
 

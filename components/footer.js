@@ -28,15 +28,15 @@ const footer = () => {
 
      </div>
 <div className={styles.media_icons}>
-     <div id={styles.icon_box}> <Image id={styles.icon} src={facebook}></Image> </div>
-     <div id={styles.icon_box}> <Image id={styles.icon} src={insta}></Image> </div>
-     <div id={styles.icon_box}> <Image id={styles.icon} src={twitter}></Image> </div>
+     <div id={styles.icon_box}> <Image id={styles.icon} src={facebook} alt="icon.png"></Image> </div>
+     <div id={styles.icon_box}> <Image id={styles.icon} src={insta} alt="icon.png"></Image> </div>
+     <div id={styles.icon_box}> <Image id={styles.icon} src={twitter} alt="icon.png"></Image> </div>
       
 
 </div>
 
   <div className={styles.footerIm}>
-     <Image className={styles.ftr} src={footr} />
+     <Image className={styles.ftr} src={footr} alt="logo.png"/>
   </div>
     </div>
     

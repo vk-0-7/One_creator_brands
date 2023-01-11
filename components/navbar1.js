@@ -17,9 +17,9 @@ const navbar1 = ({show,set}) => {
     <div className={styles.nav}>
     <Link href="/"> <Image className={styles.logo}
     
-     src={di} ></Image>
+     src={di} alt='logo.png'></Image>
 </Link>
-     <button className={styles.btn} onClick={()=>set(true)}> <Image className={styles.usericon} id={styles.nonhovericon} src={login}></Image> <Image className={styles.usericon} src={loginHover} id={styles.hovericon}></Image><p>Influencer</p> </button>
+     <button className={styles.btn} onClick={()=>set(true)}> <Image className={styles.usericon} id={styles.nonhovericon} src={login} alt="icon.png"/> <Image className={styles.usericon} src={loginHover} id={styles.hovericon} alt="icon.png"/><p>Influencer</p> </button>
      </div>
     </>
   )
