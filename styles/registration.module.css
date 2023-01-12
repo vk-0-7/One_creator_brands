@@ -151,11 +151,11 @@
 #dropdown{
     margin-top: 12px;
     margin-left: 2px;
-    width: 452px;
+    width: 492px;
     /* border: 1px solid red; */
 }
 #register{
-    width:36vw;
+    width:452px;
     /* border: 1px solid red; */
     margin-top: 8px;
     padding: 5px;
@@ -190,7 +190,7 @@
 }
 
 .state_city{
-    width: 37vw;
+    width: 492px;
     /* border: 1px solid red; */
     margin-top: 8px;
     display: flex;
@@ -207,23 +207,24 @@
     display: flex;
     flex-direction: row;
     /* border: 1px solid red; */
+    /* padding-right: 3px; */
 
 }
 /* .state{
     border: 1px solid black;
 }
-.city{
+/* .city{
     border: 1px solid rgb(62, 240, 26);
-} */
+} */ 
 
 #select_city , #select_state{
     height: 45px;
-    width: 220px;
+    width: 218px;
     border: 2px solid #F0F0F0;
     border-radius: 12px;
     padding-left: 10px;
     font-size: 0.8rem;
-  
+   
     margin: 4px 10px 0px 3px;
 }
 
@@ -256,11 +257,42 @@
     padding-top: 0px !important;
     padding-bottom: 0px !important;
     /* border: 1px solid red; */
+    
 }
+#select{
+    width: 492px;
+    display: flex;
+    /* border: 1px solid black; */
+}
+#select select {
+    width: 92.5% !important;
+    
+    border: 1px solid rgb(30, 183, 27);
+}
+
+
+
+#deleteicon{
+    height: 18px;
+    width: 18px;
+    margin-top: 10px;
+    margin-left: 5px;
+  
+}
+#deleteicon2{
+    height: 18px;
+    width: 18px;
+    margin-top: 14px;
+    margin-left: -2px;
+  
+}
+
 
 #select select,.language  select, .allcities select,.allstates select,#select_city,#select_media{
     -webkit-appearance: none;
     appearance: none;
+    
+
    
 }
 .allcities select,.allstates select,#select_city{
@@ -268,15 +300,17 @@
     background-repeat: no-repeat;
     font-size: 0.8rem;
     background-size: 15px;
-    background-position: 190px 10px;
+    background-position: 190px 12px;
 }
+
+
 
 #select_media{
     background-image: url('../icons/arrow-down.svg');
     background-repeat: no-repeat;
     font-size: 0.8rem;
     background-size: 15px;
-    background-position: 112px 10px;
+    background-position: 112px 12px;
 }
 
 
@@ -290,7 +324,7 @@
     background-repeat: no-repeat;
     font-size: 0.8rem;
     background-size: 15px;
-    background-position: 425px 10px;
+    background-position: 425px 12px;
     
 }
 .interest{
@@ -334,7 +368,7 @@
     flex-wrap: wrap;
     margin-top: 12px;
     /* border: 1px solid red; */
-    width: 36vw;
+    width: 492px;
 }
 .medialink input{
     height: 45px;
@@ -351,6 +385,8 @@
     display: flex;
     margin-top: 4px;
     flex-wrap: wrap;
+    width: 492px;
+    /* border: 1px solid red; */
 
 }
 #last{
