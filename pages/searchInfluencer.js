@@ -15,10 +15,7 @@ import {Interest} from "../Data/data"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Head from "next/head";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faSnapchat } from "@fortawesome/free-brands-svg-icons";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+
 
 
 

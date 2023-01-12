@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-import search from "../icons/searchn.svg"
+import search from "../icons/search-normal.svg"
 import arrowleft from "../icons/arrow-left.svg"
 import Navbar1 from "../components/navbar1";
 import SignIn from "../components/signin"
@@ -210,6 +210,9 @@ const index = () => {
          Discover Influencers | Search by Name, Username, Category, City | Top Creators in India
        </title>
        <link rel="icon" href="/favicon.ico"  sizes="16x16 32x32 64x64"/>
+       <link rel="preconnect" href="https://fonts.googleapis.com"/>
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    
        </Head>
 
        
@@ -230,17 +233,15 @@ const index = () => {
           <input
             type="text"
             className={styles.search}
-            placeholder="Enter name,username,city 
-          or category"
+            placeholder="Yoga trainer from Mumbai who speaks Bengali..."
           />
           <button className={styles.search_icon}>
             <Image src={search} alt="search" id={styles.search} priority></Image>
           </button>
         </form>
-        <p className={styles.main_text2}>
-          Finally, a solution that lets you Discover Influencer for what you
-          need, when you need.
-        </p>
+        <div className={styles.main_text2}>
+       <p> Di is a new AI system that discovers Influencer for your campaign from a description in natural language.</p>
+        </div>
         </div>
       </div>
 

@@ -6,8 +6,11 @@
   margin: 0;
 }
 html{
-  font-family: 'Roboto', sans-serif;
+  
   overflow-x: hidden;
+  background-color: #F3F3F3;
+  font-family: 'Poppins', sans-serif;
+font-style: normal;
 }
 
 /* 

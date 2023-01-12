@@ -37,6 +37,7 @@
   }
   .influencer_checkbox::-webkit-scrollbar-track {
     background: #dcdbdb; 
+    border-radius: 10px ;
   }
   .influencer_checkbox::-webkit-scrollbar-thumb {
     background: rgb(0, 0, 0); 
@@ -57,6 +58,7 @@
   }
   .industry_checkbox::-webkit-scrollbar-track {
     background: #dcdbdb; 
+    border-radius: 10px ;
     
   }
   .industry_checkbox::-webkit-scrollbar-thumb {
@@ -88,7 +90,7 @@
 
 .citySearch{
    height: 35px;
-   width: 165px;
+   width: 195px;
    padding-left: 35px;
    position: relative;
    left: -20px;
@@ -129,8 +131,8 @@
 
 
 .form {
-    height: 55px;
-    width: 30vw;
+    height: 59px;
+    width: 35vw;
     /* border: 1px solid black; */
 
     position: absolute;
@@ -142,12 +144,12 @@
 .form>input {
     height: 80%;
     width: 100%;
-    border: none;
-    border-radius: 20px;
+    border: 2px solid rgba(240, 240, 240, 1);
+    border-radius: 14px;
     font-size: 1rem;
     padding-inline: 40px;
   background-color: rgba(255, 255, 255, 0.76);
-  box-shadow: 0px 1px 0.8px 0.9px rgb(183, 182, 182);
+  /* box-shadow: 0px 1px 0.8px 0.9px rgb(183, 182, 182); */
 
 }
 .form>input:focus{
@@ -229,7 +231,7 @@
 }
 
 .icon_btn_all {
-    border: 1px solid white;
+    /* border: 1px solid white; */
     display: flex;
     margin-top: 8px;
 }

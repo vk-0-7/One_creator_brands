@@ -59,11 +59,11 @@ const registration = () => {
       <div className={styles.main_div}>
         <h3 className={styles.main_heading}>Influencer Registration</h3>
         <div className={styles.info_profileimg}>
-          <h4>Personal Info</h4>
-          <h6>
+          
+          <p>
             Let people get to know you better through your influencer profile.
-            Be clear, detailed, and authentic!
-          </h6>
+            Be clear,<br /> detailed, and authentic!
+          </p>
           <form className={styles.form}>
             <div className={styles.icn}>
               <FontAwesomeIcon icon={faUser} className={styles.usericon} />
@@ -128,7 +128,7 @@ const registration = () => {
               <b id={styles.mark}>Date of Birth</b>
             </label>
             <br />
-            <input
+            <input style={{paddingRight:"10px"}}
               type="date"
               id={styles.inpt}
               placeholder="dd/mm/yyyy"
@@ -240,7 +240,7 @@ const registration = () => {
           </div>
           {/* email */}
              <div className={styles.email_main}>
-          <div className={styles.email} id={styles.register}>
+          <div className={styles.email} >
             <label for="email">
               <b id={styles.mark}>Email</b>
             </label>
@@ -249,7 +249,7 @@ const registration = () => {
               type="text"
               id={styles.inpt}
               placeholder="Enter Email"
-              name="emzil"
+              name="email"
               required
             />
           </div>
@@ -431,7 +431,7 @@ const registration = () => {
           <div id={styles.add_another}>
             <h5 onClick={addService}>+ Add another category</h5>
           </div>
-          
+
         <div className={styles.terms_and_condition}>
           <input type="checkbox" id={styles.checkbox} name="terms" value="" />
           <p>By checking the box, you are agreeing to our terms of service</p>
