@@ -1,6 +1,10 @@
 import { useState,useEffect } from "react";
 import search from "../icons/search-normal.svg"
 import arrowleft from "../icons/arrow-left.svg"
+import redinsta from "../icons/redbgfb.svg"
+import redbgfb from "../icons/redinsta.svg"
+import snap from "../icons/snap.svg"
+import tube from "../icons/tube.svg"
 import Navbar1 from "../components/navbar1";
 import SignIn from "../components/signin"
 import Signup from "../components/signup"
@@ -44,7 +48,7 @@ function SecondNextArrow(props) {
       className={className} id={styles.arrow_body}
       
       onClick={onClick}
-      > <FontAwesomeIcon icon={faChevronRight} id={styles.thirdarrow}/> </div>
+      > <FontAwesomeIcon icon={faChevronRight} id={styles.thirdarrow} /> </div>
   );
 }
 
@@ -63,7 +67,7 @@ function SecondPrevArrow(props) {
     <div
       className={className} id={styles.arrow_body}
       onClick={onClick}  style={{zIndex:"5"}}
-    ><FontAwesomeIcon icon={faChevronLeft}  id={styles.thirdarrw}/></div>
+    ><FontAwesomeIcon icon={faChevronLeft}  id={styles.thirdarrw} /></div>
   );
 }
 
@@ -209,8 +213,8 @@ const index = () => {
        <title>
          Discover Influencers | Search by Name, Username, Category, City | Top Creators in India
        </title>
-       <link rel="icon" href="/favicon.ico"  sizes="16x16 32x32 64x64"/>
-       <link rel="preconnect" href="https://fonts.googleapis.com"/>
+       {/* <link rel="icon" href="/favicon.ico"  /> */}
+       <link rel="preconnect" href="https://fonts.googleapis.com"/> 
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     
        </Head>
@@ -266,29 +270,29 @@ const index = () => {
                   <div className={styles.icon_btn_all}>
                     <button>
                       {" "}
-                      <FontAwesomeIcon
-                        icon={faInstagram}
+                      <Image style={{height:"15px",width:"15px"}}
+                        src={tube}
                       className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
-                      <FontAwesomeIcon
-                        icon={faYoutube}
+                      <Image style={{height:"15px",width:"15px"}}
+                        src={redbgfb}
                       className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
-                      <FontAwesomeIcon
-                        icon={faFacebook}
+                      <Image  style={{height:"15px",width:"15px"}}
+                        src={snap}
                       className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
-                      <FontAwesomeIcon
-                        icon={faSnapchat}
+                      <Image  style={{height:"15px",width:"15px"}}
+                        src={redinsta}
                       className={styles.insta}
                       />
                     </button>
@@ -318,31 +322,31 @@ const index = () => {
                 <div className={styles.card_bottom}>
                   <h4>{item.category[0]}</h4>
                   <div className={styles.icon_btn_all}>
-                    <button>
+                  <button>
                       {" "}
-                      <FontAwesomeIcon
-                        icon={faInstagram}
+                      <Image style={{height:"15px",width:"15px"}}
+                        src={tube}
                       className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
-                      <FontAwesomeIcon
-                        icon={faYoutube}
+                      <Image style={{height:"15px",width:"15px"}}
+                        src={redbgfb}
                       className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
-                      <FontAwesomeIcon
-                        icon={faFacebook}
+                      <Image  style={{height:"15px",width:"15px"}}
+                        src={snap}
                       className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
-                      <FontAwesomeIcon
-                        icon={faSnapchat}
+                      <Image  style={{height:"15px",width:"15px"}}
+                        src={redinsta}
                       className={styles.insta}
                       />
                     </button>

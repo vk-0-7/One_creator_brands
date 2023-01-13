@@ -177,28 +177,28 @@ const searchInfluencer = () => {
                     <button>
                       {" "}
                       <Image
-                        src={tube}
+                        src={tube} style={{height:"15px",width:"15px"}}
                         className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
                       <Image
-                        src={redbgfb}
+                        src={redbgfb} style={{height:"15px",width:"15px"}}
                         className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
                       <Image
-                        src={snap}
+                        src={snap} style={{height:"15px",width:"15px"}}
                         className={styles.insta}
                       />
                     </button>
                     <button>
                       {" "}
                       <Image
-                        src={redinsta}
+                        src={redinsta} style={{height:"15px",width:"15px"}}
                         className={styles.insta}
                       />
                     </button>
@@ -209,7 +209,8 @@ const searchInfluencer = () => {
     
 
     <div className={styles.load_more}>
-  <button className={styles.load_more_btn} onClick={handleclick} > <p>See More</p>  <Image src={arrow} /> </button>
+  <button className={styles.load_more_btn} onClick={handleclick} > <p>See More</p>  <Image src={arrow} 
+  style={{height:"15px",width:'15px'}} /> </button>
 
     </div>
 

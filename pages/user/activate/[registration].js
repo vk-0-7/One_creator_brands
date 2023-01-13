@@ -27,7 +27,7 @@ const registration = () => {
   const [socialmedia,setSocialmedia]=useState([]);
   const [services,setServices]=useState([]);
   const [prices,setPrices]=useState([]);
-
+ const [button,setButton] =useState();
    
 
   const [data, setData] = useState({
@@ -195,12 +195,12 @@ const registration = () => {
     console.log(city);
   }, [city]);
 
-
-  
-   
-
+ 
   return (
     <>
+
+  
+
       <Navbar />
       <div className={styles.main_div}>
         <h3 className={styles.main_heading}>Influencer Registration</h3>
@@ -548,8 +548,8 @@ const registration = () => {
             </label>
             <br />
             <div className={styles.agency_btn}>
-              <button id={styles.butn} value={true}>Yes</button>
-              <button id={styles.butn} value={false}>No</button>
+              <button id={styles.butn} className={styles.yesbtn} value={true}>Yes</button>
+              <button id={styles.butn} className={styles.nobtn} value={false} >No</button>
             </div>
           </div>
 
