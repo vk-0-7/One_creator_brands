@@ -11,6 +11,8 @@ html{
   background-color: #F3F3F3;
   font-family: 'Poppins', sans-serif;
 font-style: normal;
+-webkit-font-smoothing: subpixel-antialiased !important; 
+text-rendering: geometricPrecision !important; 
 }
 
 /* 

@@ -82,16 +82,16 @@
 .main_text2 {
    
     position: absolute;
-    width: 80%;
+    width: 100%;
     top: 70%;
-    left: 10%;
+    left: 0%;
     /* border: 1px solid black; */
     display: flex;
     justify-content: center;
     
 }
 .main_text2 > p {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     color: white;
    
    
@@ -120,6 +120,8 @@
 
 .see_all_btn,.see_all_btn2 {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: row;
     position: relative;
     bottom: 30px;
@@ -127,7 +129,7 @@
     cursor: pointer;
     float: right;
     height: 42px;
-    width: 135px;
+    width: max-content;
     background-color: transparent;
     border: none;
     border-radius: 10px;
@@ -136,11 +138,11 @@
    
     font-style: normal;
     font-weight: bold;
-    padding: 13px 0px 1px 12px;
+    padding: 0px 12px 0px 12px;
 }
 #greater_icon{
     color: black;
-    margin: 2.5px 0px 0px 3px;
+    margin: 2px 0px 0px 3px;
     height: 10px;
     width: 10px;
 }

@@ -15,26 +15,34 @@ import { s_a } from "../../../Data/places";
 import languages from "../../../Data/language";
 
 const registration = () => {
+
+
+  const [lang,setLang]=useState([]);
+  const [stt,setStt]=useState([]);
+  const [cty,setCty]=useState([]);
+  const [category,setCategory]=useState([]);
+  const [interest,setInterest]=useState([]);
+  const [smedia,setSmedia]=useState([]);
+  const [smedialinks,setSmedialinks]=useState([]);
+  const [socialmedia,setSocialmedia]=useState([]);
+  const [services,setServices]=useState([]);
+  const [prices,setPrices]=useState([]);
+
+   
+
   const [data, setData] = useState({
     name: "",
     username: "",
     business: "",
     dob: "",
-    language: [],
-    state: [],
-    city: [],
+    
+    
     number: "",
     email: "",
-    gender: [],
-    category: [],
-    interest: [],
+    gender: '',
+   
     brand: "",
-    agency: "",
-    smedia: [],
-    smedialinks: [],
-    socialmedia: [],
-    services: [],
-    price: [],
+    isAgency: "",
     checkbox: "",
   });
 
@@ -45,7 +53,74 @@ const registration = () => {
       [name]: value,
     });
   };
+
+  
+
+ const changelanguage=(val,index)=>{
+      const curvalue=[...lang];
+      curvalue[index]=val.target.value;
+      setLang(curvalue);
+     
+ }
+ const changestate=(val,index)=>{
+      const curvalue=[...stt];
+      curvalue[index]=val.target.value;
+      setStt(curvalue);
+     
+ }
+ const changecity=(val,index)=>{
+      const curvalue=[...cty];
+      curvalue[index]=val.target.value;
+      setCty(curvalue);
+     
+ }
+ const changecategory=(val,index)=>{
+      const curvalue=[...category];
+      curvalue[index]=val.target.value;
+      setCategory(curvalue);
+     
+ }
+ const changeinterest=(val,index)=>{
+      const curvalue=[...interest];
+      curvalue[index]=val.target.value;
+      setInterest(curvalue);
+     
+ }
+ const changesmedia=(val,index)=>{
+      const curvalue=[...smedia];
+      curvalue[index]=val.target.value;
+      setSmedia(curvalue);
+     
+ }
+ const changesmedialinks=(val,index)=>{
+      const curvalue=[...smedialinks];
+      curvalue[index]=val.target.value;
+      setSmedialinks(curvalue);
+     
+ }
+ const changesocialmedia=(val,index)=>{
+      const curvalue=[...socialmedia];
+      curvalue[index]=val.target.value;
+      setSocialmedia(curvalue);
+     
+ }
+ const changeservices=(val,index)=>{
+      const curvalue=[...services];
+      curvalue[index]=val.target.value;
+      setServices(curvalue);
+     
+ }
+ const changeprices=(val,index)=>{
+      const curvalue=[...prices];
+      curvalue[index]=val.target.value;
+      setPrices(curvalue);
+     
+ }
+
+
   console.log(data);
+  console.log(lang);
+  
 
   const [state, setState] = useState(1);
 
@@ -120,6 +195,10 @@ const registration = () => {
     console.log(city);
   }, [city]);
 
+
+  
+   
+
   return (
     <>
       <Navbar />
@@ -137,7 +216,7 @@ const registration = () => {
             </div>
             <div className={styles.file_upload}>
               <input type="file" id={styles.file} accept="image/*" />
-              <p className={styles.file_btn}> Upload Photo </p>
+              <div className={styles.file_btn}><p>Upload Photo</p>  </div>
             </div>
           </form>
         </div>
@@ -224,7 +303,7 @@ const registration = () => {
                 <select
                   id={styles.selection}
                   name="language"
-                  onChange={(e) => handlechange(e, index)}
+                  onChange={(e) => changelanguage(e, index)}
                 >
                   <option value="" disabled hidden selected>
                     Select
@@ -239,7 +318,7 @@ const registration = () => {
                   src={deletes}
                   id={styles.deleteicon}
                   onClick={()=>deletelanguage(index)}
-                ></Image>
+                ></Image> 
               </div>
             ))}{" "}
           </div>
@@ -255,12 +334,12 @@ const registration = () => {
                 <b id={styles.mark}>State</b>
               </label>
               <br />
-              {statecount.map((elem) => (
+              {statecount.map((elem,index) => (
                 <div className={styles.allstates}>
                   <select
                     name="states"
                     id={styles.select_state}
-                    onChange={(e) => setState(e.target.value)}
+                    onChange={(e) => changestate(e,index)}
                   >
                     {states.map((elem, key) => (
                       <>
@@ -285,7 +364,7 @@ const registration = () => {
               <br />
               {statecount.map((elem, index) => (
                 <div className={styles.allcities}>
-                  <select name="city" id={styles.select_city}>
+                  <select name="city" id={styles.select_city} onChange={(e) => changecity(e,index)}>
                     <option value="" disabled selected hidden>
                       Select
                     </option>
@@ -391,12 +470,12 @@ const registration = () => {
             <br />
             {categorycount.map((element, index) => (
               <div id={styles.select}>
-                <select name="category">
-                  {influencerCategory.map((elem) => (
-                    <>
+                <select name="category" onChange={(e)=>changecategory(e,index)}>
                       <option value="" disabled hidden selected>
                         Select
                       </option>
+                  {influencerCategory.map((elem) => (
+                    <>
                       <option>{elem}</option>
                     </>
                   ))}
@@ -414,6 +493,8 @@ const registration = () => {
           </div>
 
           {/* Interest */}
+
+
           <div id={styles.dropdown}>
             <label for="industry">
               <b id={styles.mark}>Interest</b>
@@ -421,7 +502,7 @@ const registration = () => {
             <br />
             {interestcount.map((elem,index) => (
               <div id={styles.select}>
-                <select name="category">
+                <select name="category" onChange={(e) => changeinterest(e,index)}>
                   <option value="" selected hidden disabled>
                     Select
                   </option>
@@ -467,8 +548,8 @@ const registration = () => {
             </label>
             <br />
             <div className={styles.agency_btn}>
-              <button id={styles.butn}>Yes</button>
-              <button id={styles.butn}>No</button>
+              <button id={styles.butn} value={true}>Yes</button>
+              <button id={styles.butn} value={false}>No</button>
             </div>
           </div>
 
@@ -482,7 +563,7 @@ const registration = () => {
               <br />
               {mediacount.map((val, key) => (
                 <div className={styles.all_media}>
-                  <select name="language" id={styles.select_city}>
+                  <select name="language" id={styles.select_city} onChange={(e) => changesmedia(e,index)}>
                     <option value="" disabled hidden selected>
                       Select
                     </option>
@@ -504,8 +585,8 @@ const registration = () => {
                   <input
                     type="text"
                     placeholder="https://www.instagram.com"
-                    name="emzil"
-                    required
+                    name="emzil" onChange={(e) => changesmedialinks(e,key)}
+                    required 
                   />{" "}
                   <Image
                     src={deletes}
@@ -526,9 +607,9 @@ const registration = () => {
                 <b id={styles.mark}>Social Media</b>
               </label>
               <br />
-              {servicecount.map((key) => (
+              {servicecount.map((elem,key) => (
                 <div>
-                  <select name="social_media" id={styles.select_media}>
+                  <select name="social_media" id={styles.select_media} onChange={(e) => changesocialmedia(e,key)}>
                     <option hidden selected disabled>
                       Select
                     </option>
@@ -545,9 +626,9 @@ const registration = () => {
                 <b id={styles.mark}>Service</b>
               </label>
               <br />
-              {servicecount.map((key) => (
+              {servicecount.map((val,index) => (
                 <div>
-                  <select name="social_media" id={styles.select_media}>
+                  <select name="social_media" id={styles.select_media} onChange={(e) => changeservices(e,index)}>
                     <option selected disabled hidden>
                       Select
                     </option>
@@ -570,7 +651,7 @@ const registration = () => {
                     type="number"
                     placeholder="₹ 1500"
                     
-                    onChange={(e) => handlechange(e)}
+                    onChange={(e) => changeprices(e,key)}
                   />
                   <Image
                     src={deletes}
