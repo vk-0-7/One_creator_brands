@@ -24,6 +24,10 @@
     /* border: 1px solid black;  */
     height: 260px;
     width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .main_text {
@@ -32,13 +36,13 @@
     text-align: center;
     margin-top: 10px;
     font-weight: 500;
+    width: max-content;
+    /* border: 1px solid black; */
+    line-height: 60px;
 
 }
 
-.class{
-    height: 30rem;
-    background-color: black;
-}
+
 
 .form {
     height: 62px;
@@ -137,7 +141,7 @@
     color: rgb(190, 52, 85);
    
     font-style: normal;
-    font-weight: bold;
+    font-weight: 580;
     padding: 0px 12px 0px 12px;
 }
 #greater_icon{

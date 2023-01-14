@@ -3,7 +3,7 @@ import Image from "next/image"
 import facebook from "../icons/facebook.svg"
 import insta from "../icons/insta.svg"
 import twitter from "../icons/twitter.svg"
-
+import Link from 'next/link'
 import footr from "../Images/footer.png"
 
 const footer = () => {
@@ -36,7 +36,7 @@ const footer = () => {
 </div>
 
   <div className={styles.footerIm}>
-     <Image className={styles.ftr} src={footr} alt="logo.png"/>
+    <Link href='https://cftlabs.org/?utm_source=discoverinfluencer.in&utm_medium=platform_icon&utm_campaign=partner' target='_blank'> <Image className={styles.ftr} src={footr} alt="logo.png"/> </Link>
   </div>
     </div>
     

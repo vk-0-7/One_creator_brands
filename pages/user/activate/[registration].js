@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Script from "next/script";
 import Image from "next/image";
+import frame from "../../../Images/frame.png"
 import deletes from "../../../icons/delete.svg";
 import { states } from "../../../Data/places";
 import { Service } from "../../../Data/data";
@@ -15,6 +16,52 @@ import { s_a } from "../../../Data/places";
 import languages from "../../../Data/language";
 
 const registration = () => {
+
+
+  const deleteImg=()=>{
+    let uploadButton = document.getElementById("upload-button");
+    let chosenImage = document.getElementById("chosen-image");
+    chosenImage.src=''
+    uploadButton.value='';
+  }
+
+  useEffect(() => {
+
+    let uploadButton = document.getElementById("upload-button");
+    let chosenImage = document.getElementById("chosen-image");
+    let fileName = document.getElementById("file-name");
+    let usericon = document.getElementById("usericon");
+    let addnewimg = document.getElementById("addnewimg");
+    let deleteimg=document.getElementById('deleteimg');
+    
+    // deleteimg.addEventListener('onclick',uploadButton.value='')
+    
+    uploadButton.onchange = () => {
+         addnewimg.style.visibility='visible'
+         deleteimg.style.visibility='visible'
+         let reader = new FileReader();
+        reader.readAsDataURL(uploadButton.files[0]);
+        reader.onload = () => {
+            chosenImage.setAttribute("src",reader.result);
+        }
+        // fileName.textContent = uploadButton.files[0].name;
+    }
+
+   
+
+
+
+    
+    const abc=document.getElementById('btn1')
+    const bcd=document.getElementById('btn2')
+       abc.addEventListener('click',()=>abc.style.backgroundColor='rgb(190, 52, 85)')
+       abc.addEventListener('click',()=>bcd.style.backgroundColor='white')
+       abc.addEventListener('click',()=>bcd.style.color='black')
+       bcd.addEventListener('click',()=>bcd.style.backgroundColor='rgb(190, 52, 85)')
+       bcd.addEventListener('click',()=>abc.style.backgroundColor='white')
+       bcd.addEventListener('click',()=>abc.style.color='black')
+  
+  }, [])
 
 
   const [lang,setLang]=useState([]);
@@ -212,11 +259,18 @@ const registration = () => {
           </p>
           <form className={styles.form}>
             <div className={styles.icn}>
-              <FontAwesomeIcon icon={faUser} className={styles.usericon} />
+            
+            <figure class="image-container" >
+            
+          <img id="chosen-image" className={styles.image} />
+          <FontAwesomeIcon  icon={faUser} id='usericon' className={styles.usericn}/>
+      </figure>
             </div>
             <div className={styles.file_upload}>
-              <input type="file" id={styles.file} accept="image/*" />
+              <input type="file" className={styles.file} id="upload-button" accept="image/*" />
               <div className={styles.file_btn}><p>Upload Photo</p>  </div>
+              <div className={styles.file_btn2} id='addnewimg'><p>Upload New Photo</p>  </div>
+              <div className={styles.file_btn3} id='deleteimg' onClick={deleteImg}><p>Delete</p>  </div>
             </div>
           </form>
         </div>
@@ -548,8 +602,8 @@ const registration = () => {
             </label>
             <br />
             <div className={styles.agency_btn}>
-              <button id={styles.butn} className={styles.yesbtn} value={true}>Yes</button>
-              <button id={styles.butn} className={styles.nobtn} value={false} >No</button>
+              <button id='btn1' className={styles.yesbtn} value={true}>Yes</button>
+              <button id='btn2' className={styles.nobtn} value={false} >No</button>
             </div>
           </div>
 

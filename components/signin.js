@@ -1,9 +1,11 @@
    import styles from "../styles/signin.module.css";
-   import {useState} from "react";
+   import {useState,useEffect} from "react";
    import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
    import { faXmark } from '@fortawesome/free-solid-svg-icons'
    import Link from "next/link"
+   import Script from "next/script";
    import Head from "next/head";
+   
 import axios from "axios";
 import React from "react";
   
@@ -13,6 +15,9 @@ const [user, setUser] = useState({
   email:"",
   password:""
 });
+
+
+
 
 const handlechange=(e)=>{
      const {name,value} =e.target
@@ -25,6 +30,9 @@ const handlechange=(e)=>{
     const LOGIN_API='https://backend.discoverinfluencer.in/user/login'
 
     const login= async ()=>{
+
+       
+
         const {email,password}=user;
 
         if(email && password){
@@ -43,7 +51,7 @@ const handlechange=(e)=>{
 
   return (
     <>
-    
+   
      
       { show ? <div className={styles.signin_box} id={styles.center}>
         <p className={styles.mainText}>Sign in</p>
