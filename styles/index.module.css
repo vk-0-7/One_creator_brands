@@ -164,6 +164,12 @@
 
 
 }
+.box2_carousel a{
+   text-decoration: none;
+}
+.box3_carousel a{
+   text-decoration: none;
+}
 
 .card {
     margin: 0px 0px;
@@ -236,8 +242,8 @@
 
 
 #arrow{
-    height: 15px;
-    width: 15px;
+    height: 40px;
+    width: 40px;
     color: rgb(255, 255, 255);
     background-color:#BE3455;
     padding: 12px;
@@ -261,15 +267,15 @@
     border-radius: 50%;
 }
 #arrw{
-    height: 15px;
-    width: 15px;
+    height: 40px;
+    width: 40px;
     color: rgb(255, 255, 255);
     background-color:#BE3455;
     padding: 12px;
     z-index: 1 !important;
     position: relative;
     bottom: 30px;
-    left: 5px;
+    left: 12px;
     border-radius: 50%;
 
 }

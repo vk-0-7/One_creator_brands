@@ -213,7 +213,7 @@ const index = () => {
        <title>
          Discover Influencers | Search by Name, Username, Category, City | Top Creators in India
        </title>
-       {/* <link rel="icon" href="/favicon.ico"  /> */}
+       <link rel="icon" href="/favicon.ico"  />
        <link rel="preconnect" href="https://fonts.googleapis.com"/> 
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     
@@ -257,10 +257,10 @@ const index = () => {
          <p>see all influencers</p>  <FontAwesomeIcon id={styles.greater_icon} icon={faChevronRight} />
         </button> </Link>
         <p className={styles.txt}>Discover Top Influencers from the Country</p>
-        <div className={styles.box2_carousel}>
+        <div className={styles.box2_carousel} >
           <Slider dots={true} {...settings}>
             {topdata.map((item,key) => (
-              <div className={styles.card}>
+                  <Link href='/userDetails'> <div className={styles.card}>
                 <div className={styles.card_top} key={key}>
                   <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>
                   <h1>{item.name}</h1>
@@ -298,7 +298,7 @@ const index = () => {
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> </Link> 
             ))}
           </Slider>
         </div>
@@ -311,10 +311,10 @@ const index = () => {
         <p className={styles.top_influencer}>Discover New Influencers Faster</p>
        
         <p className={styles.txt}>Discover the Newest Influencers from the Country</p>
-        <div className={styles.box2_carousel}>
+        <div className={styles.box2_carousel} >
           <Slider dots={true} {...settings}>
             {newdata.map((item,key) => (
-              <div className={styles.card}>
+                 <Link href='/userDetails' >  <div className={styles.card}>
                 <div className={styles.card_top} key={key}>
                   <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>
                   <h1>{item.name}</h1>
@@ -352,7 +352,7 @@ const index = () => {
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> </Link>
             ))}
           </Slider>
         </div>
@@ -369,12 +369,12 @@ const index = () => {
         <div className={styles.box3_carousel}>
           <Slider dots={true} {...setting  }>
             {ImagesDivThree.map((item,key) => (
-              <div className={styles.card2} key={key}>
+             <Link href='/searchInfluencer'>  <div className={styles.card2} key={key}>
                 <div className={styles.card_top2} >
                   <Image src={item.Img} alt={item.title} width="300" height="400" priority ></Image>
                   <p className={styles.category_name}>{item.category}</p>
                 </div>
-              </div>
+              </div> </Link>
             ))}
           </Slider>
         </div>

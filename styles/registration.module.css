@@ -1,12 +1,16 @@
 .main_div{
     padding: 20px;
     height: max-content;
-    width: 40vw;
+    width: 80vw;
     /* border: 1px solid black; */
     position: absolute;
     top: 16vh;
     left: 11vw;
    
+}
+
+.main_div select{
+    line-height: 20px;
 }
 .main_div label{
     margin-left: 5px;
@@ -17,13 +21,10 @@
     font-size: 2rem;
     margin-bottom: 25px;
 }
-.info_profileimg > h4{
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-}
-.info_profileimg > h6{
-    font-size: 0.95rem;
-   
+
+.info_profileimg > p{
+    font-size: 0.94rem;
+    word-spacing: 2px;
     font-style: normal;
     font-weight: 300;
     margin-bottom: 20px;
@@ -71,7 +72,61 @@
     width: max-content;
     color: rgb(133, 130, 130);
     cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    
 }
+
+#add_another h5{
+    font-weight: 200;
+    
+}
+
+.number_main{
+    display: flex;
+    flex-direction: row;
+}
+.mobile_checkbox{
+    line-height: 15px;
+    padding-top: 30px;
+  margin-left: 80px;
+  /* border: 1px solid fuchsia; */
+}
+.email_main{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.email_checkbox{
+    line-height: 15px;
+ padding-top: 30px;
+  margin-left: 80px;
+  /* border: 1px solid rebeccapurple; */
+}
+
+.email_checkbox h6 ,.mobile_checkbox h6{
+    margin-left: 15px;
+    margin-top: 5px;
+    color: grey;
+    font-size: 0.8rem;
+    
+    font-style: normal;
+    font-weight: lighter;
+}
+.email_checkbox p ,.mobile_checkbox p{
+    margin-left: 4px;
+    font-size: 0.9rem;
+    
+}
+#ckbx{
+    display: flex;
+}
+
+/* .number{
+    padding-right: 10px;
+   
+} */
+
 
 .file_btn{
     position: relative;
@@ -79,12 +134,15 @@
     left: 18px;
     height: 35px;
     width: 110px;
-    z-index: -10;
+    
     background-color: black;
     color: white;
-    padding: 9px 0px 0px 15px;
+    /* padding: 9px 0px 0px 15px; */
     border-radius: 8px;
     font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -92,13 +150,21 @@
     margin-top: 20px;
     /* border: 1px solid red; */
 }
-#register{
+
+#dropdown{
+    margin-top: 12px;
+    margin-left: 2px;
+    width: 492px;
     /* border: 1px solid red; */
-    margin-top: 5px;
+}
+#register{
+    width:452px;
+    /* border: 1px solid red; */
+    margin-top: 8px;
     padding: 5px;
 }
 #inpt{
-    height: 38px;
+    height: 45px;
     width: 452px;
     border: 2px solid #F0F0F0;
     border-radius: 12px;
@@ -107,36 +173,77 @@
     margin-top: 4px;
     
 }
+.business label b{
+    font-size: 0.95rem;
+    margin-left: 5px;
+    font-weight: normal;
+   
+    color: black;
+}
+
+.brands{
+    margin-top: 10px;
+}
+.brands label b{
+    font-size: 0.95rem;
+    margin-left: 5px;
+    font-weight: normal;
+   
+    color: black;
+}
 
 .state_city{
+    width: 492px;
     /* border: 1px solid red; */
     margin-top: 8px;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
 }
+.allstates{
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid red; */
+
+}
+.allcities{
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid red; */
+    /* padding-right: 3px; */
+
+}
+/* .state{
+    border: 1px solid black;
+}
+/* .city{
+    border: 1px solid rgb(62, 240, 26);
+} */ 
+
 #select_city , #select_state{
-    height: 38px;
-    width: 220px;
+    height: 45px;
+    width: 218px;
     border: 2px solid #F0F0F0;
     border-radius: 12px;
     padding-left: 10px;
     font-size: 0.8rem;
-  
-    margin: 4px 12px 0px 3px;
+   
+    margin: 4px 10px 0px 3px;
 }
 
 .city >label{
     margin-left: 8px;
     
 }
-#select_language{
-  margin-top: 5px;
-}
+
 
 
 #mark{
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     margin-left: 5px;
+    font-weight: normal;
+   
+    color: black;
 }
 
 
@@ -147,34 +254,106 @@
     margin-top: 10px;
 }
 
-.language{
+#select , .category , .interest{
+    margin-top: 3px !important;
+    margin-bottom: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    /* border: 1px solid red; */
+    
+}
+#select{
+    width: 492px;
+    display: flex;
+    /* border: 1px solid black; */
+}
+#select select {
+    width: 92.5% !important;
+    
+    border: 1px solid rgb(30, 183, 27);
+}
+
+
+
+#deleteicon{
+    height: 18px;
+    width: 18px;
+    margin-top: 10px;
+    margin-left: 5px;
+  
+}
+#deleteicon2{
+    height: 18px;
+    width: 18px;
+    margin-top: 14px;
+    margin-left: -2px;
+  
+}
+
+
+#select select,.language  select, .allcities select,.allstates select,#select_city,#select_media{
+    -webkit-appearance: none;
+    appearance: none;
+    
+
+   
+}
+.allcities select,.allstates select,#select_city{
+    background-image: url('../icons/arrow-down.svg');
+    background-repeat: no-repeat;
+    font-size: 0.8rem;
+    background-size: 15px;
+    background-position: 190px 12px;
+}
+
+
+
+#select_media{
+    background-image: url('../icons/arrow-down.svg');
+    background-repeat: no-repeat;
+    font-size: 0.8rem;
+    background-size: 15px;
+    background-position: 112px 12px;
+}
+
+
+#select select{
+    height: 45px;
+    width:100%;
+    border: 2px solid #f1f0f0;
+    border-radius: 12px;
+    padding-left: 10px;
+    background-image: url('../icons/arrow-down.svg');
+    background-repeat: no-repeat;
+    font-size: 0.8rem;
+    background-size: 15px;
+    background-position: 425px 12px;
+    
+}
+.interest{
+    margin-top: 4px;
+}
+.agency{
     margin-top: 10px;
 }
 
-#select_language{
-    height: 38px;
-    width: 452px;
-    border: 2px solid #F0F0F0;
-    border-radius: 12px;
-    padding-left: 10px;
-    font-size: 0.8rem;
-    
-}
+
 
 .agency_btn{
+    
     display: flex;
 
 }
 .agency_btn button{
     cursor: pointer;
-    height: 38px;
-    width: 220px;
+    height: 45px;
+    width: 225px;
     border: 2px solid #F0F0F0;
     background-color: white;
     border-radius: 12px;
     padding-left: 10px;
     font-size: 0.95rem;
-    margin-right: 12px;
+    margin-right: 5px;
     margin-left: 3px;
     margin-top: 5px;
     display: flex;
@@ -190,16 +369,18 @@
 .social_media{
     display: flex;
     flex-wrap: wrap;
-    margin-top: 9px;
+    margin-top: 12px;
+    /* border: 1px solid red; */
+    width: 492px;
 }
 .medialink input{
-    height: 38px;
+    height: 45px;
     width: 220px;
     border: 2px solid #F0F0F0;
     border-radius: 12px;
-    padding-left: 10px;
+    padding-inline: 10px;
     font-size: 0.8rem;
-    margin-right: 12px;
+    margin-right: 1px;
     margin-left: 3px;
     margin-top: 4px;
 }
@@ -207,15 +388,17 @@
     display: flex;
     margin-top: 4px;
     flex-wrap: wrap;
+    width: 492px;
+    /* border: 1px solid red; */
 
 }
 #last{
     margin-top: 8px;
-    height: 60px;
+    height: 100%;
     /* border: 1px solid red; */
 }
 #last input ,#last select{
-    height: 38px;
+    height: 45px;
     width: 140px;
     border: 2px solid #F0F0F0;
     border-radius: 12px;
@@ -227,10 +410,12 @@
 }
 .terms_and_condition{
     display: flex;
-   
+    width: 400px;
     margin-top: 30px;
+    margin-left: 28px;
     align-items: center;
     justify-content: center;
+    font-size: 0.9rem;
 }
 .terms_and_condition input{
     margin-right: 5px;
@@ -286,7 +471,7 @@
     
 
     #inpt{
-        height: 38px;
+        height: 45px;
         width: 100%;
         border: 2px solid #F0F0F0;
         border-radius: 12px;
@@ -295,15 +480,7 @@
         margin-top: 4px;
         
     }
-    #select_language{
-        height: 38px;
-        width: 100%;
-        border: 2px solid #F0F0F0;
-        border-radius: 12px;
-        padding-left: 10px;
-        font-size: 0.8rem;
-        
-    }
+   
     #last input ,#last select{
        
         width: 110px;

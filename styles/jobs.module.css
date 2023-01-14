@@ -174,7 +174,7 @@
    top: 190px;
    right: 7vw;
    display: flex;
-   flex-direction: row-reverse;
+   flex-direction: row;
    
    flex-wrap: wrap;
    flex-shrink: 0.5;

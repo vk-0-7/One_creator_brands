@@ -83,7 +83,7 @@ const userDetails = () => {
   <div className={styles.price_and_contact}>
      
       <div className={styles.contact_btn}>
-        <button><FontAwesomeIcon  icon={faEnvelope} className={styles.envelope}/> conatct Me</button>
+        <button><FontAwesomeIcon  icon={faEnvelope} className={styles.envelope}/><p> conatct Me </p></button>
       </div>
 
   </div>

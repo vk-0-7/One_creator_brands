@@ -23,6 +23,8 @@
     height: 30px;
     padding-bottom: 5px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: 
     rgba(190, 52, 85, 0.1);
     border: none;
@@ -32,9 +34,15 @@
     
 }
 #vector{
- height: 17px;
+ height: 13px;
+ width: 13px;
  width: auto;
  padding-right: 3px;
+
+}
+
+#category p{
+    font-size: 0.9rem;
 
 }
 .userImage{
@@ -161,6 +169,13 @@
         border-radius: 17px;
         padding: 3px;
     }
+
+    .envelope{
+        height: 13px;
+        width: 13px;
+        margin-right: 4px;
+        margin-top: 0px;
+    }
     
     .contact_btn{
         height: 32px;
@@ -175,6 +190,9 @@
         margin-top: 5px;
         margin-left: 9px;
         color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .performances{
         display: flex;
