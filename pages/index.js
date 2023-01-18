@@ -97,6 +97,7 @@ const index = () => {
             const res= await axios.get('https://backend.discoverinfluencer.in/user/top');
             const data=res.data.topUsers;
             setTopdata(data)
+            console.log(res);
             const response= await axios.get('https://backend.discoverinfluencer.in/user/all');
             const datas=response.data.users;
             setNewdata(datas)
@@ -314,7 +315,7 @@ const index = () => {
         <div className={styles.box2_carousel} >
           <Slider dots={true} {...settings}>
             {newdata.map((item,key) => (
-                 <Link href='/userDetails' >  <div className={styles.card}>
+                 <Link href={`/${item._id}`} >  <div className={styles.card}>
                 <div className={styles.card_top} key={key}>
                   <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>
                   <h1>{item.name}</h1>

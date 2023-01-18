@@ -16,29 +16,29 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 
-//  const abc =async () =>{
-//   const res= await axios.get('https://backend.discoverinfluencer.in/user/all');
-//   const datas=res.data.users;
+ export  async function getStaticPaths  () {
+  const res= await axios.get('https://backend.discoverinfluencer.in/user/all');
+  const datas=res.data.users;
 
-//    console.log(datas);
+  //  console.log(datas);
      
 
 
-        // const paths=datas.map((elem)=>{
-        //   return{
-        //     params:{
-        //       username:elem._id,
-        //     },
-        //   }
-        // })
+        const paths=datas.map((elem)=>(
+          {
+            params:{
+              username:elem._id,
+            },
+          }
+        ))
        
 
 
-        //     return {
-        //       paths,
-        //       fallback:false,
-        //     }
-// }
+            return {
+              paths,
+              fallback:false,
+            }
+}
 
 
 
@@ -57,22 +57,27 @@ import axios from "axios";
 
 
 
-export const getStaticPaths =() =>{
+// export const getStaticPaths =() =>{
 
-   return{
-    paths:[
+//    return{
+//     paths:[
 
-      {
-        params:{
-          username:'63b809bc5c4828c3871ad849'
-        }
-      }
+//       {
+//         params:{
+//           username:'63b809bc5c4828c3871ad849'
+//         }
+//       },
+//       {
+//         params:{
+//           username:'63c051099390b34609e62e58'
+//         }
+//       }
      
-    ],
-    fallback :true
-   }
+//     ],
+//     fallback :true
+//    }
 
-}
+// }
 
 export const getStaticProps =async({params}) =>{
 
@@ -95,9 +100,7 @@ const userDetails = ({data}) => {
   return (
     <>
     
-   {language.map((elem,ind) =>{
-        console.log(elem)
-   })}
+  
   {/* {console.log(datas.name)} */}
     <Navbar1/>
       <div className={styles.leftBox}>
@@ -111,7 +114,7 @@ const userDetails = ({data}) => {
       </div>
 
          <div className={styles.userImage}>
-          <Image className={styles.Image} src={data.user[0].profilePic} width='400' height='400'></Image>
+          <Image className={styles.Image} src={datas.profilePic} width='400' height='400'></Image>
          </div>
          <div className={styles.details}>
       <p className={styles.name}>{datas.name} <br /> Business Name/Alias</p>
