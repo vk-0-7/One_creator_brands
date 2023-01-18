@@ -97,8 +97,9 @@
 
 
 .file_btn{
+    padding-block: 10px;
     margin-left: 8px;
-    height: 34px;
+    height: max-content;
     width: max-content;
     padding-inline: 10px;
     background-color: black;
@@ -114,9 +115,10 @@
     position: relative;
     bottom: 35px;
    visibility: hidden;
-    margin-left: 8px;
+    margin-inline: 8px;
     padding-inline: 10px;
-    height: 38px;
+    padding-block: 12px;
+    height: max-content;
     width: max-content;
     background-color:rgb(190, 52, 85);
     color: rgb(255, 255, 255);
@@ -131,7 +133,7 @@
     cursor: pointer;
     position: relative;
     bottom: 72px;
-    left: 125px;
+    left: 9rem;
    visibility: hidden;
     margin-left: 8px;
     height: 38px;

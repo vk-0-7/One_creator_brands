@@ -33,11 +33,13 @@ const registration = () => {
     let fileName = document.getElementById("file-name");
     let usericon = document.getElementById("usericon");
     let addnewimg = document.getElementById("addnewimg");
+    let addimg = document.getElementById("addimg");
     let deleteimg=document.getElementById('deleteimg');
     
     // deleteimg.addEventListener('onclick',uploadButton.value='')
     
     uploadButton.onchange = () => {
+         addimg.style.visibility='hidden'
          addnewimg.style.visibility='visible'
          deleteimg.style.visibility='visible'
          let reader = new FileReader();
@@ -353,7 +355,7 @@ const registration = () => {
             </div>
             <div className={styles.file_upload}>
               <input type="file" className={styles.file} id="upload-button" accept="image/*" onchange={(e)=>setProfilePic(e.target.files)} />
-              <div className={styles.file_btn}><p>Upload Photo</p>  </div>
+              <div className={styles.file_btn} id='addimg'><p>Upload Photo</p>  </div>
               <div className={styles.file_btn2} id='addnewimg'><p>Upload New Photo</p>  </div>
               <div className={styles.file_btn3} id='deleteimg' onClick={deleteImg}><p>Delete</p>  </div>
             </div>
@@ -465,7 +467,7 @@ const registration = () => {
                 ></Image>  </div>
               </div>
             )})}
-             { languagecount.length<2  && <div id={styles.add_another}>
+             { languagecount.length<4  && <div id={styles.add_another}>
             <h5 onClick={addLanguage}>+ Add another Language</h5>
           </div>}
           </div>
@@ -636,7 +638,7 @@ const registration = () => {
               </div>
             ))}
           </div>
-          { categorycount.length<2  &&  <div id={styles.add_another}>
+          { categorycount.length<4 &&  <div id={styles.add_another}>
             <h5 onClick={addCategory}>+ Add another Category</h5>
           </div> }
 
@@ -666,7 +668,7 @@ const registration = () => {
               </div>
             ))}
           </div>
-          { interestcount.length<2  &&   <div id={styles.add_another}>
+          { interestcount.length<6  &&   <div id={styles.add_another}>
             <h5 onClick={addInterest}>+ Add another interest</h5>
           </div> }
 
@@ -745,7 +747,7 @@ const registration = () => {
               ))}
             </div>
           </div>
-          { mediacount.length<2  &&  <div id={styles.add_another}>
+          { mediacount.length<1  &&  <div id={styles.add_another}>
             <h5 onClick={addMedia}>+ Add another social media</h5>
           </div> }
 
@@ -810,7 +812,7 @@ const registration = () => {
               ))}
             </div>
           </div>
-          { servicecount.length<2  &&  <div id={styles.add_another}>
+          { servicecount.length<8  &&  <div id={styles.add_another}>
             <h5 onClick={addService}>+ Add another category</h5>
           </div> }
 
