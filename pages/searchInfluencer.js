@@ -98,21 +98,21 @@ const reqBody={
 }
 
  
- useEffect(() => {
+//  useEffect(() => {
    
   
    
-    axios.post('https://backend.discoverinfluencer.in/home/influencer_filters',reqBody).then(response =>{
-      // console.log(response.data.message);
-      setUserData(response.data.message)
-      // console.log(response.data.message)
+//     axios.post('https://backend.discoverinfluencer.in/home/influencer_filters',reqBody).then(response =>{
+//       // console.log(response.data.message);
+//       setUserData(response.data.message)
+//       // console.log(response.data.message)
 
-    }).catch(error=>{ console.log("Error during Login",error.message)})
+//     }).catch(error=>{ console.log("Error during Login",error.message)})
    
-    console.log(userData)
+//     console.log(userData)
    
   
- }, [reqBody])
+//  }, [reqBody])
 
  
    
