@@ -15,11 +15,23 @@ import {Interest} from "../Data/data"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Head from "next/head";
+import axios from "axios";
+
+ 
 
 
 
 
 const searchInfluencer = () => {
+
+
+  const [socialMedia,setSocialMedia] =useState([])
+  const [category,setCategory] =useState([]);
+  const [interest,setInterest] =useState([])
+  const [city,setCity] =useState({city:""})
+  const [gender,setGender] =useState()
+  
+  const [userData,setUserData]=useState([]);
 
    const [searchInf,setSearchInf] =useState("")
    const [searchIndustry,setSearchIndustry] =useState("")
@@ -29,10 +41,86 @@ const searchInfluencer = () => {
         setCount(count+3)
     }
    
+ const changeSocialMedia=(e)=>{
+      const {value,checked}=e.target;
+      // console.log(`${value} is ${checked}`)
+
+      if(checked)
+        setSocialMedia([...socialMedia,value])
+        else{
+         setSocialMedia(socialMedia.filter((e)=>e!==value))
+        }
+        
+
+ }
+ const changeCategory=(e)=>{
+
+      const {value,checked} =e.target;
+      if(checked)
+      setCategory([...category,value])
+      else{
+        setCategory(category.filter((e)=>e!==value))
+      }
+ }
+ const changeInterest=(e)=>{
+
+      const {value,checked} =e.target;
+      if(checked)
+      setInterest([...interest,value])
+      else{
+        setInterest(interest.filter((e)=>e!==value))
+      }
+ }
+
+ const changeCity=(e)=>{
+      const {name,value}=e.target;
+    setCity({
+      ...city,
+      [name]:value
+    })
+
+   }
+   const changeGender=(e)=>{
+
+    const {value,checked} =e.target;
+    if(checked)
+    setGender(value)
+    
+}
+
+const reqBody={
+  socialmedia:socialMedia,
+  category:category,
+  interest:interest,
+  gender:gender,
+  city:city.city
+
+}
+
+ 
+ useEffect(() => {
+   
+  
+   
+    axios.post('https://backend.discoverinfluencer.in/home/influencer_filters',reqBody).then(response =>{
+      // console.log(response.data.message);
+      setUserData(response.data.message)
+      // console.log(response.data.message)
+
+    }).catch(error=>{ console.log("Error during Login",error.message)})
+   
+    console.log(userData)
+   
+  
+ }, [reqBody])
+
+ 
+   
  
    
   return (
     <>
+     
     <Head>
         <title> SearchInfluencer-Filter</title>
         
@@ -48,25 +136,25 @@ const searchInfluencer = () => {
         
       <div className={styles.filter_category1} id={styles.filters}>
             <h3>Social media</h3>
-            <input type="checkbox" id={styles.instagram} name="instagram" value="insta"/>
+            <input type="checkbox" id={styles.instagram} name="instagram" value="Instagram" onChange={(e)=>changeSocialMedia(e)}/>
              <label for="instagram"> Instagram</label><br/>
 
-            <input type="checkbox" id={styles.facebook} name="facebook" value="facebook"/>
+            <input type="checkbox" id={styles.facebook} name="facebook" value="Facebook"  onChange={(e)=>changeSocialMedia(e)}/>
              <label for="facebook"> facebook</label><br/>
 
-            <input type="checkbox" id={styles.linkdin} name="Linkdin" value="linkdin"/>
+            <input type="checkbox" id={styles.linkdin} name="Linkdin" value="Linkdin"  onChange={(e)=>changeSocialMedia(e)}/>
              <label for="instagram"> Linkdin</label><br/>
 
-            <input type="checkbox" id={styles.snapchat} name="Snapchat" value="snapchat"/>
+            <input type="checkbox" id={styles.snapchat} name="Snapchat" value="Snapchat"  onChange={(e)=>changeSocialMedia(e)}/>
              <label for="Snapchat"> Snapchat</label><br/>
 
-            <input type="checkbox" id={styles.pinterest} name="Pinterest" value="pinterest"/>
+            <input type="checkbox" id={styles.pinterest} name="Pinterest" value="Pinterest"  onChange={(e)=>changeSocialMedia(e)}/>
              <label for="Pinterest"> Pinterest</label><br/>
 
-            <input type="checkbox" id={styles.youtube} name="Youtube" value="youtube"/>
+            <input type="checkbox" id={styles.youtube} name="Youtube" value="Youtube"  onChange={(e)=>changeSocialMedia(e)}/>
              <label for="Youtube"> Youtube</label><br/>
 
-            <input type="checkbox" id={styles.twitter} name="Twitter" value="Twitter"/>
+            <input type="checkbox" id={styles.twitter} name="Twitter" value="Twitter"  onChange={(e)=>changeSocialMedia(e)}/>
              <label for="Twitter"> Twitter</label><br/>
 
       </div>
@@ -87,9 +175,9 @@ const searchInfluencer = () => {
              return val
       }
       
-      ).map((elem) =>(
+      ).map((elem,key) =>(
          <>
-       <input type="checkbox" id={styles.checkbox} name="national_indian" value="national_indian"/>
+       <input type="checkbox" id={styles.checkbox} name="Influencer" value={elem} onChange={(e)=>changeCategory(e)}/>
         <label for="influencer"> {elem}</label><br/>
         </>
        
@@ -115,7 +203,8 @@ const searchInfluencer = () => {
 
       }).map((elem) =>(
        <>
-       <input type="checkbox" id={styles.checkbox} name="national_indian" value="national_indian"/>
+       <input type="checkbox" id={styles.checkbox} name="Interest" value={elem} onChange={(e)=>changeInterest(e)}
+       />
         <label for="influencer"> {elem}</label><br/>
         </>
        
@@ -128,20 +217,20 @@ const searchInfluencer = () => {
         <h3>City</h3>
         <div id={styles.search}>
       <Image src={searchn} id={styles.searchimg}></Image>
-       <input type="search" className={styles.citySearch} />
+       <input type="search" name="city" className={styles.citySearch} value={city.city} onChange={(e)=>changeCity(e)}/>
        </div>
      
       </div>
 
      <div className={styles.gender} id={styles.filters}>
          <h3>Gender</h3>
-         <input type="checkbox" id={styles.checkbox}  value=""/>
+         <input type="checkbox" id={styles.checkbox}  value="male" onChange={(e)=>changeGender(e)}/>
         <label for="influencer"> Male</label><br/>
 
-        <input type="checkbox" id={styles.checkbox}  value=""/>
+        <input type="checkbox" id={styles.checkbox}  value="female"  onChange={(e)=>changeGender(e)}/>
         <label for="influencer"> Female</label><br/>
 
-        <input type="checkbox" id={styles.checkbox}  value=""/>
+        <input type="checkbox" id={styles.checkbox}  value="nonbinary"  onChange={(e)=>changeGender(e)}/>
         <label for="influencer"> nonbinary</label><br/>
 
      </div>
@@ -164,14 +253,14 @@ const searchInfluencer = () => {
     
     <div className={styles.all_profiles_div}>
      
-    {Coursesdata.slice(0,count).map((item) => (
+    {userData.slice(0,count).map((item) => (
             <Link href='/userDetails'> <div className={styles.card}>
                 <div className={styles.card_top}>
-                  <Image src={item.Imglink} alt={item.title} width="400" height="300"></Image>
-                  <h1>First and Last Name</h1>
+                  <Image src={item.profilePic} alt={item.title} width="400" height="300"></Image>
+                  <h1>{item.username}</h1>
                 </div>
                 <div className={styles.card_bottom}>
-                  <h4>Categories</h4>
+                  <h4>{item.category[0]}</h4>
                   <div className={styles.icon_btn_all}>
                    
                     <button>

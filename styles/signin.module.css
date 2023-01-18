@@ -118,8 +118,8 @@
     width: 37%;
     background: rgb(205, 199, 199);
     display: block;
-    position: absolute;
-    top: 265px;
+    position: relative;
+    top: 0.5rem;
     left: 20px;
   }
 .or:after{
@@ -128,9 +128,9 @@
     width: 37%;
     background: rgb(205, 199, 199);
     display: block;
-    position: absolute;
-    top: 265px;
-    right: 20px;
+    position: relative;
+    bottom: 1rem;
+    left: 14rem;
   }
 
 .signup_btn{

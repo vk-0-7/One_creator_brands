@@ -198,7 +198,7 @@ const index = () => {
   return (
     <>
     {console.log(topdata)}
-    {console.log(newdata)}
+    {/* {console.log(newdata[0])} */}
       <Head>
        <meta name="description" content="Discover Influencer"/>
        </Head>
@@ -253,14 +253,14 @@ const index = () => {
 
       <div className={styles.second_div}>
         <p className={styles.top_influencer}>Top Influencers</p>
-       <Link href='/searchInfluencer'> <button className={styles.see_all_btn}>
+        <Link href='/searchInfluencer'> <button className={styles.see_all_btn}>
          <p>see all influencers</p>  <FontAwesomeIcon id={styles.greater_icon} icon={faChevronRight} />
         </button> </Link>
         <p className={styles.txt}>Discover Top Influencers from the Country</p>
         <div className={styles.box2_carousel} >
           <Slider dots={true} {...settings}>
             {topdata.map((item,key) => (
-                  <Link href='/userDetails'> <div className={styles.card}>
+                  <Link href={`/${item._id}`}> <div className={styles.card}>
                 <div className={styles.card_top} key={key}>
                   <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>
                   <h1>{item.name}</h1>

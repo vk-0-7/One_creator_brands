@@ -28,9 +28,9 @@ const footer = () => {
 
      </div>
 <div className={styles.media_icons}>
-     <div id={styles.icon_box}> <Image id={styles.icon} src={facebook} alt="icon.png"></Image> </div>
-     <div id={styles.icon_box}> <Image id={styles.icon} src={insta} alt="icon.png"></Image> </div>
-     <div id={styles.icon_box}> <Image id={styles.icon} src={twitter} alt="icon.png"></Image> </div>
+     {/* <div id={styles.icon_box}> <Image id={styles.icon} src={facebook} alt="icon.png"></Image> </div> */}
+  <div id={styles.icon_box}><Link href='https://www.instagram.com/discoverinfluencer.in'> <Image id={styles.icon} src={insta} alt="icon.png"></Image> </Link></div>
+     {/* <div id={styles.icon_box}> <Image id={styles.icon} src={twitter} alt="icon.png"></Image> </div> */}
       
 
 </div>

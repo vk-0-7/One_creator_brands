@@ -99,7 +99,8 @@
 .file_btn{
     margin-left: 8px;
     height: 34px;
-    width: 100px;
+    width: max-content;
+    padding-inline: 10px;
     background-color: black;
     color: white;
     
@@ -114,8 +115,9 @@
     bottom: 35px;
    visibility: hidden;
     margin-left: 8px;
+    padding-inline: 10px;
     height: 38px;
-    width: 115px;
+    width: max-content;
     background-color:rgb(190, 52, 85);
     color: rgb(255, 255, 255);
     
@@ -161,6 +163,7 @@
 }
 
 .number_main{
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
 }
@@ -565,8 +568,9 @@
         width: 100%;
         border-radius: 13px;
         border: none;
-        background-color: 
-        rgba(41, 45, 50, 1);
+        
+        background-color: rgba(41, 45, 50,0.5);
+;
         color: white;
     }
 }

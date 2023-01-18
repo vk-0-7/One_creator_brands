@@ -14,6 +14,7 @@ import { influencerCategory } from "../../../Data/data";
 import { Interest } from "../../../Data/data";
 import { s_a } from "../../../Data/places";
 import languages from "../../../Data/language";
+import axios from "axios";
 
 const registration = () => {
 
@@ -48,9 +49,6 @@ const registration = () => {
     }
 
    
-
-
-
     
     const abc=document.getElementById('btn1')
     const bcd=document.getElementById('btn2')
@@ -63,7 +61,16 @@ const registration = () => {
   
   }, [])
 
+  const[isshowmobile,setIsShowmobile] =useState(false)
+  const[isshowemail,setIsShowemail] =useState(false)
+  const[isagency,setIsagency] =useState()
 
+  const[isconfirm,setIsconfirm] =useState(false)
+  const [profilePic,setProfilePic] =useState('');
+   useEffect(()=>{
+    console.log(profilePic);
+
+   },[profilePic]) 
   const [lang,setLang]=useState([]);
   const [stt,setStt]=useState([]);
   const [cty,setCty]=useState([]);
@@ -77,23 +84,74 @@ const registration = () => {
  const [button,setButton] =useState();
    
 
-  const [data, setData] = useState({
-    name: "",
-    username: "",
-    business: "",
-    dob: "",
-    
-    
-    number: "",
-    email: "",
-    gender: '',
-   
-    brand: "",
-    isAgency: "",
-    checkbox: "",
-  });
 
-  const handlechange = (e, index) => {
+   const [data,setData]=useState({
+     name:"",
+     username:"",
+     business:"",
+     dob:"",
+    number:"",
+    email:"",
+    gender:"",
+    brands:"",
+   
+   
+   })
+
+   useEffect(() => {
+       if(isconfirm)
+       document.getElementById('createprofile_btn').style.backgroundColor='black'
+
+   }, [isconfirm])
+   
+
+
+
+
+
+  const  reqBody={
+    ProfilePic:profilePic,
+    name:data.name,
+    username:data.username,
+    business:data.business,
+    dob:data.dob,
+    number:data.number,
+    isshowmobile:isshowmobile,
+    email:data.email,
+    isshowemail:isshowemail,
+    gender:data.gender,
+    brand:data.brands,
+    isAgency:isagency,
+    termsAndCondition:data.termsAndCondition,
+    language:lang,
+    state:stt,
+    city:cty,
+    category:category,
+    interest:interest,
+    smedia:smedia,
+    smedialinks:smedialinks,
+    socialmedia:socialmedia,
+    services:services,
+    prices:prices,
+    isconfirm:isconfirm,
+   
+  };
+
+
+
+  console.log(reqBody);
+
+  const REG_API='https://backend.discoverinfluencer.in/user/register'
+
+  const createProfile=async()=>{
+    try {
+      await axios.post(REG_API,reqBody)
+    } catch (error) {
+       console.log("error during creating profile",error.message)
+    }
+  }
+
+  const handlechange = (e) => {
     const { name, value } = e.target;
     setData({
       ...data,
@@ -166,81 +224,108 @@ const registration = () => {
 
 
   console.log(data);
-  console.log(lang);
+  // console.log(lang);
   
 
-  const [state, setState] = useState(1);
+  const [state,setState]=useState(1)
 
   const [city, setCity] = useState([]);
 
-  const [languagecount, setLanguageCount] = useState([0]);
-  const [categorycount, setCategoryCount] = useState([0]);
-  const [interestcount, setInterestCount] = useState([0]);
-  const [statecount, setStateCount] = useState([0]);
-  const [mediacount, setMediaCount] = useState([0]);
-  const [servicecount, setServiceCount] = useState([0]);
+  const [languagecount, setLanguageCount] = useState(['']);
+  const [categorycount, setCategoryCount] = useState(['']);
+  const [interestcount, setInterestCount] = useState(['']);
+  const [statecount, setStateCount] = useState(['']);
+  const [mediacount, setMediaCount] = useState(['']);
+  const [servicecount, setServiceCount] = useState(['']);
 
   const addLanguage = () => {
-    const a = [...languagecount, []];
+    const a = [...languagecount, ''];
     setLanguageCount(a);
   };
-  const deletelanguage = (i) => {
-    const b = [...languagecount];
-    if(languagecount.length>1){ b.splice(i,1)}
-    setLanguageCount(b);
-  };
+  const deletelanguage = (index) => {
+    
+    const b = [...lang];
+    const c= [...languagecount];
+    if(lang.length>1){ b.splice(index,1);  c.splice(index,1) }
+    setLang(b);
+   
+    setLanguageCount(c);
+  }
+  
   const addCategory = () => {
     setCategoryCount([1, ...categorycount]);
   };
-  const deletecategory = (i) => {
-    const b = [...categorycount];
-    if(categorycount.length>1){ b.splice(i,1)}
-    setCategoryCount(b);  };
+  const deletecategory = (index) => {
+    const b = [...category];
+    const c = [...categorycount];
+    if(category.length>1){ b.splice(index,1); c.splice(index,1)}
+    setCategory(b);
+    setCategoryCount(c);  };
 
   const addInterest = () => {
     setInterestCount([1, ...interestcount]);
   };
 
-  const deleteinterest = (i) => {
-    const b = [...interestcount];
-    if(interestcount.length>1){ b.splice(i,1)}
-    setInterestCount(b);
+  const deleteinterest = (index) => {
+    const b = [...interest];
+    const c = [...interestcount];
+    if(interest.length>1){ b.splice(index,1); c.splice(index,1)}
+    setInterest(b);
+    setInterestCount(c);
   };
 
   const addState = () => {
     setStateCount([1, ...statecount]);
   };
-  const deleteplace = (i) => {
-    const b = [...statecount];
-    if(statecount.length>1){ b.splice(i,1)}
-    setStateCount(b);
+  const deleteplace = (index) => {
+    const a= [...stt];
+    const b= [...cty];
+    const c = [...statecount];
+    if(statecount.length>1){ b.splice(index,1); c.splice(index,1); a.splice(index,1)}
+    setStt(a)
+    setCty(b)
+    setStateCount(c)
   };
+
+  // const deleteplace = (i) => {
+  //   const b = [...statecount];
+  //   if(statecount.length>1){ b.splice(i,1)}
+  //   setStateCount(b);
+  // };
+
   const addMedia = () => {
     setMediaCount([1, ...mediacount]);
   };
 
-  const deletemedia = (i) => {
-    const b = [...mediacount];
-    if(mediacount.length>1){ b.splice(i,1)}
-    setMediaCount(b);  };
+  const deletemedia = (index) => {
+    const b = [...smedia];
+    const c = [...mediacount];
+    if(smedia.length>1){ b.splice(index,1); c.splice(index,1)}
+    setSmedia(b);
+    setMediaCount(c);  };
 
     const addService = () => {
       setServiceCount([1, ...servicecount]);
     };
 
-  const deleteservice = (i) => {
-    const b = [...servicecount];
-    if(mediacount.length>1){ b.splice(i,1)}   
-     setServiceCount(b);  };
+  const deleteservice = (index) => {
+    const a= [...socialmedia];
+    const b= [...services];
+    const c = [...servicecount];
+    if(servicecount.length>1){ a.splice(index,1); b.splice(index,1); c.splice(index,1)}
+    setSocialmedia(a);
+    setServices(b);
+    setServiceCount(c);
+      };
 
   useEffect(() => {
-    console.log(state);
+    // console.log(state);
     setCity(s_a[state].split("|"));
   }, [state]);
 
-  useEffect(() => {
-    console.log(city);
-  }, [city]);
+  // useEffect(() => {
+  //   console.log(city);
+  // }, [city]);
 
  
   return (
@@ -267,7 +352,7 @@ const registration = () => {
       </figure>
             </div>
             <div className={styles.file_upload}>
-              <input type="file" className={styles.file} id="upload-button" accept="image/*" />
+              <input type="file" className={styles.file} id="upload-button" accept="image/*" onchange={(e)=>setProfilePic(e.target.files)} />
               <div className={styles.file_btn}><p>Upload Photo</p>  </div>
               <div className={styles.file_btn2} id='addnewimg'><p>Upload New Photo</p>  </div>
               <div className={styles.file_btn3} id='deleteimg' onClick={deleteImg}><p>Delete</p>  </div>
@@ -347,17 +432,17 @@ const registration = () => {
           </div>
 
           {/* language  */}
-          <div id={styles.dropdown}>
+          <div id={styles.dropdown} >
             <label for="name">
               <b id={styles.mark}>Language</b>
             </label>
             <br />
-            {languagecount.map((elem, index) => (
-              <div className={styles.language} id={styles.select}>
-                <select
+            {languagecount.map((elem, index) =>{  return (
+              <div className={styles.language} id={styles.select} >
+                <select value={lang[index]}
                   id={styles.selection}
                   name="language"
-                  onChange={(e) => changelanguage(e, index)}
+                  onChange={(e) => changelanguage(e,index)}
                 >
                   <option value="" disabled hidden selected>
                     Select
@@ -368,18 +453,24 @@ const registration = () => {
                     </>
                   ))}
                 </select>
-                <Image
+         
+
+              <div className="removebtn">   <Image name={index}
                   src={deletes}
                   id={styles.deleteicon}
-                  onClick={()=>deletelanguage(index)}
-                ></Image> 
+                  onClick={()=>{
+                   deletelanguage(index)
+
+                  }}
+                ></Image>  </div>
               </div>
-            ))}{" "}
+            )})}
+             { languagecount.length<2  && <div id={styles.add_another}>
+            <h5 onClick={addLanguage}>+ Add another Language</h5>
+          </div>}
           </div>
 
-          <div id={styles.add_another}>
-            <h5 onClick={addLanguage}>+ Add another Language</h5>
-          </div>
+          
 
           <div className={styles.state_city}>
             {/* states */}
@@ -388,12 +479,12 @@ const registration = () => {
                 <b id={styles.mark}>State</b>
               </label>
               <br />
-              {statecount.map((elem,index) => (
+              {statecount.map((ele,index) => (
                 <div className={styles.allstates}>
-                  <select
+                  <select 
                     name="states"
-                    id={styles.select_state}
-                    onChange={(e) => changestate(e,index)}
+                    id={styles.select_state} value={stt[index]}
+                    onChange={(e) => {changestate(e,index); setState(e.target.value)}}
                   >
                     {states.map((elem, key) => (
                       <>
@@ -401,7 +492,7 @@ const registration = () => {
                           Select
                         </option>
 
-                        <option value={key}>{elem}</option>
+                        <option value={key}  >{elem}</option>
                       </>
                     ))}
                   </select>
@@ -418,13 +509,13 @@ const registration = () => {
               <br />
               {statecount.map((elem, index) => (
                 <div className={styles.allcities}>
-                  <select name="city" id={styles.select_city} onChange={(e) => changecity(e,index)}>
-                    <option value="" disabled selected hidden>
+                  <select name="city"  id={styles.select_city}  onChange={(e) =>{ changecity(e,index); console.log(cty)}}>
+                    <option  disabled selected hidden>
                       Select
                     </option>
-                    {city.map((elem) => (
+                    {city.map((elem,key) => (
                       <>
-                        <option >{elem}</option>
+                        <option  >{elem}</option>
                       </>
                     ))}
                   </select>
@@ -437,9 +528,9 @@ const registration = () => {
               ))}
             </div>
           </div>
-          <div id={styles.add_another}>
+          { statecount.length<2  &&  <div id={styles.add_another}>
             <h5 onClick={addState}>+ Add another Place</h5>
-          </div>
+          </div> }
 
           {/* number */}
           <div className={styles.number_main}>
@@ -461,7 +552,8 @@ const registration = () => {
             <div className={styles.mobile_checkbox}>
               <div id={styles.ckbx}>
                 {" "}
-                <input type="checkbox" name="shownumber" />
+                <input type="checkbox" name="shownumber" 
+                value={true}onClick={(e)=>isshowmobile(e.target.value)} />
                 <p>Show my Mobile Numbers only to Premium users</p>
                 <br />{" "}
               </div>
@@ -489,7 +581,9 @@ const registration = () => {
             </div>
             <div className={styles.email_checkbox}>
               <div id={styles.ckbx}>
-                <input type="checkbox" name="showemail" />
+                <input type="checkbox" name="showemail"
+                 value={true} onClick={(e)=>setIsShowemail(e.target.value)}
+                />
                 <p>Show my Email address only to Premium users</p>
                 <br />{" "}
               </div>
@@ -524,7 +618,7 @@ const registration = () => {
             <br />
             {categorycount.map((element, index) => (
               <div id={styles.select}>
-                <select name="category" onChange={(e)=>changecategory(e,index)}>
+                <select name="category" value={category[index]} onChange={(e)=>changecategory(e,index)}>
                       <option value="" disabled hidden selected>
                         Select
                       </option>
@@ -542,26 +636,26 @@ const registration = () => {
               </div>
             ))}
           </div>
-          <div id={styles.add_another}>
+          { categorycount.length<2  &&  <div id={styles.add_another}>
             <h5 onClick={addCategory}>+ Add another Category</h5>
-          </div>
+          </div> }
 
           {/* Interest */}
 
 
           <div id={styles.dropdown}>
-            <label for="industry">
+            <label for="interest">
               <b id={styles.mark}>Interest</b>
             </label>
             <br />
             {interestcount.map((elem,index) => (
               <div id={styles.select}>
-                <select name="category" onChange={(e) => changeinterest(e,index)}>
+                <select name="interest" value={interest[index]} onChange={(e) => changeinterest(e,index)}>
                   <option value="" selected hidden disabled>
                     Select
                   </option>
-                  {Interest.map((elem) => (
-                    <option value="">{elem}</option>
+                  {Interest.map((elem,key) => (
+                    <option >{elem}</option>
                   ))}
                 </select>
                 <Image
@@ -572,9 +666,9 @@ const registration = () => {
               </div>
             ))}
           </div>
-          <div id={styles.add_another}>
+          { interestcount.length<2  &&   <div id={styles.add_another}>
             <h5 onClick={addInterest}>+ Add another interest</h5>
-          </div>
+          </div> }
 
           {/* brands */}
 
@@ -602,8 +696,8 @@ const registration = () => {
             </label>
             <br />
             <div className={styles.agency_btn}>
-              <button id='btn1' className={styles.yesbtn} value={true}>Yes</button>
-              <button id='btn2' className={styles.nobtn} value={false} >No</button>
+              <button id='btn1' className={styles.yesbtn} value={true} onClick={(e)=>setIsagency(true)}>Yes</button>
+              <button id='btn2' className={styles.nobtn} value={false}  onClick={(e)=>setIsagency(false)} >No</button>
             </div>
           </div>
 
@@ -615,14 +709,14 @@ const registration = () => {
                 <b id={styles.mark}>Social Media</b>
               </label>
               <br />
-              {mediacount.map((val, key) => (
+              {mediacount.map((val, index) => (
                 <div className={styles.all_media}>
-                  <select name="language" id={styles.select_city} onChange={(e) => changesmedia(e,index)}>
+                  <select name="language" value={smedia[index]} id={styles.select_city} onChange={(e) => changesmedia(e,index)}>
                     <option value="" disabled hidden selected>
                       Select
                     </option>
                     {SocialMedia.map((val, key) => (
-                      <option value={key}>{val}</option>
+                      <option >{val}</option>
                     ))}
                   </select>{" "}
                 </div>
@@ -634,26 +728,26 @@ const registration = () => {
                 <b id={styles.mark}>Social Media Link</b>
               </label>
               <br />
-              {mediacount.map((val,key) => (
+              {mediacount.map((val,index) => (
                 <div className={styles.all_links}>
                   <input
-                    type="text"
+                    type="text" value={smedialinks[index]}
                     placeholder="https://www.instagram.com"
-                    name="emzil" onChange={(e) => changesmedialinks(e,key)}
+                    name="emzil" onChange={(e) => changesmedialinks(e,index)}
                     required 
                   />{" "}
                   <Image
                     src={deletes}
                     id={styles.deleteicon2}
-                    onClick={()=>deletemedia(key)}
+                    onClick={()=>deletemedia(index)}
                   ></Image>{" "}
                 </div>
               ))}
             </div>
           </div>
-          <div id={styles.add_another}>
+          { mediacount.length<2  &&  <div id={styles.add_another}>
             <h5 onClick={addMedia}>+ Add another social media</h5>
-          </div>
+          </div> }
 
           <div className={styles.services_body}>
             <div className={styles.socialm} id={styles.last}>
@@ -661,14 +755,14 @@ const registration = () => {
                 <b id={styles.mark}>Social Media</b>
               </label>
               <br />
-              {servicecount.map((elem,key) => (
+              {servicecount.map((elem,index) => (
                 <div>
-                  <select name="social_media" id={styles.select_media} onChange={(e) => changesocialmedia(e,key)}>
+                  <select name="social_media" value={socialmedia[index]} id={styles.select_media} onChange={(e) => changesocialmedia(e,index)}>
                     <option hidden selected disabled>
                       Select
                     </option>
-                    {SocialMedia.map((val, key) => (
-                      <option value={key}>{val}</option>
+                    {SocialMedia.map((val, index) => (
+                      <option >{val}</option>
                     ))}
                   </select>{" "}
                 </div>
@@ -682,12 +776,12 @@ const registration = () => {
               <br />
               {servicecount.map((val,index) => (
                 <div>
-                  <select name="social_media" id={styles.select_media} onChange={(e) => changeservices(e,index)}>
+                  <select value={services[index]} name="social_media" id={styles.select_media} onChange={(e) => changeservices(e,index)}>
                     <option selected disabled hidden>
                       Select
                     </option>
                     {Service.map((val, key) => (
-                      <option value={key}>{val}</option>
+                      <option >{val}</option>
                     ))}
                   </select>{" "}
                 </div>
@@ -699,33 +793,33 @@ const registration = () => {
                 <b id={styles.mark}>Service starting price</b>
               </label>
               <br />
-              {servicecount.map((elem,key) => (
+              {servicecount.map((elem,index) => (
                 <div>
                   <input
                     type="number"
                     placeholder="₹ 1500"
                     
-                    onChange={(e) => changeprices(e,key)}
+                    onChange={(e) => changeprices(e,index)}
                   />
                   <Image
                     src={deletes}
                     id={styles.deleteicon2}
-                    onClick={()=>deleteservice(key)}
+                    onClick={()=>deleteservice(index)}
                   ></Image>{" "}
                 </div>
               ))}
             </div>
           </div>
-          <div id={styles.add_another}>
+          { servicecount.length<2  &&  <div id={styles.add_another}>
             <h5 onClick={addService}>+ Add another category</h5>
-          </div>
+          </div> }
 
           <div className={styles.terms_and_condition}>
-            <input type="checkbox" id={styles.checkbox} name="terms" value="" />
+            <input type="checkbox" id={styles.checkbox} name="terms" value="true" onClick={(e)=>setIsconfirm(!isconfirm)} />
             <p>By checking the box, you are agreeing to our terms of service</p>
           </div>
           <div className={styles.create_profile}>
-            <button>Create Profile</button>
+            <button id="createprofile_btn" onClick={createProfile}>Create Profile</button>
           </div>
         </div>
       </div>

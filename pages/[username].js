@@ -1,3 +1,5 @@
+
+import {useState,useEffect} from'react';
 import Navbar1 from "../components/navbar1"
 import Image from "next/image"
 import styles from "../styles/userDetails.module.css"
@@ -11,14 +13,96 @@ import category from "../icons/category.svg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
-const userDetails = () => { 
+
+//  const abc =async () =>{
+//   const res= await axios.get('https://backend.discoverinfluencer.in/user/all');
+//   const datas=res.data.users;
+
+//    console.log(datas);
+     
+
+
+        // const paths=datas.map((elem)=>{
+        //   return{
+        //     params:{
+        //       username:elem._id,
+        //     },
+        //   }
+        // })
+       
+
+
+        //     return {
+        //       paths,
+        //       fallback:false,
+        //     }
+// }
+
+
+
+
+// export const getStaticProps =async (context)=>{
+//   const id=context.params.username;
+//   const res =await fetch(`https://backend.discoverinfluencer.in/home/get_influencer/${id}`);
+//   const data= res.json();
+
+//   return{
+//     props:{
+//       data:data || null
+//     },
+//   };
+// };
+
+
+
+export const getStaticPaths =() =>{
+
+   return{
+    paths:[
+
+      {
+        params:{
+          username:'63b809bc5c4828c3871ad849'
+        }
+      }
+     
+    ],
+    fallback :true
+   }
+
+}
+
+export const getStaticProps =async({params}) =>{
+
+  const data =await fetch(`https://backend.discoverinfluencer.in/home/get_influencer/${params.username}`)
+  const alldata=await data.json();
+
+  return{
+    props:{
+      data:alldata ||null
+    }
+  }
+}
+
+const userDetails = ({data}) => { 
+
+   const datas=data.user[0];
+    const language=datas.language
+
+
   return (
     <>
+    
+   {language.map((elem,ind) =>{
+        console.log(elem)
+   })}
+  {/* {console.log(datas.name)} */}
     <Navbar1/>
       <div className={styles.leftBox}>
       <div className={styles.username}>
-          <p>@username</p>
+          <p>{datas.username}</p>
           <div id={styles.category}>
             <Image src={star} id={styles.vector} alt="category"></Image>
             <p>Influencer Category</p>
@@ -27,23 +111,27 @@ const userDetails = () => {
       </div>
 
          <div className={styles.userImage}>
-          <Image className={styles.Image} src={img}></Image>
+          <Image className={styles.Image} src={data.user[0].profilePic} width='400' height='400'></Image>
          </div>
          <div className={styles.details}>
-        <p className={styles.name}>First & last name <br /> Business Name/Alias</p>
-        <p className={styles.city}>city </p>
+      <p className={styles.name}>{datas.name} <br /> Business Name/Alias</p>
+        <p className={styles.city}>{datas.currentCity} </p>
        
 
     
       <div className={styles.talents}>
-        <div id={styles.talent}> 
-              <Image src={music} id={styles.music} alt='music note'/> <p> Hindi</p>
-             
-                   </div>
-        <div id={styles.talent}> 
-              <Image  src={music} id={styles.music}/><p>English</p> 
-                    </div>
-        <div id={styles.talent}><Image  src={music} id={styles.music}/><p>Marathi</p> </div>
+          
+         { language.map((elem,index)=>{ return(
+
+<>
+<div id={styles.talent} >
+<Image src={music} id={styles.music} alt='music note'/> <p> {elem}</p> 
+</div>  </>
+         )
+          
+          })}
+          
+  
       </div>
       <div className={styles.industries}>
         
