@@ -20,10 +20,10 @@ import { sendError } from "next/dist/server/api-utils";
 
 const registration = () => {
 
- const [stat,setStat]=useState(["Assam"])
+//  const [stat,setStat]=useState(["Assam"])
 
   // const abc=states.indexof("Assam")
-  console.log(states.indexOf(stat[0]));
+  
 
   const deleteImg=()=>{
     let uploadButton = document.getElementById("upload-button");
@@ -136,7 +136,7 @@ const registration = () => {
     isAgency:isagency,
     termsAndCondition:data.termsAndCondition,
     language:lang,
-    state:stt,
+    statess:stt,
     city:cty,
     category:category,
     interest:interest,
@@ -281,7 +281,7 @@ const registration = () => {
   // console.log(lang);
   
 
-  const [state,setState]=useState(1)
+  const [state,setState]=useState('Assam')
 
   const [city, setCity] = useState([]);
 
@@ -382,10 +382,12 @@ const registration = () => {
     // } 
 
   useEffect(() => {
-
-   
-    setCity(s_a[state].split("|"));
+   var data=1;
+     data= states.indexOf(state)
+    console.log(data);
+    setCity(s_a[data].split("|"));
   }, [state]);
+  
 
   // useEffect(() => {
   //   console.log(city);
@@ -548,15 +550,15 @@ const registration = () => {
                   <select  value={stt[index]}
                     className='optionstate'
                     id={styles.select_state}
-                    onChange={(e) => {   console.log(e.target.name);}}
+                    onChange={(e) => { changestate(e,index) ; setState(e.target.value)}}
                   >
                         <option value="" disabled selected hidden>
                           Select
                         </option>
-                    {states.map((elem, key) => (
+                     {states.map((elem, key) => (
                       <>
                      
-                        <option name={key} key={key} id={key} value={elem} >{elem}</option>
+                        <option id={key}  value={elem} >{elem}</option>
                       </>
                     ))}
                   </select>
@@ -573,7 +575,7 @@ const registration = () => {
               <br />
               {statecount.map((elem, index) => (
                 <div className={styles.allcities}>
-                  <select name="city"  id={styles.select_city}  onChange={(e) =>{ changecity(e,index); console.log(cty)}}>
+                  <select name="city"  value={cty[index]} id={styles.select_city}  onChange={(e) =>{ changecity(e,index); console.log(cty)}}>
                     <option  disabled selected hidden>
                       Select
                     </option>
