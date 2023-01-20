@@ -188,10 +188,10 @@ const registration = () => {
       let tokken=window.location.href;
      setToken(tokken.slice(48));
     
-    // console.log(token)
-  
- }, [])
-
+     
+    }, [])
+    
+    console.log(token)
   
 
 
@@ -201,9 +201,10 @@ const registration = () => {
   const REG_API='https://backend.discoverinfluencer.in/user/register'
 
   const createProfile=async()=>{
-    try {
+    try {  console.log(token)
       await axios.post(REG_API,reqBody,{
-        headers:token
+        headers:{"ActivationToken":token}
+       
       })
     } catch (error) {
        console.log("error during creating profile",error.message)
