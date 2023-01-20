@@ -74,6 +74,15 @@ function SecondPrevArrow(props) {
 
 const index = () => {
 
+  
+
+  // const changeplaceholder=()=>{
+  //   var items = Array("buy milk","purchase the new iPhone","test","hello");
+  //   var item = items[Math.floor(Math.random()*items.length)];
+  //   document.getElementById('Pholder').placeholder=item;
+  // }
+  // const mytimeout=setInterval(changeplaceholder,5000)
+
   const [topdata,setTopdata] =useState([]);
   const [newdata,setNewdata] =useState([]);
 
@@ -82,11 +91,12 @@ const index = () => {
 
  useEffect(() => {
    if (showModal) {
-    document.body.style.backgroundColor= 'rgba(0,0,0,0.3)'
+    document.getElementById('nav').style.backgroundColor= 'rgba(0,0,0,0.2)'
+   
    
    }
    else{
-   document.body.style.backgroundColor= 'rgba(0,0,0,0)';
+    document.getElementById('nav').style.backgroundColor= 'transparent'
   }
 
  }, [showModal])
@@ -224,10 +234,10 @@ const index = () => {
         
        
 
-         <div className={styles.navbar} ><Navbar1 show={showModal} set={setShowModal}/>  </div> 
+         <div className={styles.navbar} id='nav' ><Navbar1 show={showModal} set={setShowModal}/>  </div> 
         <div> <SignIn show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div>
        { showsignup ? <div> <Signup show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div> :null}
-      <div className={styles.main_div}>
+      <div className={styles.main_div} id='maindiv'>
          
            <div className={styles.inside_main_box}>
         <p className={styles.main_text}>
@@ -235,7 +245,7 @@ const index = () => {
           Discover Right Influencer <br /> for Your Campaign
         </p>
         <form className={styles.form}>
-          <input
+          <input id='Pholder'
             type="text"
             className={styles.search}
             placeholder="Yoga trainer from Mumbai who speaks Bengali..."

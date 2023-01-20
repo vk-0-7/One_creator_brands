@@ -1,6 +1,7 @@
 
 import {useState,useEffect} from'react';
 import Navbar1 from "../components/navbar1"
+import Footer from "../components/footer"
 import Image from "next/image"
 import styles from "../styles/userDetails.module.css"
 import img from "../Images/img.jpg";
@@ -9,7 +10,7 @@ import music from "../icons/musicnote.svg"
 import redinsta from "../icons/redinsta.svg"
 import redfb from "../icons/redfb.svg"
 import cloud from "../icons/cloud.svg"
-import category from "../icons/category.svg"
+import performance from "../icons/performance.svg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -94,7 +95,11 @@ export const getStaticProps =async({params}) =>{
 const userDetails = ({data}) => { 
 
    const datas=data.user[0];
+   console.log(datas)
     const language=datas.language
+    const category=datas.category
+    const intrests=datas.intrests
+
 
 
   return (
@@ -106,88 +111,93 @@ const userDetails = ({data}) => {
       <div className={styles.leftBox}>
       <div className={styles.username}>
           <p>{datas.username}</p>
-          <div id={styles.category}>
-            <Image src={star} id={styles.vector} alt="category"></Image>
-            <p>Influencer Category</p>
-          </div>
+         
 
       </div>
 
          <div className={styles.userImage}>
           <Image className={styles.Image} src={datas.profilePic} width='400' height='400'></Image>
          </div>
-         <div className={styles.details}>
-      <p className={styles.name}>{datas.name} <br /> Business Name/Alias</p>
-        <p className={styles.city}>{datas.currentCity} </p>
        
-
-    
-      <div className={styles.talents}>
-          
-         { language.map((elem,index)=>{ return(
-
-<>
-<div id={styles.talent} >
-<Image src={music} id={styles.music} alt='music note'/> <p> {elem}</p> 
-</div>  </>
-         )
-          
-          })}
-          
-  
-      </div>
-      <div className={styles.industries}>
-        
-        <div id={styles.industry}> 
-              <Image  src={category} id={styles.categories}/><p>English</p> 
-                    </div>
-        <div id={styles.industry}><Image  src={category} id={styles.categories}/><p>Marathi</p> </div>
-      </div>
-      <p className={styles.oneliner}>
-      One Liner Comes Here
-     </p>
-   <div className={styles.description}>
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam ab eum cum quas consequuntur? Odio, vel dignissimos quam voluptate mollitia reprehenderit sequi aut dolorum eum, tempore obcaecati velit minima aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis totam temporibus adipisci eius? Iusto optio natus sequi similique ullam perspiciatis?
-   </div>
-         </div>
+       <div className={styles.contact_btn}>
+         <button><FontAwesomeIcon  icon={faEnvelope} className={styles.envelope}/><p> conatct Me </p></button>
+       </div>
+       
+     </div>
 
 
-      </div>
+
       <div className={styles.rightBox}>
-     <div className={styles.videobox}>
-      
-  </div>
-
+      <div className={styles.name}><p>{datas.name} , Age </p> <br /> Business Name/Aias </div>     
+      <div className={styles.city}><p>{datas.currentCity}</p>  </div> 
   <div className={styles.icons}>
         <button>
-             {" "} <Image  src={redinsta} id={styles.ic}/>
+              <Image  src={redfb} id={styles.ic}/>
                     </button>
         <button>
-              <Image  src={redfb} id={styles.ic}/>
+             {" "} <Image  src={redinsta} id={styles.ic}/>
                     </button>
         <button>
             <Image  src={cloud} id={styles.ic}/>
                     </button>
        
         </div>
+      <div className={styles.category_section}>
 
-  <div className={styles.price_and_contact}>
-     
-      <div className={styles.contact_btn}>
-        <button><FontAwesomeIcon  icon={faEnvelope} className={styles.envelope}/><p> conatct Me </p></button>
-      </div>
+      
+        
+       {category.map((val,key)=>{return(   <div id={styles.category} key={key}>
+            <Image src={star} id={styles.vector} alt="category"></Image>
+            <p>{val}</p>
+          </div>) }) }
 
-  </div>
+          </div>
+
+      <div className={styles.interest_section}>
+
+      
+        
+       { intrests
+.map((val,key)=>{return(   <div id={styles.interest} key={key}>
+            <Image src={performance} id={styles.vector} alt="interest"></Image>
+            <p>{val}</p>
+          </div>) }) }
+
+          </div>
+
+          <div className={styles.language_section}>
+          
+          { language.map((elem,index)=>{ return(
+ 
+ <>
+ <div id={styles.language} >
+ <Image src={music} id={styles.music} alt='music note'/> <p> {elem}</p> 
+ </div>  </>
+          )
+           
+           })}
+           
+   
+       </div>
+
+  
     <div className={styles.performances}>
-      <div id={styles.performance}> <div><Image src={category} id={styles.categoryimg}/><h5>Youtube Videos</h5></div><h5>Starting price: $300</h5></div>
+      <div id={styles.performance}> <div><Image src={performance} id={styles.performancesvg}/><h5>Youtube Videos</h5></div><h4>Starting price: $300</h4></div>
 
-      <div id={styles.performance}><div><Image src={category} id={styles.categoryimg}/><h5>Reels</h5></div><h5>Starting price: $250</h5></div>
+      <div id={styles.performance}><div><Image src={performance} id={styles.performancesvg}/><h5>Reels</h5></div><h4>Starting price: $250</h4></div>
 
-      <div id={styles.performance}> <div><Image src={category} id={styles.categoryimg}/><h5>Story</h5> </div> <h5>Starting price: $500</h5></div>
+      <div id={styles.performance}> <div><Image src={performance} id={styles.performancesvg}/><h5>Story</h5> </div> <h4>Starting price: $500</h4></div>
+    </div>
+
+    <div className={styles.experience}>
+
+            <h3> Experience : {datas.yearOfExperience}</h3> 
+            <h3> {datas.prevBrands[0]}  </h3>
+
     </div>
   
       </div>
-    
+       <div className={styles.footer} >  <Footer/>  </div> 
     
     </>
   )

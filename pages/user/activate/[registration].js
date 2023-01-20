@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import FormData from 'form-data';
 import Navbar from "../../../components/navbar3";
 import styles from "../../../styles/registration.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,9 +16,14 @@ import { Interest } from "../../../Data/data";
 import { s_a } from "../../../Data/places";
 import languages from "../../../Data/language";
 import axios from "axios";
+import { sendError } from "next/dist/server/api-utils";
 
 const registration = () => {
 
+ const [stat,setStat]=useState(["Assam"])
+
+  // const abc=states.indexof("Assam")
+  console.log(states.indexOf(stat[0]));
 
   const deleteImg=()=>{
     let uploadButton = document.getElementById("upload-button");
@@ -68,11 +74,15 @@ const registration = () => {
   const[isagency,setIsagency] =useState()
 
   const[isconfirm,setIsconfirm] =useState(false)
-  const [profilePic,setProfilePic] =useState('');
-   useEffect(()=>{
-    console.log(profilePic);
+  const [profilePic,setProfilePic] =useState();
+  //  useEffect(()=>{
+  //  console.log(profilePic);
 
-   },[profilePic]) 
+  //  },[profilePic]) 
+
+
+
+
   const [lang,setLang]=useState([]);
   const [stt,setStt]=useState([]);
   const [cty,setCty]=useState([]);
@@ -107,12 +117,12 @@ const registration = () => {
    }, [isconfirm])
    
 
-
-
+ 
+   const [url,setUrl]=useState();
 
 
   const  reqBody={
-    ProfilePic:profilePic,
+    profilePic:url,
     name:data.name,
     username:data.username,
     business:data.business,
@@ -139,6 +149,40 @@ const registration = () => {
    
   };
 
+ 
+
+  const send = async (file) => {
+    const data = new FormData();
+
+    let headers = {
+      accept: "application/json",
+      "Accpet-Language": "en-Us",
+      "Content-type": "multipart/form-data;"
+    };
+  
+    data.append("file", file, file.name);
+
+    axios
+    .post("https://backend.discoverinfluencer.in/upload/upload-image", data, {
+      headers: headers
+    })
+    .then((res) => {
+      console.log("response : ", res.data.imagesKey[0]);
+      setUrl(res.data.imagesKey[0])
+    })
+    .catch((errs) => {
+      console.log(errs);
+    });
+  };
+
+
+  const handleImage =(e)=>{
+    const file=(e.target.files[0])
+    send(file);
+
+  }
+  console.log(url)
+
 
 
   console.log(reqBody);
@@ -151,7 +195,15 @@ const registration = () => {
     } catch (error) {
        console.log("error during creating profile",error.message)
     }
+     
+   
+
+  
+
   }
+  
+ 
+
 
   const handlechange = (e) => {
     const { name, value } = e.target;
@@ -320,8 +372,18 @@ const registration = () => {
     setServiceCount(c);
       };
 
+    // const [index,setIndex]=useState()
+    // const getindex=(e)=>{
+    //   // const name=e.target.setAttribute('name')
+    //   const {value}=e.target;
+    //   setIndex(name)
+    //   console.log(name);
+    //   console.log(value);
+    // } 
+
   useEffect(() => {
-    // console.log(state);
+
+   
     setCity(s_a[state].split("|"));
   }, [state]);
 
@@ -344,17 +406,17 @@ const registration = () => {
             Be clear,
             <br /> detailed, and authentic!
           </p>
-          <form className={styles.form}>
+          <form className={styles.form} id="myform" encType="multipart/form-data">
             <div className={styles.icn}>
             
             <figure class="image-container" >
             
-          <img id="chosen-image" className={styles.image} />
+          <img id="chosen-image" className={styles.image} href={url}/>
           <FontAwesomeIcon  icon={faUser} id='usericon' className={styles.usericn}/>
       </figure>
             </div>
             <div className={styles.file_upload}>
-              <input type="file" className={styles.file} id="upload-button" accept="image/*" onchange={(e)=>setProfilePic(e.target.files)} />
+              <input type="file" className={styles.file} id="upload-button" accept="image/*" onChange={(e)=>handleImage(e)} />
               <div className={styles.file_btn} id='addimg'><p>Upload Photo</p>  </div>
               <div className={styles.file_btn2} id='addnewimg'><p>Upload New Photo</p>  </div>
               <div className={styles.file_btn3} id='deleteimg' onClick={deleteImg}><p>Delete</p>  </div>
@@ -444,7 +506,7 @@ const registration = () => {
                 <select value={lang[index]}
                   id={styles.selection}
                   name="language"
-                  onChange={(e) => changelanguage(e,index)}
+                  onChange={(e) => {changelanguage(e,index) ;console.log(e.target.value)}}
                 >
                   <option value="" disabled hidden selected>
                     Select
@@ -482,19 +544,19 @@ const registration = () => {
               </label>
               <br />
               {statecount.map((ele,index) => (
-                <div className={styles.allstates}>
-                  <select 
-                    name="states"
-                    id={styles.select_state} value={stt[index]}
-                    onChange={(e) => {changestate(e,index); setState(e.target.value)}}
+                <div className={styles.allstates} key={index}>
+                  <select  value={stt[index]}
+                    className='optionstate'
+                    id={styles.select_state}
+                    onChange={(e) => {   console.log(e.target.name);}}
                   >
-                    {states.map((elem, key) => (
-                      <>
                         <option value="" disabled selected hidden>
                           Select
                         </option>
-
-                        <option value={key}  >{elem}</option>
+                    {states.map((elem, key) => (
+                      <>
+                     
+                        <option name={key} key={key} id={key} value={elem} >{elem}</option>
                       </>
                     ))}
                   </select>
@@ -601,7 +663,8 @@ const registration = () => {
             </label>
             <br />
             <div id={styles.select}>
-              <select name="gender">
+              <select name="gender" 
+                value={data.gender} onChange={(e)=>handlechange(e)}>
                 <option value="" disabled hidden selected>
                   Select
                 </option>

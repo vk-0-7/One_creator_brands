@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import axios from'axios';
 import { v4 as uuid } from 'uuid';
 import { useHistory } from "react-router-dom";
@@ -42,7 +42,10 @@ const signup = ({show,set,showsignup,setsignup}) => {
        
        }
 
-
+       useEffect(() => {
+        if(user.name && user.email && user.password )
+        document.getElementById('signupbtn').style.backgroundColor=' rgb(190, 52, 85)'
+      }, [user])
 
 
 return (
@@ -68,7 +71,7 @@ return (
      
          
       
-      <Link href='/emailsent'>  <button className={styles.signup_btn}  onClick={signup} >Sign up</button> </Link>
+      <Link href='/emailsent'>  <button className={styles.signup_btn} id='signupbtn' onClick={signup} >Sign up</button> </Link>
        
         </div>
       

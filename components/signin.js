@@ -34,7 +34,7 @@ const handlechange=(e)=>{
        
 
         const {email,password}=user;
-
+        
         if(email && password){
           try {
              await axios.post(LOGIN_API,user)
@@ -45,6 +45,12 @@ const handlechange=(e)=>{
         }
     }
 
+
+    useEffect(() => {
+      if(user.email && user.password)
+      document.getElementById('loginbtn').style.backgroundColor=' rgb(190, 52, 85)'
+    }, [user])
+    
 
 
 
@@ -67,7 +73,7 @@ const handlechange=(e)=>{
         <Link href="/" className={styles.forgetPassword} > Forget password? </Link>
             
          
-           <button className={styles.login_btn}  onClick={login}>Login</button>
+           <button className={styles.login_btn} id='loginbtn' onClick={login} >Login</button>
            <p className={styles.or}>Or</p>
           <button className={styles.signup_btn} onClick={()=>{setsignup(true)}} >Sign up</button>
            </div>
