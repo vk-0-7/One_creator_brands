@@ -119,6 +119,7 @@ const registration = () => {
 
  
    const [url,setUrl]=useState();
+   const [token,setTokken]=useState();
 
 
   const  reqBody={
@@ -134,7 +135,7 @@ const registration = () => {
     gender:data.gender,
     brand:data.brands,
     isAgency:isagency,
-    termsAndCondition:data.termsAndCondition,
+    
     language:lang,
     statess:stt,
     city:cty,
@@ -183,6 +184,16 @@ const registration = () => {
   }
   console.log(url)
 
+  useEffect(() => {
+      let tokken=window.location.href;
+     setToken(tokken.slice(48));
+    
+    // console.log(token)
+  
+ }, [])
+
+  
+
 
 
   console.log(reqBody);
@@ -191,7 +202,9 @@ const registration = () => {
 
   const createProfile=async()=>{
     try {
-      await axios.post(REG_API,reqBody)
+      await axios.post(REG_API,reqBody,{
+        headers:token
+      })
     } catch (error) {
        console.log("error during creating profile",error.message)
     }
@@ -882,7 +895,7 @@ const registration = () => {
           </div> }
 
           <div className={styles.terms_and_condition}>
-            <input type="checkbox" id={styles.checkbox} name="terms" value="true" onClick={(e)=>setIsconfirm(!isconfirm)} />
+            <input type="checkbox" id={styles.checkbox} name="terms" value="true" onClick={(e)=>{setIsconfirm(!isconfirm); }} />
             <p>By checking the box, you are agreeing to our terms of service</p>
           </div>
           <div className={styles.create_profile}>
