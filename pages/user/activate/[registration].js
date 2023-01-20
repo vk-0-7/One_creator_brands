@@ -119,7 +119,7 @@ const registration = () => {
 
  
    const [url,setUrl]=useState();
-   const [token,setTokken]=useState();
+   const [token,setToken]=useState();
 
 
   const  reqBody={
