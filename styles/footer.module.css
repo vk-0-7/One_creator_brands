@@ -32,13 +32,13 @@
 .media_icons{
     /* border: 1px solid red; */
     position: absolute;
-    right: 25vw;
+    right: 24vw;
     display: flex;
     top: 20px;
 }
 
 #icon_box{
-    margin-inline: 5px;
+    margin-inline: 2px;
     padding: 12px;
     /* border: 1px solid red; */
 }

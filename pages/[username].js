@@ -92,6 +92,9 @@ export const getStaticProps =async({params}) =>{
   }
 }
 
+
+
+
 const userDetails = ({data}) => { 
 
    const datas=data.user[0];
@@ -99,6 +102,12 @@ const userDetails = ({data}) => {
     const language=datas.language
     const category=datas.category
     const intrests=datas.intrests
+    const dob=datas.dateofBirth
+
+    var today= new Date();
+     const arr=dob.split("-");
+     console.log(arr)
+
 
 
 

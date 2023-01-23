@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import FormData from 'form-data';
 import Navbar from "../../../components/navbar3";
+import Approval from "../../../components/approval";
 import styles from "../../../styles/registration.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -8,7 +9,7 @@ import Script from "next/script";
 import Image from "next/image";
 import frame from "../../../Images/frame.png"
 import deletes from "../../../icons/delete.svg";
-import { states } from "../../../Data/places";
+import {states} from "../../../Data/places"
 import { Service } from "../../../Data/data";
 import { SocialMedia } from "../../../Data/data";
 import { influencerCategory } from "../../../Data/data";
@@ -18,11 +19,11 @@ import languages from "../../../Data/language";
 import axios from "axios";
 import { sendError } from "next/dist/server/api-utils";
 
+
+
 const registration = () => {
-
-//  const [stat,setStat]=useState(["Assam"])
-
-  // const abc=states.indexof("Assam")
+   
+   const [showsuccess,setShowsuccess]=useState(false);
   
 
   const deleteImg=()=>{
@@ -75,11 +76,12 @@ const registration = () => {
 
   const[isconfirm,setIsconfirm] =useState(false)
   const [profilePic,setProfilePic] =useState();
-  //  useEffect(()=>{
-  //  console.log(profilePic);
-
-  //  },[profilePic]) 
-
+  const [currsocialmedia,setCurrsocialmedia]=useState([])
+  
+  useEffect(() => {
+    setCurrsocialmedia(SocialMedia);
+  }, [])
+  
 
 
 
@@ -149,7 +151,14 @@ const registration = () => {
     isconfirm:isconfirm,
    
   };
+   const [cityname,setCityname]=useState([])
 
+
+    
+     
+    
+    
+  
  
 
   const send = async (file) => {
@@ -201,6 +210,10 @@ const registration = () => {
   const REG_API='https://backend.discoverinfluencer.in/user/register'
 
   const createProfile=async()=>{
+    setShowsuccess(true);
+   
+   
+
     try {  console.log(token)
       await axios.post(REG_API,reqBody,{
         headers:{"ActivationToken":token}
@@ -211,7 +224,8 @@ const registration = () => {
     }
      
    
-
+   
+    
   
 
   }
@@ -236,9 +250,24 @@ const registration = () => {
      
  }
  const changestate=(val,index)=>{
+  
       const curvalue=[...stt];
       curvalue[index]=val.target.value;
       setStt(curvalue);
+
+
+      axios.post('https://countriesnow.space/api/v0.1/countries/state/cities',{
+        "country": "India",
+        "state": val.target.value
+    }).then((res)=>{
+        setCityname([res.data.data])
+        console.log("cities are" ,res.data.data);
+      }).catch((err) =>{
+        console.log(err)
+      })
+      
+
+
      
  }
  const changecity=(val,index)=>{
@@ -260,11 +289,20 @@ const registration = () => {
      
  }
  const changesmedia=(val,index)=>{
+     
+      
       const curvalue=[...smedia];
       curvalue[index]=val.target.value;
       setSmedia(curvalue);
+
+
      
- }
+    }
+
+  
+  
+
+    
  const changesmedialinks=(val,index)=>{
       const curvalue=[...smedialinks];
       curvalue[index]=val.target.value;
@@ -303,6 +341,7 @@ const registration = () => {
   const [categorycount, setCategoryCount] = useState(['']);
   const [interestcount, setInterestCount] = useState(['']);
   const [statecount, setStateCount] = useState(['']);
+  const [citycount, setCityCount] = useState(['']);
   const [mediacount, setMediaCount] = useState(['']);
   const [servicecount, setServiceCount] = useState(['']);
 
@@ -344,31 +383,32 @@ const registration = () => {
 
   const addState = () => {
     setStateCount([1, ...statecount]);
+    setCityCount([1, ...citycount]);
   };
   const deleteplace = (index) => {
     const a= [...stt];
     const b= [...cty];
     const c = [...statecount];
+    const d =[...citycount];
     if(statecount.length>1){ b.splice(index,1); c.splice(index,1); a.splice(index,1)}
+    if(citycount.length>1){  d.splice(index,1)}
     setStt(a)
     setCty(b)
     setStateCount(c)
+    setCityCount(d)
   };
 
-  // const deleteplace = (i) => {
-  //   const b = [...statecount];
-  //   if(statecount.length>1){ b.splice(i,1)}
-  //   setStateCount(b);
-  // };
+ 
 
   const addMedia = () => {
     setMediaCount([1, ...mediacount]);
   };
 
   const deletemedia = (index) => {
+    console.log(index)
     const b = [...smedia];
     const c = [...mediacount];
-    if(smedia.length>1){ b.splice(index,1); c.splice(index,1)}
+    if(mediacount.length>1){ b.splice(index,1); c.splice(index,1)}
     setSmedia(b);
     setMediaCount(c);  };
 
@@ -407,14 +447,17 @@ const registration = () => {
   //   console.log(city);
   // }, [city]);
 
+
+
  
   return (
-    <>
+    <div id="alldiv" style={{height:"134rem"}}>
 
   
 
-      <Navbar />
-      <div className={styles.main_div}>
+        <div className="nav"> <Navbar /> </div>
+     
+      <div className={styles.main_div} id='main_div'>
         <h3 className={styles.main_heading}>Influencer Registration</h3>
         <div className={styles.info_profileimg}>
           <p>
@@ -518,7 +561,7 @@ const registration = () => {
             </label>
             <br />
             {languagecount.map((elem, index) =>{  return (
-              <div className={styles.language} id={styles.select} >
+              <div className={styles.language} id={styles.select} key={index} >
                 <select value={lang[index]}
                   id={styles.selection}
                   name="language"
@@ -527,9 +570,9 @@ const registration = () => {
                   <option value="" disabled hidden selected>
                     Select
                   </option>
-                  {languages.map((elem) => (
+                  {languages.map((elem,key) => (
                     <>
-                      <option>{elem.name}</option>
+                      <option key={key} >{elem.name}</option>
                     </>
                   ))}
                 </select>
@@ -587,15 +630,15 @@ const registration = () => {
                 <b id={styles.mark}>City</b>
               </label>
               <br />
-              {statecount.map((elem, index) => (
-                <div className={styles.allcities}>
+              {citycount.map((elem, index) => (
+                <div className={styles.allcities} key={index}>
                   <select name="city"  value={cty[index]} id={styles.select_city}  onChange={(e) =>{ changecity(e,index); console.log(cty)}}>
                     <option  disabled selected hidden>
                       Select
                     </option>
                     {city.map((elem,key) => (
                       <>
-                        <option  >{elem}</option>
+                        <option id={key} key={key} >{elem}</option>
                       </>
                     ))}
                   </select>
@@ -633,7 +676,7 @@ const registration = () => {
               <div id={styles.ckbx}>
                 {" "}
                 <input type="checkbox" name="shownumber" 
-                value={true}onClick={(e)=>isshowmobile(e.target.value)} />
+                value={true}onClick={(e)=>setIsShowmobile(e.target.value)} />
                 <p>Show my Mobile Numbers only to Premium users</p>
                 <br />{" "}
               </div>
@@ -792,12 +835,12 @@ const registration = () => {
               <br />
               {mediacount.map((val, index) => (
                 <div className={styles.all_media}>
-                  <select name="language" value={smedia[index]} id={styles.select_city} onChange={(e) => changesmedia(e,index)}>
+                  <select  id={styles.select_city} onChange={(e) => changesmedia(e,index)}>
                     <option value="" disabled hidden selected>
                       Select
                     </option>
                     {SocialMedia.map((val, key) => (
-                      <option >{val}</option>
+                      <option name={key} value={val} disabled={smedia.includes(val)} >{val}</option>
                     ))}
                   </select>{" "}
                 </div>
@@ -811,22 +854,23 @@ const registration = () => {
               <br />
               {mediacount.map((val,index) => (
                 <div className={styles.all_links}>
+                  {/* <p>{index}</p> */}
                   <input
-                    type="text" value={smedialinks[index]}
+                    type="url" value={smedialinks[index]}
                     placeholder="https://www.instagram.com"
                     name="emzil" onChange={(e) => changesmedialinks(e,index)}
                     required 
                   />{" "}
                   <Image
-                    src={deletes}
+                    src={deletes} 
                     id={styles.deleteicon2}
-                    onClick={()=>deletemedia(index)}
+                    onClick={(e)=>deletemedia(index)}
                   ></Image>{" "}
                 </div>
               ))}
             </div>
           </div>
-          { mediacount.length<1  &&  <div id={styles.add_another}>
+          { mediacount.length<10  &&  <div id={styles.add_another}>
             <h5 onClick={addMedia}>+ Add another social media</h5>
           </div> }
 
@@ -904,7 +948,8 @@ const registration = () => {
           </div>
         </div>
       </div>
-    </>
+         { showsuccess && <div className={styles.approval}> <Approval approval={showsuccess} setapproval={setShowsuccess} /> </div>}
+    </div>
   );
 };
 

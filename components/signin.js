@@ -17,6 +17,13 @@ const [user, setUser] = useState({
 });
 
 
+const handlecross= ()=>{
+    set(false);
+    user.email=""
+    user.password=""
+
+}
+
 
 
 const handlechange=(e)=>{
@@ -57,11 +64,11 @@ const handlechange=(e)=>{
 
   return (
     <>
-    
+       
      
-      { show ? <div className={styles.signin_box} id={styles.center}>
+      { show ? <div  style={{position:"fixed", height:"100vh",width:"100vw", top:"0" ,left:"0", zIndex:"100", backgroundColor:"rgba(0,0,0,0.1)"}}>   <div className={styles.signin_box} id={styles.center}>
         <p className={styles.mainText}>Sign in</p>
-        <FontAwesomeIcon className={styles.crossIcon} icon={faXmark} onClick={()=>set(false)} /> 
+        <FontAwesomeIcon className={styles.crossIcon} icon={faXmark} onClick={()=>handlecross()} /> 
         <div className={styles.container} id={styles.center}>
         <div className={styles.firstInput} >
         <p>Username or email address</p>
@@ -78,7 +85,7 @@ const handlechange=(e)=>{
           <button className={styles.signup_btn} onClick={()=>{setsignup(true)}} >Sign up</button>
            </div>
          
-      </div> : null}
+      </div> </div> : null }
     </>
   );
 };

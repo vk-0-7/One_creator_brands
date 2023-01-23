@@ -4,6 +4,7 @@ import arrowleft from "../icons/arrow-left.svg"
 import redinsta from "../icons/redbgfb.svg"
 import redbgfb from "../icons/redinsta.svg"
 import snap from "../icons/snap.svg"
+import banner from '../Images/banner.webp'
 import tube from "../icons/tube.svg"
 import Navbar1 from "../components/navbar1";
 import SignIn from "../components/signin"
@@ -14,10 +15,7 @@ import styles from "../styles/index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Script from "next/script"
 import { faChevronRight ,faChevronLeft} from "@fortawesome/free-solid-svg-icons";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faSnapchat } from "@fortawesome/free-brands-svg-icons";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+
 
 import axios from 'axios';
 import Slider from "react-slick";
@@ -89,17 +87,18 @@ const index = () => {
  const [showsignup,setShowSignup] =useState(false)
   const [showModal,setShowModal]= useState(false);
 
- useEffect(() => {
-   if (showModal) {
-    document.getElementById('nav').style.backgroundColor= 'rgba(0,0,0,0.2)'
+//  useEffect(() => {
+//    if (showModal) {
+    
+//     document.getElementById('maindiv').style.backgroundColor= 'rgba(0,0,0,0.2)'
    
    
-   }
-   else{
-    document.getElementById('nav').style.backgroundColor= 'transparent'
-  }
+//    }
+//    else{
+//     document.getElementById('maindiv').style.backgroundColor= 'transparent'
+//   }
 
- }, [showModal])
+//  }, [showModal])
 
 
    const   getInfluencerTop= async()=>{
@@ -211,7 +210,7 @@ const index = () => {
   
 
   return (
-    <>
+    <div id='maindiv' style={{height:"147rem"}}>
     {console.log(topdata)}
     {/* {console.log(newdata[0])} */}
       <Head>
@@ -241,8 +240,8 @@ const index = () => {
          <div className={styles.navbar} id='nav' ><Navbar1 show={showModal} set={setShowModal}/>  </div> 
         <div> <SignIn show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div>
        { showsignup ? <div> <Signup show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div> :null}
-      <div className={styles.main_div} id='maindiv'>
-         
+      <div className={styles.main_div} >
+          
            <div className={styles.inside_main_box}>
         <p className={styles.main_text}>
           {" "}
@@ -402,7 +401,7 @@ const index = () => {
 
     
      
-    </>
+    </div>
   );
 };
 

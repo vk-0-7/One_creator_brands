@@ -447,9 +447,7 @@
     border-radius: 12px;
     padding-inline: 10px;
     font-size: 0.8rem;
-    margin-right: 1px;
-    margin-left: 3px;
-    margin-top: 4px;
+    margin: 2px 0px -3px 3px;
 }
 .services_body{
     display: flex;
@@ -500,8 +498,15 @@
     border-radius: 13px;
     border: none;
     background-color: 
-    rgba(41, 45, 50, 1);
+    rgb(96, 97, 97);
     color: white;
+}
+
+
+.approval{
+    position: absolute;
+    top: 87rem;
+    left: 30vw;
 }
 
 @media(max-width:450px){

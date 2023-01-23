@@ -45,14 +45,16 @@ const searchInfluencer = () => {
       const {value,checked}=e.target;
       // console.log(`${value} is ${checked}`)
 
-      if(checked)
+      if(checked){
         setSocialMedia([...socialMedia,value])
+      }
         else{
          setSocialMedia(socialMedia.filter((e)=>e!==value))
         }
         
 
  }
+ console.log(socialMedia)
  const changeCategory=(e)=>{
 
       const {value,checked} =e.target;
@@ -88,39 +90,50 @@ const searchInfluencer = () => {
     
 }
 
-const reqBody={
-  socialmedia:socialMedia,
-  category:category,
-  interest:interest,
-  gender:gender,
-  city:city.city
 
-}
 
  
-//  useEffect(() => {
+ 
+ 
+
+    
+
+ 
+ useEffect(() => {
    
   
    
-//     axios.post('https://backend.discoverinfluencer.in/home/influencer_filters',reqBody).then(response =>{
-//       // console.log(response.data.message);
-//       setUserData(response.data.message)
-//       // console.log(response.data.message)
+    axios.post('https://backend.discoverinfluencer.in/home/influencer_filters', {
+      socialmedia:socialMedia,
+      category:category,
+      interest:interest,
+      gender:gender,
+      city:city.city
+     }
+      
 
-//     }).catch(error=>{ console.log("Error during Login",error.message)})
+
+    ).then(response =>{
+      console.log(response.data.message);
+      let abc=response.data.message;
+      setUserData(abc)
+     
+      // console.log(response.data.message)
+
+    }).catch(error=>{ console.log("Error during fetching data",error.message)})
    
-//     console.log(userData)
-   
+    // console.log(userData)
+    
   
-//  }, [reqBody])
+ }, [socialMedia,category])
 
  
-   
+ 
  
    
   return (
     <>
-     
+      
     <Head>
         <title> SearchInfluencer-Filter</title>
         

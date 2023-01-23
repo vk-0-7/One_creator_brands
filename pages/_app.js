@@ -1,5 +1,10 @@
-import '../styles/globals.css'
+import { useEffect } from 'react';
+import TagManager from 'react-gtm-module';
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+      TagManager.initialize({ gtmId: 'GTM-N8T8ZQV' });
+  }, []);
+  return <Component {...pageProps}/>
 }
+export default MyApp
