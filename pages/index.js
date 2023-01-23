@@ -210,7 +210,7 @@ const index = () => {
   
 
   return (
-    <div id='maindiv' style={{height:"147rem"}}>
+    <>
     {console.log(topdata)}
     {/* {console.log(newdata[0])} */}
       <Head>
@@ -401,7 +401,7 @@ const index = () => {
 
     
      
-    </div>
+    </>
   );
 };
 

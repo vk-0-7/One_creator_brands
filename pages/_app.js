@@ -15,17 +15,15 @@ function App({ Component, pageProps }) {
 
 
 
-      var Tawk_API = Tawk_API || {},
-				Tawk_LoadStart = new Date();
-			(function () { var s1 = document.createElement('script')
-					var s0 = document.getElementsByTagName('script')[0];
-				s1.async = true;
-				s1.src =
-					'https://embed.tawk.to/62c69dfa7b967b1179987155/1g7bti7s9';
-				s1.charset = 'UTF-8';
-				s1.setAttribute('crossorigin', '*');
-				s0.parentNode.insertBefore(s1, s0);
-			})();
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/63b70cac47425128790be185/1gm1gj1kp';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
 
 
   }, []);

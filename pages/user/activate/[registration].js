@@ -137,7 +137,8 @@ const registration = () => {
     gender:data.gender,
     brand:data.brands,
     isAgency:isagency,
-    
+    "yearOfExperience": 4,
+    "country": "India", 
     language:lang,
     statess:stt,
     city:cty,
