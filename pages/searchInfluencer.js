@@ -24,7 +24,7 @@ import axios from "axios";
 
 const searchInfluencer = () => {
 
-
+ 
   const [socialMedia,setSocialMedia] =useState([])
   const [category,setCategory] =useState([]);
   const [interest,setInterest] =useState([])
@@ -91,41 +91,70 @@ const searchInfluencer = () => {
 }
 
 
+  const getallData = async ()=>{
 
- 
- 
- 
 
-    
+    try {
 
- 
- useEffect(() => {
-   
-  
-   
-    axios.post('https://backend.discoverinfluencer.in/home/influencer_filters', {
-      socialmedia:socialMedia,
-      category:category,
-      interest:interest,
-      gender:gender,
-      city:city.city
-     }
+      const response= await axios.get('https://backend.discoverinfluencer.in/user/all');
+      const datas=response.data.users;
+      console.log(datas);
+      setUserData(datas);
       
+    } catch (error) {
+       console.log("error is ", error.message)
+    }    
+  
+  }
+  
+ const getFilteredData = ()=>{
+  
+
+  axios.post('https://backend.discoverinfluencer.in/home/influencer_filters', {
+    socialmedia:socialMedia,
+    category:category,
+    interest:interest,
+    gender:gender,
+    city:city.city
+   }
+    
 
 
-    ).then(response =>{
-      console.log(response.data.message);
-      let abc=response.data.message;
-      setUserData(abc)
-     
-      // console.log(response.data.message)
-
-    }).catch(error=>{ console.log("Error during fetching data",error.message)})
+  ).then(response =>{
+    console.log(response.data.message);
+    let abc=response.data.message;
+    setUserData(abc)
    
-    // console.log(userData)
+    // console.log(response.data.message)
+
+  }).catch(error=>{ console.log("Error during fetching data",error.message) })
+  
+ }
+ 
+ 
+
+    
+
+ 
+ useEffect(  () => {
+
+
+  if(socialMedia.length==0 && category.length==0 && interest.length==0 ){
+                  getallData()
+  
+  }
+   
+  
+   
+    else{
+     getFilteredData()
+
+  }
+   
+    
     
   
- }, [socialMedia,category])
+ }, [socialMedia,category,interest,gender])
 
  
  

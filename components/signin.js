@@ -72,11 +72,11 @@ const handlechange=(e)=>{
         <div className={styles.container} id={styles.center}>
         <div className={styles.firstInput} >
         <p>Username or email address</p>
-        <input type="text" name="email" placeholder="nikusha.tetruashvili.gmail.com" value={user.email} onChange={(e)=>handlechange(e)}/>     
+        <input type="email" name="email" placeholder="nikusha.tetruashvili.gmail.com" value={user.email} onChange={(e)=>handlechange(e)} required/>     
         </div> 
         <div className={styles.secondInput}>
         <p>Password</p>
-        <input type="password" name="password" placeholder="*********" value={user.password} onChange={(e)=>handlechange(e)}/> </div>
+        <input type="password" name="password" placeholder="*********" value={user.password} onChange={(e)=>handlechange(e)} required/> </div>
         <Link href="/" className={styles.forgetPassword} > Forget password? </Link>
             
          

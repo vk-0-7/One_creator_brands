@@ -30,6 +30,8 @@ const signup = ({show,set,showsignup,setsignup}) => {
        const API_URL ='https://backend.discoverinfluencer.in/user/activation';
 
        const signup= async ()=>{
+         
+     
         const {name,email,password}=user;
         if(name && email && password ){
           try {
@@ -38,14 +40,42 @@ const signup = ({show,set,showsignup,setsignup}) => {
             console.log('Error while calling api',error.message);
           }
          
-        }
-       
+        
+
+      }
+
        }
+      //  const [validate,setValidate] =useState(false)
 
        useEffect(() => {
-        if(user.name && user.email && user.password )
+
+
+        if(user.name && user.email && user.password && user.email.includes('@')){
+        
         document.getElementById('signupbtn').style.backgroundColor=' rgb(190, 52, 85)'
+      }
+      else{
+        document.getElementById('signupbtn').style.backgroundColor=' rgba(190, 52, 85,0.2)'
+      }
+
+       
+       
+       
       }, [user])
+
+    //  useEffect(() => {
+    //   document.getElementById('sent').addEventListener('click',(e)=>{
+    //     if(!user.name) {
+    //       // console.log(user.name,user.email,user.password)
+         
+    //       e.preventDefault()
+    //     }
+       
+    //   })
+
+    //  }, [])
+     
+
 
 
 return (
@@ -59,19 +89,20 @@ return (
      <div className={styles.container} id={styles.center}>
      <div className={styles.firstInput} >
      <p>Enter your name</p>
-     <input type="text" name="name" placeholder="Your name" value={user.name} onChange={(e)=>handlechange(e)}/>
+     <input type="text" name="name" placeholder="Your name" value={user.name} onChange={(e)=>handlechange(e)} required/>
      </div> 
      <div className={styles.secondInput} >
      <p>Enter your Email</p>
-     <input type="text" name="email" placeholder="Your Email" value={user.email} onChange={(e)=>handlechange(e)}/>
+     <input type="email" name="email" placeholder="Your Email" value={user.email} onChange={(e)=>handlechange(e)} required/>
+      <p id='validemail' style={{marginTop:"3px",display:"none"}}>Please Enter valid email address</p>
      </div> 
      <div className={styles.thirdInput}>
      <p>Password</p>
-<input type="password" name="password" placeholder="*********" value={user.password} onChange={(e)=>handlechange(e)}/> </div>
+<input type="password" name="password" placeholder="*********" value={user.password} onChange={(e)=>handlechange(e)} required/> </div>
      
          
       
-      <Link href='/emailsent'>  <button className={styles.signup_btn} id='signupbtn' onClick={signup} >Sign up</button> </Link>
+      <Link href='/emailsent' id='sent'>  <button className={styles.signup_btn} id='signupbtn' onClick={signup} >Sign up</button> </Link>
        
         </div>
       

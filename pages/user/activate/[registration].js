@@ -84,7 +84,7 @@ const registration = () => {
   
 
 
-
+   const [username,setUsername] =useState('')
   const [lang,setLang]=useState([]);
   const [stt,setStt]=useState([]);
   const [cty,setCty]=useState([]);
@@ -101,7 +101,7 @@ const registration = () => {
 
    const [data,setData]=useState({
      name:"",
-     username:"",
+     
      business:"",
      dob:"",
     number:"",
@@ -111,6 +111,10 @@ const registration = () => {
    
    
    })
+   
+  
+   
+  
 
    useEffect(() => {
        if(isconfirm)
@@ -127,7 +131,7 @@ const registration = () => {
   const  reqBody={
     profilePic:url,
     name:data.name,
-    username:data.username,
+    username:username,
     business:data.business,
     dateofBirth:data.dob,
     phoneNumber:data.number,
@@ -235,6 +239,7 @@ const registration = () => {
 
 
   const handlechange = (e) => {
+
     const { name, value } = e.target;
     setData({
       ...data,
@@ -452,7 +457,7 @@ const registration = () => {
 
  
   return (
-    <div id="alldiv" style={{height:"134rem"}}>
+    <>
 
   
 
@@ -510,11 +515,13 @@ const registration = () => {
             <br />
             <input
               type="text"
+             
               id={styles.inpt}
               placeholder="Enter Username"
-              name="username"
-              value={data.username}
-              onChange={(e) => handlechange(e)}
+              name="username" 
+              value={username}
+              
+              onChange={(e) => setUsername(e.target.value.trim())} 
               required
             />
           </div>
@@ -666,7 +673,7 @@ const registration = () => {
               <input
                 type="number"
                 id={styles.inpt}
-                placeholder="+91-4726482345"
+                placeholder="Enter mobile number(+91-4726482345)"
                 name="number"
                 value={data.number}
                 onChange={(e) => handlechange(e)}
@@ -858,7 +865,7 @@ const registration = () => {
                   {/* <p>{index}</p> */}
                   <input
                     type="url" value={smedialinks[index]}
-                    placeholder="https://www.instagram.com"
+                    placeholder="url"
                     name="emzil" onChange={(e) => changesmedialinks(e,index)}
                     required 
                   />{" "}
@@ -923,7 +930,7 @@ const registration = () => {
                 <div>
                   <input
                     type="number"
-                    placeholder="₹ 1500"
+                    placeholder="starting price"
                     
                     onChange={(e) => changeprices(e,index)}
                   />
@@ -950,7 +957,7 @@ const registration = () => {
         </div>
       </div>
          { showsuccess && <div className={styles.approval}> <Approval approval={showsuccess} setapproval={setShowsuccess} /> </div>}
-    </div>
+    </>
   );
 };
 

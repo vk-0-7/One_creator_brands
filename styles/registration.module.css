@@ -392,10 +392,20 @@
     padding-left: 10px;
     background-image: url('../icons/arrow-down.svg');
     background-repeat: no-repeat;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     background-size: 15px;
     background-position: 425px 12px;
     
+}
+
+.main_div option{
+    height: 2rem;
+    font-size: 0.9rem;
+    color: #2B2B2B;
+    padding: 7px;
+    margin-block: 8px;
+
+
 }
 .interest{
     margin-top: 4px;
