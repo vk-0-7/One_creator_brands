@@ -6,6 +6,7 @@ import styles from "../../../styles/registration.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Script from "next/script";
+import Head from "next/head"
 import Image from "next/image";
 import frame from "../../../Images/frame.png"
 import deletes from "../../../icons/delete.svg";
@@ -141,7 +142,7 @@ const registration = () => {
     gender:data.gender,
     brand:data.brands,
     isAgency:isagency,
-    "yearOfExperience": 4,
+    "yearOfExperience": '',
     "country": "India", 
     language:lang,
     statess:stt,
@@ -458,7 +459,10 @@ const registration = () => {
  
   return (
     <>
+     <Head>
 
+      <title> Registration page</title>
+     </Head>
   
 
         <div className="nav"> <Navbar /> </div>

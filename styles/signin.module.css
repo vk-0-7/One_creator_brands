@@ -97,6 +97,7 @@
     color: rgb(224, 79, 79);
     font-size: 0.9rem;
     margin-top: 4px;
+    cursor: pointer;
 }
 .login_btn{
     color: white;

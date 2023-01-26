@@ -8,6 +8,8 @@ import banner from '../Images/banner.webp'
 import tube from "../icons/tube.svg"
 import Navbar1 from "../components/navbar1";
 import SignIn from "../components/signin"
+import Forgetpassword from "../components/forgetpassword"
+import Emailsentreset from "../components/emailsentreset"
 import Signup from "../components/signup"
 import Head from  "next/head"
 import Footer from "../components/footer";
@@ -80,10 +82,10 @@ const index = () => {
   //   document.getElementById('Pholder').placeholder=item;
   // }
   // const mytimeout=setInterval(changeplaceholder,5000)
-
   const [topdata,setTopdata] =useState([]);
   const [newdata,setNewdata] =useState([]);
-
+  const [showemailsent,setShowemailsent] =useState(false); 
+  const [showForgotPassword,setShowForgotPassword]  =useState(false)
  const [showsignup,setShowSignup] =useState(false)
   const [showModal,setShowModal]= useState(false);
 
@@ -106,7 +108,7 @@ const index = () => {
             const res= await axios.get('https://backend.discoverinfluencer.in/user/top');
             const data=res.data.topUsers;
             setTopdata(data)
-            console.log(res);
+            // console.log(res);
             const response= await axios.get('https://backend.discoverinfluencer.in/user/all');
             const datas=response.data.users;
             setNewdata(datas)
@@ -211,7 +213,7 @@ const index = () => {
 
   return (
     <>
-    {console.log(topdata)}
+    {/* {console.log(topdata)} */}
     {/* {console.log(newdata[0])} */}
       <Head>
        <meta name="description" content="Discover Influencer"/>
@@ -238,8 +240,10 @@ const index = () => {
        
 
          <div className={styles.navbar} id='nav' ><Navbar1 show={showModal} set={setShowModal}/>  </div> 
-        <div> <SignIn show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div>
+        <div> <SignIn show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup} showForgotPassword={showForgotPassword} setShowForgotPassword={setShowForgotPassword}/> </div>
        { showsignup ? <div> <Signup show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div> :null}
+       {showForgotPassword ?<Forgetpassword showForgotPassword={showForgotPassword} setShowForgotPassword={setShowForgotPassword} showemailsent={showemailsent} setemailsent={setShowemailsent}/> :null}
+       {showemailsent ?  <Emailsentreset showemailsent={showemailsent} setemailsent={setShowemailsent}/>  : null }
       <div className={styles.main_div} >
           
            <div className={styles.inside_main_box}>

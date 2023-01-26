@@ -44,41 +44,7 @@ import axios from "axios";
 
 
 
-// export const getStaticProps =async (context)=>{
-//   const id=context.params.username;
-//   const res =await fetch(`https://backend.discoverinfluencer.in/home/get_influencer/${id}`);
-//   const data= res.json();
 
-//   return{
-//     props:{
-//       data:data || null
-//     },
-//   };
-// };
-
-
-
-// export const getStaticPaths =() =>{
-
-//    return{
-//     paths:[
-
-//       {
-//         params:{
-//           username:'63b809bc5c4828c3871ad849'
-//         }
-//       },
-//       {
-//         params:{
-//           username:'63c051099390b34609e62e58'
-//         }
-//       }
-     
-//     ],
-//     fallback :true
-//    }
-
-// }
 
 export const getStaticProps =async({params}) =>{
 
@@ -98,15 +64,18 @@ export const getStaticProps =async({params}) =>{
 const userDetails = ({data}) => { 
 
    const datas=data.user[0];
-   console.log(datas)
+    console.log(datas)
     const language=datas.language
     const category=datas.category
     const intrests=datas.intrests
     const dob=datas.dateofBirth
+    const brands=datas.prevBrands;
+
 
     var today= new Date();
+    const year=today.getFullYear();
      const arr=dob.split("-");
-     console.log(arr)
+     const age=year-arr[0];
 
 
 
@@ -137,7 +106,7 @@ const userDetails = ({data}) => {
 
 
       <div className={styles.rightBox}>
-      <div className={styles.name}><p>{datas.name} , Age </p> <br /> Business Name/Aias </div>     
+      <div className={styles.name}><p>{datas.name} , {age} </p> </div>     
       <div className={styles.city}><p>{datas.currentCity}</p>  </div> 
   <div className={styles.icons}>
         <button>
@@ -198,12 +167,15 @@ const userDetails = ({data}) => {
       <div id={styles.performance}> <div><Image src={performance} id={styles.performancesvg}/><h5>Story</h5> </div> <h4>Starting price: $500</h4></div>
     </div>
 
-    <div className={styles.experience}>
+     { (brands==undefined) && 
+             <div className={styles.experience}>  <h3> Experience</h3> 
+             { brands.map((val,ind)=>{
+                   <h3 key={ind}> {val}  </h3>
+             })
+           
+            }
 
-            <h3> Experience : {datas.yearOfExperience}</h3> 
-            <h3> {datas.prevBrands[0]}  </h3>
-
-    </div>
+    </div>}
   
       </div>
        <div className={styles.footer} >  <Footer/>  </div> 

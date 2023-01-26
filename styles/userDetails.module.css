@@ -137,7 +137,7 @@ position: absolute;
     rgba(190, 52, 85, 0.1);
     border: none;
     border-radius: 13px;
-   
+   margin-inline: 5px;
     padding-inline: 10px;
     
 }
@@ -168,7 +168,7 @@ position: absolute;
 
 #interest{
     width: max-content;
-    
+    margin-inline: 5px;
     height: 30px;
     padding: 5px;
     display: flex;

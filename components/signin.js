@@ -2,6 +2,7 @@
    import {useState,useEffect} from "react";
    import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
    import { faXmark } from '@fortawesome/free-solid-svg-icons'
+   import Forgetpassword from "./forgetpassword";
    import Link from "next/link"
    import Script from "next/script";
    import Head from "next/head";
@@ -9,7 +10,10 @@
 import axios from "axios";
 import React from "react";
   
-const signin = ({show,set,showsignup,setsignup}) => { 
+const signin = ({show,set,showsignup,setsignup,showForgotPassword,setShowForgotPassword}) => { 
+
+
+  
 
 const [user, setUser] = useState({
   email:"",
@@ -77,7 +81,7 @@ const handlechange=(e)=>{
         <div className={styles.secondInput}>
         <p>Password</p>
         <input type="password" name="password" placeholder="*********" value={user.password} onChange={(e)=>handlechange(e)} required/> </div>
-        <Link href="/" className={styles.forgetPassword} > Forget password? </Link>
+        <p onClick={()=>{handlecross() ;setShowForgotPassword(true)}} className={styles.forgetPassword} > Forgot password? </p>
             
          
            <button className={styles.login_btn} id='loginbtn' onClick={login} >Login</button>
@@ -85,7 +89,12 @@ const handlechange=(e)=>{
           <button className={styles.signup_btn} onClick={()=>{setsignup(true)}} >Sign up</button>
            </div>
          
-      </div> </div> : null }
+      </div> 
+     
+      
+        </div> : null }
+       
+
     </>
   );
 };
