@@ -92,10 +92,19 @@ const registration = () => {
   const [category,setCategory]=useState([]);
   const [interest,setInterest]=useState([]);
   const [smedia,setSmedia]=useState([]);
-  const [smedialinks,setSmedialinks]=useState([]);
-  const [socialmedia,setSocialmedia]=useState([]);
-  const [services,setServices]=useState([]);
-  const [prices,setPrices]=useState([]);
+  const[a,setA]=useState();
+  const[b,setB]=useState();
+  const[c,setC]=useState();
+  // const [smedialinks,setSmedialinks]=useState([]);
+  const [services,setServices] =useState([{
+    socialmedia:"",
+    service:"",
+    price:""
+  }])
+ const [socialUrls,setSocialUrls]=useState({})
+
+  
+ 
  const [button,setButton] =useState();
    
 
@@ -133,7 +142,7 @@ const registration = () => {
     profilePic:url,
     name:data.name,
     username:username,
-    business:data.business,
+    businessName:data.business,
     dateofBirth:data.dob,
     phoneNumber:data.number,
     numberVisibleToPremium:isshowmobile,
@@ -142,18 +151,15 @@ const registration = () => {
     gender:data.gender,
     brand:data.brands,
     isAgency:isagency,
-    "yearOfExperience": '',
+    "yearOfExperience":'',
     "country": "India", 
     language:lang,
-    statess:stt,
+    states:stt,
     currentCity:cty,
     category:category,
     intrests:interest,
-    smedia:smedia,
-    smedialinks:smedialinks,
-    socialmedia:socialmedia,
-    services:services,
-    prices:prices,
+    socialUrls:socialUrls,
+    socialServices:services,
     isconfirm:isconfirm,
    
   };
@@ -248,6 +254,19 @@ const registration = () => {
     });
   };
 
+  const changesmedia=(e)=>{
+     const {name,value} = e.target;
+     
+  setSocialUrls({
+    ...socialUrls,
+    [name]:value,
+  })
+
+  }
+
+
+
+  // console.log(socialUrls);
   
 
  const changelanguage=(val,index)=>{
@@ -295,45 +314,38 @@ const registration = () => {
       setInterest(curvalue);
      
  }
- const changesmedia=(val,index)=>{
-     
-      
-      const curvalue=[...smedia];
-      curvalue[index]=val.target.value;
-      setSmedia(curvalue);
 
-
-     
-    }
 
   
   
 
     
- const changesmedialinks=(val,index)=>{
-      const curvalue=[...smedialinks];
-      curvalue[index]=val.target.value;
-      setSmedialinks(curvalue);
+
+//  const changesocialmedia=(val,index)=>{
+//       const curvalue=[{...services}];
+//       curvalue[index]=val.target.value;
+//       setServices(prev=> prev[index].socialmedia=curvalue);
      
- }
- const changesocialmedia=(val,index)=>{
-      const curvalue=[...socialmedia];
-      curvalue[index]=val.target.value;
-      setSocialmedia(curvalue);
+//  }
+ const changeservices=()=>{
+    const user=[...services]
+    user[servicecount.length-1]={socialmedia:a,service:b,price:c}
      
+    setServices(user)
  }
- const changeservices=(val,index)=>{
-      const curvalue=[...services];
-      curvalue[index]=val.target.value;
-      setServices(curvalue);
+
+
+ useEffect(() => {
+  changeservices()
+  
+ }, [a,b,c])
+ 
+//  const changeprices=(val,index)=>{
+//       const curvalue=[{...services}];
+//       curvalue[index]=val.target.value;
+//       setServices.price(curvalue);
      
- }
- const changeprices=(val,index)=>{
-      const curvalue=[...prices];
-      curvalue[index]=val.target.value;
-      setPrices(curvalue);
-     
- }
+//  }
 
 
   console.log(data);
@@ -411,13 +423,13 @@ const registration = () => {
     setMediaCount([1, ...mediacount]);
   };
 
-  const deletemedia = (index) => {
-    console.log(index)
-    const b = [...smedia];
-    const c = [...mediacount];
-    if(mediacount.length>1){ b.splice(index,1); c.splice(index,1)}
-    setSmedia(b);
-    setMediaCount(c);  };
+  // const deletemedia = (index) => {
+  //   console.log(index)
+  //   const b = [...smedia];
+  //   const c = [...mediacount];
+  //   if(mediacount.length>1){ b.splice(index,1); c.splice(index,1)}
+  //   setSmedia(b);
+  //   setMediaCount(c);  };
 
     const addService = () => {
       setServiceCount([1, ...servicecount]);
@@ -791,7 +803,7 @@ const registration = () => {
                     Select
                   </option>
                   {Interest.map((elem,key) => (
-                    <option >{elem}</option>
+                    <option key={key}>{elem}</option>
                   ))}
                 </select>
                 <Image
@@ -847,14 +859,14 @@ const registration = () => {
               <br />
               {mediacount.map((val, index) => (
                 <div className={styles.all_media}>
-                  <select  id={styles.select_city} onChange={(e) => changesmedia(e,index)}>
+                  <select  id={styles.select_city} /* onChange={(e) => changesmedia(e,index)} */ onChange={(e)=>setSmedia(e.target.value)}>
                     <option value="" disabled hidden selected>
                       Select
                     </option>
                     {SocialMedia.map((val, key) => (
-                      <option name={key} value={val} disabled={smedia.includes(val)} >{val}</option>
+                      <option key={key} value={val} /* disabled={smedia.includes(val)}*/ >{val}</option>
                     ))}
-                  </select>{" "}
+                  </select>
                 </div>
               ))}
             </div>
@@ -868,9 +880,9 @@ const registration = () => {
                 <div className={styles.all_links}>
                   {/* <p>{index}</p> */}
                   <input
-                    type="url" value={smedialinks[index]}
+                    type="url" /* value={smedialinks[index]} */
                     placeholder="url"
-                    name="emzil" onChange={(e) => changesmedialinks(e,index)}
+                    name={smedia} onChange={(e) => changesmedia(e)}
                     required 
                   />{" "}
                   <Image
@@ -886,6 +898,8 @@ const registration = () => {
             <h5 onClick={addMedia}>+ Add another social media</h5>
           </div> }
 
+
+
           <div className={styles.services_body}>
             <div className={styles.socialm} id={styles.last}>
               <label for="social_media">
@@ -894,7 +908,7 @@ const registration = () => {
               <br />
               {servicecount.map((elem,index) => (
                 <div>
-                  <select name="social_media" value={socialmedia[index]} id={styles.select_media} onChange={(e) => changesocialmedia(e,index)}>
+                  <select name="social_media"  id={styles.select_media} onChange={(e) => setA(e.target.value)}>
                     <option hidden selected disabled>
                       Select
                     </option>
@@ -913,7 +927,7 @@ const registration = () => {
               <br />
               {servicecount.map((val,index) => (
                 <div>
-                  <select value={services[index]} name="social_media" id={styles.select_media} onChange={(e) => changeservices(e,index)}>
+                  <select /* value={services[index].service} */ name="social_media" id={styles.select_media} onChange={(e) => setB(e.target.value)}>
                     <option selected disabled hidden>
                       Select
                     </option>
@@ -936,7 +950,7 @@ const registration = () => {
                     type="number"
                     placeholder="starting price"
                     
-                    onChange={(e) => changeprices(e,index)}
+                    onChange={(e) => setC(e.target.value)}
                   />
                   <Image
                     src={deletes}

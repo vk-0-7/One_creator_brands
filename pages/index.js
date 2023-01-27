@@ -278,7 +278,7 @@ const index = () => {
         <div className={styles.box2_carousel} >
           <Slider dots={true} {...settings}>
             {topdata.map((item,key) => (
-                  <Link href={`/${item._id}`}> <div className={styles.card}>
+                  <Link href={`/${item.username}`}> <div className={styles.card}>
                 <div className={styles.card_top} key={key}>
                   <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>
                   <h1>{item.name}</h1>
@@ -332,7 +332,7 @@ const index = () => {
         <div className={styles.box2_carousel} >
           <Slider dots={true} {...settings}>
             {newdata.map((item,key) => (
-                 <Link href={`/${item._id}`} >  <div className={styles.card}>
+                 <Link href={`/${item.username}`} >  <div className={styles.card}>
                 <div className={styles.card_top} key={key}>
                   <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>
                   <h1>{item.name}</h1>

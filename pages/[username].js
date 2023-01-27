@@ -7,9 +7,16 @@ import styles from "../styles/userDetails.module.css"
 import img from "../Images/img.jpg";
 import star from "../icons/star.svg"
 import music from "../icons/musicnote.svg"
-import redinsta from "../icons/redinsta.svg"
-import redfb from "../icons/redfb.svg"
-import cloud from "../icons/cloud.svg"
+import instagram from "../icons/redinsta.svg"
+import facebook from "../icons/redfb.svg"
+import snapchat from "../icons/Snapchatred.svg"
+import tiktok from "../icons/TikTokred.svg"
+import twitter from "../icons/Twitterred.svg"
+import youtube from "../icons/Youtubered.svg"
+import pinterest from "../icons/Pinterestred.svg"
+import linkdin from "../icons/LinkedInred.svg"
+import koo from "../icons/Koo.svg"
+import moj from "../icons/Moj.svg"
 import performance from "../icons/performance.svg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -17,38 +24,52 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 
- export  async function getStaticPaths  () {
-  const res= await axios.get('https://backend.discoverinfluencer.in/user/all');
-  const datas=res.data.users;
+//  export  async function getStaticPaths  () {
+//   const res= await axios.get('https://backend.discoverinfluencer.in/user/all');
+//   const datas=res.data.users;
 
-  //  console.log(datas);
+//   //  console.log(datas);
      
 
 
-        const paths=datas.map((elem)=>(
-          {
-            params:{
-              username:elem._id,
-            },
-          }
-        ))
+//         const paths=datas.map((elem)=>(
+//           {
+//             params:{
+//               username:elem._id,
+//             },
+//           }
+//         ))
        
 
 
-            return {
-              paths,
-              fallback:false,
-            }
-}
+//             return {
+//               paths,
+//               fallback:false,
+//             }
+// }
 
 
 
 
 
 
-export const getStaticProps =async({params}) =>{
+// export const getStaticProps =async({params}) =>{
 
-  const data =await fetch(`https://backend.discoverinfluencer.in/home/get_influencer/${params.username}`)
+//   const data =await fetch(`https://backend.discoverinfluencer.in/home/get_influencer/${params.username}`)
+//   const alldata=await data.json();
+
+//   return{
+//     props:{
+//       data:alldata ||null
+//     }
+//   }
+// }
+
+
+export const getServerSideProps =async(params) =>{
+  const {query} =params
+  console.log({query})
+  const data =await fetch(`https://backend.discoverinfluencer.in/home/get_influencer_username/${query.username}`)
   const alldata=await data.json();
 
   return{
@@ -60,11 +81,11 @@ export const getStaticProps =async({params}) =>{
 
 
 
-
 const userDetails = ({data}) => { 
 
-   const datas=data.user[0];
+    const datas=data.user[0];
     console.log(datas)
+
     const language=datas.language
     const category=datas.category
     const intrests=datas.intrests
@@ -83,9 +104,8 @@ const userDetails = ({data}) => {
   return (
     <>
     
-  
-  {/* {console.log(datas.name)} */}
-    <Navbar1/>
+    
+     <Navbar1/>
       <div className={styles.leftBox}>
       <div className={styles.username}>
           <p>{datas.username}</p>
@@ -110,13 +130,34 @@ const userDetails = ({data}) => {
       <div className={styles.city}><p>{datas.currentCity}</p>  </div> 
   <div className={styles.icons}>
         <button>
-              <Image  src={redfb} id={styles.ic}/>
+              <Image  src={facebook} id={styles.ic}/>
                     </button>
         <button>
-             {" "} <Image  src={redinsta} id={styles.ic}/>
+             {" "} <Image  src={instagram} id={styles.ic}/>
                     </button>
-        <button>
-            <Image  src={cloud} id={styles.ic}/>
+           <button>
+            <Image  src={snapchat} id={styles.ic}/>
+                    </button>
+           <button>
+            <Image  src={youtube} id={styles.ic}/>
+                    </button>
+           <button>
+            <Image  src={twitter} id={styles.ic}/>
+                    </button>
+           <button>
+            <Image  src={linkdin} id={styles.ic}/>
+                    </button>
+           <button>
+            <Image  src={tiktok} id={styles.ic}/>
+                    </button>
+           <button>
+            <Image  src={pinterest} id={styles.ic}/>
+                    </button>
+           <button>
+            <Image  src={moj} id={styles.ic}/>
+                    </button>
+           <button>
+            <Image  src={koo} id={styles.ic}/>
                     </button>
        
         </div>

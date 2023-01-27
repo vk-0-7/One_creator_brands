@@ -295,8 +295,8 @@ const searchInfluencer = () => {
     
     <div className={styles.all_profiles_div}>
      
-    {userData.slice(0,count).map((item) => (
-            <Link href='/userDetails'> <div className={styles.card}>
+    {userData.slice(0,count).map((item,key) => (
+            <Link href={`/${item.username}`}> <div className={styles.card}>
                 <div className={styles.card_top}>
                   <Image src={item.profilePic} alt={item.title} width="400" height="300"></Image>
                   <h1>{item.username}</h1>

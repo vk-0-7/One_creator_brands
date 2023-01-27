@@ -100,8 +100,8 @@ position: absolute;
     width: fit-content;
 }
 .icons > button{
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     margin: 5px;
     border-radius: 10px;
     border: 0.3px solid rgba(202, 192, 192,0.3);
