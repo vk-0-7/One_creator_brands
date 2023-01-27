@@ -525,11 +525,11 @@
     .main_div{
         padding: 20px;
         height: max-content;
-        width: 90vw;
+        width: 100vw;
         border: 1px solid black;
         position: absolute;
         top: 100px;
-        left: 5vw;
+        /* left: 5vw; */
        
     }
    
@@ -552,16 +552,73 @@
     }
     
 
-    #inpt{
-        height: 45px;
-        width: 100%;
-        border: 2px solid #F0F0F0;
-        border-radius: 12px;
-        padding-left: 10px;
-        font-size: 0.9rem;
-        margin-top: 4px;
-        
-    }
+   
+#dropdown{
+    margin-top: 12px;
+    margin-left: 2px;
+    width: 90%;
+    border: 1px solid red;
+}
+
+#select{
+    width: 100%;
+    display: flex;
+    /* border: 1px solid black; */
+}
+#select select {
+    width: 92.5% !important;
+    
+    /* border: 1px solid rgb(30, 183, 27); */
+}
+#register{
+    width:90%;
+    /* border: 1px solid red; */
+    margin-top: 8px;
+    padding: 5px;
+}
+
+.state_city{
+    width:90%;
+    /* border: 1px solid red; */
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#inpt{
+    height: 45px;
+    width: 90%;
+    border: 2px solid #F0F0F0;
+    border-radius: 12px;
+    padding-left: 10px;
+    font-size: 0.9rem;
+    margin-top: 4px;
+    
+}
+.social_media{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    /* border: 1px solid red; */
+    width: 90%;
+}
+.medialink input{
+    height: 45px;
+    width: 220px;
+    border: 2px solid #F0F0F0;
+    border-radius: 12px;
+    padding-inline: 10px;
+    font-size: 0.8rem;
+    margin: 2px 0px -3px 3px;
+}
+.services_body{
+    display: flex;
+    margin-top: 4px;
+    flex-wrap: wrap;
+    width: 90%;
+    /* border: 1px solid red; */
+
+}
    
     #last input ,#last select{
        
@@ -573,6 +630,19 @@
         margin-right: 12px;
         margin-left: 3px;
         margin-top: 4px;
+    }
+
+    .terms_and_condition{
+        display: flex;
+        width: 90%;
+        margin-top: 30px;
+        margin-left: 28px;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+    }
+    .terms_and_condition input{
+        margin-right: 5px;
     }
     .create_profile{
    

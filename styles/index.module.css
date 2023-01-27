@@ -151,7 +151,7 @@
     width: 10px;
 }
 .txt {
-    margin-left: 13px;
+    margin-left: 0px;
     margin-top: 5px;
 }
 
@@ -387,7 +387,8 @@
     }
 
     .main_text {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
+        line-height: 42px;
     }
 
     .form {
@@ -400,22 +401,26 @@
     }
 
     .form>input {
-        font-size: 0.8rem;
-        padding-inline: 20px;
+        font-size: 0.66rem;
+        padding-left: 20px;
+        padding-right: 35px;
+        border-radius: 17px;
 
     }
 
     .search_icon {
-        top: 15px;
-        right: 21px;
-        height: 19px;
-        width: 19px;
+        top: 16px;
+        right: 12px;
+        height: 17px;
+        width: 17px;
     }
 
     .main_text2 {
-        font-size: 1.1rem;
-        
-        left: 10vw;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+        left: 0vw;
+        padding-inline: 8px;
         top: 212px;
     }
 
@@ -431,8 +436,8 @@
     }
 
     .top_influencer {
-       
-        font-size: 1.5rem;
+        margin-left: 0px;
+        font-size: 1.1rem;
        
     }
 

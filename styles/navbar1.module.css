@@ -70,8 +70,8 @@
     }
 
     .logo{
-        height:55px ;
-        width: 130px;
+        height: 49px;
+        width: 117px;
         position: absolute;
         left: 30px;
         top: 5px;
@@ -81,27 +81,32 @@
         position: absolute;
         top: 18px;
         right:6vw;
-        height: 33px;
-        width: 100px;
+        height: 30px;
+        width: 85px;
         border: 1.5px solid rgb(190, 52, 85);
         border-radius: 8px;
-        font-size: 0.8rem;
+       
+        display: flex;
+        align-items: center;
+        justify-content: center;
     
     }
     
    
     .usericon{
-        height: 13px;
-        width: 13px;
+        height: 11px;
+        width: 11px;
        position: relative;
-       top: 10px;
-       left: 10px;
+       top: 0px;
+       left: 0px;
         
     }
     
     .btn  p{
+        padding-left: 3px;
         position: relative;
-        top: 10px;
-        left: 18px;
+        top: 0px;
+        left: 0px;
+        font-size: 0.65rem;
     }
 }

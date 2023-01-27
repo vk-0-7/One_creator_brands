@@ -50,7 +50,7 @@ const registration = () => {
          addimg.style.visibility='hidden'
          addnewimg.style.visibility='visible'
          deleteimg.style.visibility='visible'
-         let reader = new FileReader();
+         let reader = new FileReader(); 
         reader.readAsDataURL(uploadButton.files[0]);
         reader.onload = () => {
             chosenImage.setAttribute("src",reader.result);
@@ -136,9 +136,9 @@ const registration = () => {
     business:data.business,
     dateofBirth:data.dob,
     phoneNumber:data.number,
-    isshowmobile:isshowmobile,
+    numberVisibleToPremium:isshowmobile,
     email:data.email,
-    isshowemail:isshowemail,
+    showEmailToPremium:isshowemail,
     gender:data.gender,
     brand:data.brands,
     isAgency:isagency,

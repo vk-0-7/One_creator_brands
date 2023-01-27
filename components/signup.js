@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import styles from "../styles/signup.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
-
+ 
 import Link from "next/link"
 import Head from "next/head";
 
@@ -26,6 +26,45 @@ const signup = ({show,set,showsignup,setsignup}) => {
           [name]:value,   
           });
        }
+
+       function containsNumbers(str) {
+        return /\d/.test(str);
+      }
+      function isValid(str){
+        var regex = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g;
+      return regex.test(str);
+    }
+
+    function containsLetter(string) {
+      const
+          upper = /[A-Z]/.test(string),
+          lower = /[a-z]/.test(string);
+  
+      return upper && lower;
+  }
+
+       useEffect(() => {
+         if(user.password.length>7){
+          document.getElementById('firstvalidation').style.color='green'
+         }
+         else{
+          document.getElementById('firstvalidation').style.color=' rgb(231, 91, 91)'
+         }
+         if (containsNumbers(user.password) && isValid(user.password)) {
+          document.getElementById('thirdvalidation').style.color='green'
+         }
+         else{
+          document.getElementById('thirdvalidation').style.color=' rgb(231, 91, 91)'
+         }
+         if (containsLetter(user.password) ) {
+          document.getElementById('secondvalidation').style.color='green'
+         }
+         else{
+          document.getElementById('secondvalidation').style.color=' rgb(231, 91, 91)'
+         }
+         
+       }, [user.password])
+       
   
        const API_URL ='https://backend.discoverinfluencer.in/user/activation';
 
@@ -33,16 +72,17 @@ const signup = ({show,set,showsignup,setsignup}) => {
          
      
         const {name,email,password}=user;
-        if(name && email && password ){
+        if(name && email && password){
+          // document.getElementById('signupbtn').disabled=false;
+          document.getElementById('signupbtn').style.cursor='pointer';
           try {
            await axios.post(API_URL,user)
           } catch (error) {
             console.log('Error while calling api',error.message);
           }
          
-        
-
       }
+     
 
        }
       //  const [validate,setValidate] =useState(false)
@@ -50,7 +90,7 @@ const signup = ({show,set,showsignup,setsignup}) => {
        useEffect(() => {
 
 
-        if(user.name && user.email && user.password && user.email.includes('@')){
+        if(user.name && user.email && user.password && user.email.includes('@') && containsLetter(user.password) && containsNumbers(user.password) && isValid(user.password) && user.password.length>7 ){
         
         document.getElementById('signupbtn').style.backgroundColor=' rgb(190, 52, 85)'
       }
@@ -99,7 +139,15 @@ return (
      <div className={styles.thirdInput}>
      <p>Password</p>
 <input type="password" name="password" placeholder="*********" value={user.password} onChange={(e)=>handlechange(e)} required/> </div>
-     
+      <div className={styles.password_validation}>
+        <p>Password should contain:</p>
+    <ul>
+      <li id='firstvalidation'>contains at least 8 characters</li>
+      <li id='secondvalidation'>contains both lower (a-z) and upper case letters (A-Z)</li>
+      <li id='thirdvalidation'>contains at least one number (0-9) or a symbol</li>
+    </ul>
+
+        </div> 
          
       
       <Link href='/emailsent' id='sent'>  <button className={styles.signup_btn} id='signupbtn' onClick={signup} >Sign up</button> </Link>
