@@ -4,12 +4,17 @@
 //   return <Component {...pageProps} />
 // }
 
-import { useEffect } from 'react';
+import React, { useEffect ,useState} from 'react';
 import '../styles/globals.css'
 import Script from 'next/script'
 import TagManager from 'react-gtm-module';
 
+export const MyContext = React.createContext()
+
 function App({ Component, pageProps }) {
+
+  const [globalState, setGlobalState] = useState()
+
   useEffect(() => {
       TagManager.initialize({ gtmId: 'GTM-N8T8ZQV' });
 
@@ -28,10 +33,9 @@ s0.parentNode.insertBefore(s1,s0);
 
   }, []);
   return(<>
-  
-    
-    
-    <Component {...pageProps}/>
+   <MyContext.Provider value={{ globalState, setGlobalState }}>
+            <Component {...pageProps} />
+        </MyContext.Provider>
     </>
     )
 }

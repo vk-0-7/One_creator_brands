@@ -1,5 +1,6 @@
 
 import {useState,useEffect} from'react';
+
 import Navbar1 from "../components/navbar1"
 import Footer from "../components/footer"
 import Image from "next/image"
@@ -83,6 +84,8 @@ export const getServerSideProps =async(params) =>{
 
 const userDetails = ({data}) => { 
 
+  
+
     const datas=data.user[0];
     console.log(datas)
 
@@ -97,7 +100,6 @@ const userDetails = ({data}) => {
     const year=today.getFullYear();
      const arr=dob.split("-");
      const age=year-arr[0];
-
 
 
 

@@ -1,4 +1,5 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect ,useContext} from "react";
+import { MyContext } from './_app.js'
 import search from "../icons/search-normal.svg"
 import arrowleft from "../icons/arrow-left.svg"
 import redinsta from "../icons/redbgfb.svg"
@@ -74,7 +75,7 @@ function SecondPrevArrow(props) {
 
 const index = () => {
 
-  
+  const { globalState, setGlobalState } = useContext(MyContext)
 
   // const changeplaceholder=()=>{
   //   var items = Array("buy milk","purchase the new iPhone","test","hello");
@@ -387,8 +388,9 @@ const index = () => {
         <div className={styles.box3_carousel}>
           <Slider dots={true} {...setting  }>
             {ImagesDivThree.map((item,key) => (
-             <Link href='/searchInfluencer'>  <div className={styles.card2} key={key}>
-                <div className={styles.card_top2} >
+             <Link href='/searchInfluencer' as =
+             {`/searchInfluencer?data=${item.category}`}  >  <div className={styles.card2} key={key} >
+                <div className={styles.card_top2}>     
                   <Image src={item.Img} alt={item.title} width="300" height="400" priority ></Image>
                   <p className={styles.category_name}>{item.category}</p>
                 </div>

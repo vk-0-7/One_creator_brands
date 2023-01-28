@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect ,useContext} from "react";
+import { MyContext } from './_app.js'
+import { useRouter } from "next/router";
 import Image from "next/image"
 import Link from "next/link"
 import searchn from "../icons/searchn.svg"
@@ -23,8 +25,23 @@ import axios from "axios";
 
 
 const searchInfluencer = () => {
-
+  // const { globalState, setGlobalState } = useContext(MyContext)
+    const [cat,setCat]=useState('');
+  // console.log(globalState);
+  // const router = useRouter()
  
+    useEffect(() => {
+      let tokken=window.location.href;
+     setCat(tokken.slice(44));
+    
+     
+    }, [])
+
+   console.log(cat);
+  
+
+  
+
   const [socialMedia,setSocialMedia] =useState([])
   const [category,setCategory] =useState([]);
   const [interest,setInterest] =useState([])
@@ -144,16 +161,10 @@ const searchInfluencer = () => {
   
   }
    
-  
-   
     else{
      getFilteredData()
 
   }
-   
-    
-    
-  
  }, [socialMedia,category,interest,gender])
 
  
@@ -168,7 +179,7 @@ const searchInfluencer = () => {
         
     </Head>
     
-   
+   {/* {console.log(data)} */}
    
     
     
@@ -245,7 +256,7 @@ const searchInfluencer = () => {
 
       }).map((elem) =>(
        <>
-       <input type="checkbox" id={styles.checkbox} name="Interest" value={elem} onChange={(e)=>changeInterest(e)}
+       <input type="checkbox" id={styles.checkbox} classname='ckbox' name={elem} value={elem} onChange={(e)=>changeInterest(e)}
        />
         <label for="influencer"> {elem}</label><br/>
         </>

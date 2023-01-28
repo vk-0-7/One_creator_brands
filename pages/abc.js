@@ -27,10 +27,7 @@ useEffect(() => {
 
   return (
     <div class="container">
-    <figure class="image-container" style={{width:"60%",borderRadius:"10px"}}>
-        <img id="chosen-image"style={{width:"50%",height:"50%" ,margin:"50px"}} />
-       
-    </figure>
+   <h1>hghjvhvhvhv</h1>
 
     <input type="file" id="upload-button" accept="image/*"/>
    

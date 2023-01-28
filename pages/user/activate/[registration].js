@@ -155,11 +155,11 @@ const registration = () => {
     "country": "India", 
     "isPremium": true,
     language:lang,
-    states:stt,
+    state:stt,
     currentCity:cty,
     category:category,
     intrests:interest,
-    socialUrls:socialUrls,
+    socialURLs:socialUrls,
     socialServices:services,
     isconfirm:isconfirm,
    
