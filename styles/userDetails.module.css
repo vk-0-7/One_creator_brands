@@ -62,7 +62,48 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
+
+.info{
+  border-radius: 10px;
+  height: 20rem;
+  width: 35vw;
+  background-color: white;
+  position: absolute;
+  top: 16.5rem;
+  left: 0px;
+  z-index: 1000;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.crossIcon{
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+    cursor: pointer;
+}
+
+.number{
+    display: flex;
+    margin: 1rem;
+   
+   
+}
+.email{
+    display: flex;
+    margin: 1rem;
+}
+
+
+
+
 .rightBox{
     height: max-content;
 width: 35vw;

@@ -214,7 +214,7 @@ const index = () => {
 
   return (
     <>
-    {/* {console.log(topdata)} */}
+    {console.log(topdata)}
     {/* {console.log(newdata[0])} */}
       <Head>
        <meta name="description" content="Discover Influencer"/>
@@ -278,8 +278,8 @@ const index = () => {
         <p className={styles.txt}>Discover Top Influencers from the Country</p>
         <div className={styles.box2_carousel} >
           <Slider dots={true} {...settings}>
-            {topdata.map((item,key) => (
-                  <Link href={`/${item.username}`}> <div className={styles.card}>
+            {topdata.filter((elem) =>   elem.visibility  ).map((item,key) => (
+                 <Link href={`/${item.username}`}> <div className={styles.card}>
                 <div className={styles.card_top} key={key}>
                   <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>
                   <h1>{item.name}</h1>
@@ -332,7 +332,7 @@ const index = () => {
         <p className={styles.txt}>Discover the Newest Influencers from the Country</p>
         <div className={styles.box2_carousel} >
           <Slider dots={true} {...settings}>
-            {newdata.map((item,key) => (
+            {newdata.filter((elem) =>   elem.visibility  ).map((item,key) => (
                  <Link href={`/${item.username}`} >  <div className={styles.card}>
                 <div className={styles.card_top} key={key}>
                   <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>

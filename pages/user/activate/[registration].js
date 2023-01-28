@@ -154,6 +154,7 @@ const registration = () => {
     "yearOfExperience":'1',
     "country": "India", 
     "isPremium": true,
+    "visibility": true,
     language:lang,
     state:stt,
     currentCity:cty,

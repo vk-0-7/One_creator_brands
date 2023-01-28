@@ -1,6 +1,6 @@
 
 import {useState,useEffect} from'react';
-
+import Link from 'next/link'
 import Navbar1 from "../components/navbar1"
 import Footer from "../components/footer"
 import Image from "next/image"
@@ -8,20 +8,22 @@ import styles from "../styles/userDetails.module.css"
 import img from "../Images/img.jpg";
 import star from "../icons/star.svg"
 import music from "../icons/musicnote.svg"
-import instagram from "../icons/redinsta.svg"
-import facebook from "../icons/redfb.svg"
-import snapchat from "../icons/Snapchatred.svg"
-import tiktok from "../icons/TikTokred.svg"
-import twitter from "../icons/Twitterred.svg"
-import youtube from "../icons/YouTubered.svg"
-import pinterest from "../icons/Pinterestred.svg"
-import linkdin from "../icons/LinkedInred.svg"
-import koo from "../icons/Koo.svg"
-import moj from "../icons/Moj.svg"
+// import Instagram from "../icons/redinsta.svg"
+import Facebook from "../icons/redfb.svg"
+import Snapchat from "../icons/Snapchatred.svg"
+import Tiktok from "../icons/TikTokred.svg"
+import Twitter from "../icons/Twitterred.svg"
+import Youtube from "../icons/YouTubered.svg"
+import Pinterest from "../icons/Pinterestred.svg"
+import Linkdin from "../icons/LinkedInred.svg"
+import Koo from "../icons/Koo.svg"
+import Moj from "../icons/Moj.svg"
 import performance from "../icons/performance.svg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import Instagram from "@fortawesome/free-brands-svg-icons/faInstagram";
 import axios from "axios";
 
 
@@ -84,6 +86,33 @@ export const getServerSideProps =async(params) =>{
 
 const userDetails = ({data}) => { 
 
+  const [show,setShow] =useState(false)
+
+  const showinfo=()=>{
+    document.getElementById('information').style.visibility='visible'
+   
+  }
+  const removeinfo=()=>{
+    document.getElementById('information').style.visibility='hidden'
+   
+  }
+
+
+  useEffect(()=>{
+
+    if(!data.user[0].numberVisibleToPremium)
+      {
+        document.getElementById('num').style.color='transparent'
+        document.getElementById('num').style.textShadow='0 0 6px rgb(0, 0, 0)'
+      }
+    if(!data.user[0].showEmailToPremium)
+      {
+        document.getElementById('eml').style.color='transparent'
+        document.getElementById('eml').style.textShadow='0 0 6px rgb(0, 0, 0)'
+      }
+
+  },[])
+
   
 
     const datas=data.user[0];
@@ -94,8 +123,8 @@ const userDetails = ({data}) => {
     const intrests=datas.intrests
     const dob=datas.dateofBirth
     const brands=datas.prevBrands;
-
-
+    const URLs=datas.socialURLs[0];
+    const services=datas.socialServices
     var today= new Date();
     const year=today.getFullYear();
      const arr=dob.split("-");
@@ -120,8 +149,18 @@ const userDetails = ({data}) => {
          </div>
        
        <div className={styles.contact_btn}>
-         <button><FontAwesomeIcon  icon={faEnvelope} className={styles.envelope}/><p> conatct Me </p></button>
+         <button onClick={showinfo}><FontAwesomeIcon  icon={faEnvelope} className={styles.envelope}/><p> conatct Me </p></button>
        </div>
+
+     
+      <div id='information' className={styles.info}>
+
+      <FontAwesomeIcon className={styles.crossIcon} icon={faXmark} onClick={()=>removeinfo()} /> 
+      
+     <div className={styles.number}><h4> Contact Number : </h4><h3 id='num'>{datas.phoneNumber} </h3></div>
+        <div className={styles.email}><h4> Contact Email :</h4> <h3 id='eml'> {datas.email}</h3></div>
+      
+      </div>
        
      </div>
 
@@ -131,37 +170,15 @@ const userDetails = ({data}) => {
       <div className={styles.name}><p>{datas.name} , {age} </p> </div>     
       <div className={styles.city}><p>{datas.currentCity}</p>  </div> 
   <div className={styles.icons}>
-        <button>
-              <Image  src={facebook} id={styles.ic}/>
-                    </button>
-        <button>
-             {" "} <Image  src={instagram} id={styles.ic}/>
-                    </button>
-           <button>
-            <Image  src={snapchat} id={styles.ic}/>
-                    </button>
-           <button>
-            <Image  src={youtube} id={styles.ic}/>
-                    </button>
-           <button>
-            <Image  src={twitter} id={styles.ic}/>
-                    </button>
-           <button>
-            <Image  src={linkdin} id={styles.ic}/>
-                    </button>
-           <button>
-            <Image  src={tiktok} id={styles.ic}/>
-                    </button>
-           <button>
-            <Image  src={pinterest} id={styles.ic}/>
-                    </button>
-           <button>
-            <Image  src={moj} id={styles.ic}/>
-                    </button>
-           <button>
-            <Image  src={koo} id={styles.ic}/>
-                    </button>
-       
+
+
+  {Object.entries(URLs).map(([key, value]) => (
+        <button key={key}>
+          
+        <Link href={value}>  <Image src={Twitter} id={styles.ic} width={400} height={300}/> </Link>
+        </button>
+      ))}
+
         </div>
       <div className={styles.category_section}>
 
@@ -203,14 +220,21 @@ const userDetails = ({data}) => {
 
   
     <div className={styles.performances}>
-      <div id={styles.performance}> <div><Image src={performance} id={styles.performancesvg}/><h5>Youtube Videos</h5></div><h4>Starting price: $300</h4></div>
 
-      <div id={styles.performance}><div><Image src={performance} id={styles.performancesvg}/><h5>Reels</h5></div><h4>Starting price: $250</h4></div>
 
-      <div id={styles.performance}> <div><Image src={performance} id={styles.performancesvg}/><h5>Story</h5> </div> <h4>Starting price: $500</h4></div>
-    </div>
+      {services.map((elem,index)=>{
+       return(
+        <div id={styles.performance}> <div><Image src={performance} id={styles.performancesvg}/> 
+        <h5>{elem.socialmedia} {elem.service}</h5></div><h4>Starting price: ${elem.price}</h4></div>
 
-     { (brands==undefined) && 
+        )
+      })}
+
+
+      
+
+      </div>
+     {/* { (brands==undefined) && 
              <div className={styles.experience}>  <h3> Experience</h3> 
              { brands.map((val,ind)=>{
                    <h3 key={ind}> {val}  </h3>
@@ -218,9 +242,9 @@ const userDetails = ({data}) => {
            
             }
 
-    </div>}
-  
-      </div>
+    </div>} */}
+  </div>
+     
        <div className={styles.footer} >  <Footer/>  </div> 
     
     </>
