@@ -27,48 +27,6 @@ import Instagram from "@fortawesome/free-brands-svg-icons/faInstagram";
 import axios from "axios";
 
 
-//  export  async function getStaticPaths  () {
-//   const res= await axios.get('https://backend.discoverinfluencer.in/user/all');
-//   const datas=res.data.users;
-
-//   //  console.log(datas);
-     
-
-
-//         const paths=datas.map((elem)=>(
-//           {
-//             params:{
-//               username:elem._id,
-//             },
-//           }
-//         ))
-       
-
-
-//             return {
-//               paths,
-//               fallback:false,
-//             }
-// }
-
-
-
-
-
-
-// export const getStaticProps =async({params}) =>{
-
-//   const data =await fetch(`https://backend.discoverinfluencer.in/home/get_influencer/${params.username}`)
-//   const alldata=await data.json();
-
-//   return{
-//     props:{
-//       data:alldata ||null
-//     }
-//   }
-// }
-
-
 export const getServerSideProps =async(params) =>{
   const {query} =params
   console.log({query})
@@ -225,7 +183,7 @@ const userDetails = ({data}) => {
       {services.map((elem,index)=>{
        return(
         <div id={styles.performance}> <div><Image src={performance} id={styles.performancesvg}/> 
-        <h5>{elem.socialmedia} {elem.service}</h5></div><h4>Starting price: ${elem.price}</h4></div>
+        <h5>{elem.socialmedia} {elem.service}</h5></div><h4>Starting price: ₹ {elem.price}</h4></div>
 
         )
       })}

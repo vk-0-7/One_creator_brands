@@ -32,16 +32,51 @@ const searchInfluencer = () => {
  
     useEffect(() => {
       let tokken=window.location.href;
-     setCat(tokken.slice(44));
-    
+     setCat(tokken.slice(56));
+       
      
     }, [])
 
-   console.log(cat);
-  
+   
+  const callfunc=()=>{
+    console.log(cat);
+    if(cat.length>0){
+      if(cat=='Fashion'){
+     const checkbox=document.querySelector("input[value='Fashion Model']")
+      checkbox.setAttribute('checked', true)
 
-  
+      }
+        
+      else if(cat=='Travel'){
+     const checkbox=document.querySelector("input[value='Traveler']")
+      checkbox.setAttribute('checked', true)
 
+      }
+        
+     else if(cat=='Automobile'){
+     const checkbox=document.querySelector("input[value='Automobile Reviewer']")
+      checkbox.setAttribute('checked', true)
+
+      }
+     else if(cat=='Health'){
+     const checkbox=document.querySelector("input[value='Doctor']")
+      checkbox.setAttribute('checked', true)
+
+      }
+     else if(cat=='Food'){
+     const checkbox=document.querySelector("input[value='Food Reviewer']")
+      checkbox.setAttribute('checked', true)
+
+      }
+        
+      
+     
+    }
+  }
+   
+  callfunc();
+  
+const [nodata,setNoData]=useState(false);
   const [socialMedia,setSocialMedia] =useState([])
   const [category,setCategory] =useState([]);
   const [interest,setInterest] =useState([])
@@ -141,10 +176,13 @@ const searchInfluencer = () => {
     console.log(response.data.message);
     let abc=response.data.message;
     setUserData(abc)
+    setNoData(false)
    
     // console.log(response.data.message)
 
-  }).catch(error=>{ console.log("Error during fetching data",error.message) })
+  }).catch(error=>{ console.log("Error during fetching data",error.message)
+                setNoData(true)
+})
   
  }
  
@@ -230,7 +268,7 @@ const searchInfluencer = () => {
       
       ).map((elem,key) =>(
          <>
-       <input type="checkbox" id={styles.checkbox} name="Influencer" value={elem} onChange={(e)=>changeCategory(e)}/>
+       <input type="checkbox" id={styles.checkbox} className='ckbox' name="Influencer" value={elem} onChange={(e)=>changeCategory(e)}/>
         <label for="influencer"> {elem}</label><br/>
         </>
        
@@ -304,9 +342,10 @@ const searchInfluencer = () => {
         </form>
 
     
-    <div className={styles.all_profiles_div}>
+   { nodata ?   <div className={styles.nodatafound}> <h2>No User Found...</h2></div>
+   : <div className={styles.all_profiles_div}>
      
-    {userData.slice(0,count).map((item,key) => (
+    {userData.filter((elem) =>   elem.visibility  ).slice(0,count).map((item,key) => (
             <Link href={`/${item.username}`}> <div className={styles.card}>
                 <div className={styles.card_top}>
                   <Image src={item.profilePic} alt={item.title} width="400" height="300"></Image>
@@ -350,16 +389,16 @@ const searchInfluencer = () => {
             ))}
     
 
-    <div className={styles.load_more}>
+   { userData.length>15 ? <div className={styles.load_more}>
   <button className={styles.load_more_btn} onClick={handleclick} > <p>See More</p>  <Image src={arrow} 
   style={{height:"15px",width:'15px'}} /> </button>
 
-    </div>
+    </div> : null}
 
 
 
 
-    </div>
+    </div>}
     
     </>
   )
