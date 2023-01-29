@@ -4,10 +4,11 @@ import { useRouter } from "next/router";
 import Image from "next/image"
 import Link from "next/link"
 import searchn from "../icons/searchn.svg"
-import redbgfb from "../icons/redbgfb.svg"
-import snap from "../icons/snap.svg"
-import tube from "../icons/tube.svg"
-import redinsta from "../icons/redinsta.svg"
+import Facebook from "../icons/redbgfb.svg"
+import Twitter from '../icons/Twitterred.svg'
+import Snapchat from "../icons/snap.svg"
+import YouTube from "../icons/tube.svg"
+import Instagram from "../icons/redinsta.svg"
 import arrow from "../icons/arrow-left.svg"
 import styles from "../styles/jobs.module.css"
 import Navbar from "../components/navbar1"
@@ -20,12 +21,20 @@ import Head from "next/head";
 import axios from "axios";
 
  
+const obj={
+   Twitter,
+   Instagram,
+   Facebook,
+   YouTube,
+   Snapchat
 
+
+}
 
 
 
 const searchInfluencer = () => {
-  // const { globalState, setGlobalState } = useContext(MyContext)
+ const [showloader,setShowLoader] =useState(true)
     const [cat,setCat]=useState('');
   // console.log(globalState);
   // const router = useRouter()
@@ -152,9 +161,12 @@ const [nodata,setNoData]=useState(false);
       const datas=response.data.users;
       console.log(datas);
       setUserData(datas);
+      setNoData(false)
+     
       
     } catch (error) {
        console.log("error is ", error.message)
+       setNoData(true)
     }    
   
   }
@@ -174,9 +186,10 @@ const [nodata,setNoData]=useState(false);
 
   ).then(response =>{
     console.log(response.data.message);
-    let abc=response.data.message;
+    var abc=response.data.message;
     setUserData(abc)
     setNoData(false)
+    
    
     // console.log(response.data.message)
 
@@ -205,9 +218,10 @@ const [nodata,setNoData]=useState(false);
   }
  }, [socialMedia,category,interest,gender])
 
- 
- 
- 
+   const datas=userData[0]
+    if (datas != undefined)  
+    var urls= datas.socialURLs[0]
+    
    
   return (
     <>
@@ -342,50 +356,31 @@ const [nodata,setNoData]=useState(false);
         </form>
 
     
-   { nodata ?   <div className={styles.nodatafound}> <h2>No User Found...</h2></div>
+   {   nodata  ?   <div className={styles.nodatafound}> <h2>No User Found...</h2></div>
    : <div className={styles.all_profiles_div}>
      
     {userData.filter((elem) =>   elem.visibility  ).slice(0,count).map((item,key) => (
-            <Link href={`/${item.username}`}> <div className={styles.card}>
-                <div className={styles.card_top}>
+             <div className={styles.card}>
+               <Link href={`/${item.username}`}> <div className={styles.card_top}>
                   <Image src={item.profilePic} alt={item.title} width="400" height="300"></Image>
                   <h1>{item.username}</h1>
-                </div>
+                </div> </Link> 
                 <div className={styles.card_bottom}>
-                  <h4>{item.category[0]}</h4>
+                  <h4>{item.category[0]},{item.category[1]}</h4>
                   <div className={styles.icon_btn_all}>
                    
-                    <button>
-                      {" "}
-                      <Image
-                        src={tube} style={{height:"15px",width:"15px"}}
-                        className={styles.insta}
-                      />
-                    </button>
-                    <button>
-                      {" "}
-                      <Image
-                        src={redbgfb} style={{height:"15px",width:"15px"}}
-                        className={styles.insta}
-                      />
-                    </button>
-                    <button>
-                      {" "}
-                      <Image
-                        src={snap} style={{height:"15px",width:"15px"}}
-                        className={styles.insta}
-                      />
-                    </button>
-                    <button>
-                      {" "}
-                      <Image
-                        src={redinsta} style={{height:"15px",width:"15px"}}
-                        className={styles.insta}
-                      />
-                    </button>
+                  {Object.entries(urls).map(([key, value]) => (
+       
+        
+          
+        <Link href={value} key={key}>  <Image src={obj[key]} id={styles.ic} /> </Link>
+        
+      ))}
+                   
+                   
                   </div>
                 </div>
-              </div> </Link> 
+              </div> 
             ))}
     
 

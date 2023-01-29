@@ -216,24 +216,28 @@
 
 .card_bottom {
     height: 25%;
-    margin: 5px 24px;
+    margin: 5px 19px;
     padding-top: 5px;
 
+}
+.card_bottom >h4{
+    font-weight: lighter;
 }
 
 .icon_btn_all {
     /* border: 1px solid white; */
     display: flex;
-    margin-top: 8px;
+    margin-top: 12px;
+    width: 100%;
 }
 
-.icon_btn_all>button {
-    height: 20px;
-    width: 20px;
+#ic {
+    height: 17px;
+    width: 17px;
     border: none;
-    margin-right: 5px;
+    margin-inline: 3px;
     background-color: transparent;
-    color: rgb(190, 52, 85);
+    
     cursor: pointer;
 }
 

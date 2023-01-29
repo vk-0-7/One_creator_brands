@@ -2,11 +2,12 @@ import { useState,useEffect ,useContext} from "react";
 import { MyContext } from './_app.js'
 import search from "../icons/search-normal.svg"
 import arrowleft from "../icons/arrow-left.svg"
-import redinsta from "../icons/redbgfb.svg"
-import redbgfb from "../icons/redinsta.svg"
-import snap from "../icons/snap.svg"
-import banner from '../Images/banner.webp'
-import tube from "../icons/tube.svg"
+import Instagram from "../icons/redinsta.svg"
+import Facebook from "../icons/redfb.svg"
+import Snapchat from "../icons/Snapchatred.svg"
+import Tiktok from "../icons/TikTokred.svg"
+import Twitter from "../icons/Twitterred.svg"
+import Youtube from "../icons/YouTubered.svg"
 import Navbar1 from "../components/navbar1";
 import SignIn from "../components/signin"
 import Forgetpassword from "../components/forgetpassword"
@@ -29,6 +30,18 @@ import { ImagesDivThree } from "../Data/data";
 import Link from "next/link";
 import Image from "next/image"
 
+
+
+
+const obj={
+  Twitter,
+  Instagram,
+  Facebook,
+  Youtube,
+  Snapchat
+
+
+}
 
 function SampleNextArrow(props) {
 
@@ -208,7 +221,9 @@ const index = () => {
     ],
   };
 
-
+  const datas=topdata[0]
+  if (datas != undefined)  
+  var urls= datas.socialURLs[0]
  
   
 
@@ -279,45 +294,23 @@ const index = () => {
         <div className={styles.box2_carousel} >
           <Slider dots={true} {...settings}>
             {topdata.filter((elem) =>   elem.visibility  ).map((item,key) => (
-                 <Link href={`/${item.username}`}> <div className={styles.card}>
-                <div className={styles.card_top} key={key}>
+                 <div className={styles.card}>
+                 <Link href={`/${item.username}`}> <div className={styles.card_top} key={key}>
                   <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>
                   <h1>{item.name}</h1>
-                </div>
+                </div> </Link>
                 <div className={styles.card_bottom}>
-                  <h4>{item.category[0]}</h4>
+                  <h4>{item.category[0]},{item.category[1]}</h4>
+                    
                   <div className={styles.icon_btn_all}>
-                    <button>
-                      {" "}
-                      <Image style={{height:"15px",width:"15px"}}
-                        src={tube}
-                      className={styles.insta}
-                      />
-                    </button>
-                    <button>
-                      {" "}
-                      <Image style={{height:"15px",width:"15px"}}
-                        src={redbgfb}
-                      className={styles.insta}
-                      />
-                    </button>
-                    <button>
-                      {" "}
-                      <Image  style={{height:"15px",width:"15px"}}
-                        src={snap}
-                      className={styles.insta}
-                      />
-                    </button>
-                    <button>
-                      {" "}
-                      <Image  style={{height:"15px",width:"15px"}}
-                        src={redinsta}
-                      className={styles.insta}
-                      />
-                    </button>
+                   
+                   {Object.entries(urls).map(([key, value]) => (
+        <Link href={value} key={key}>  <Image src={obj[key]} id={styles.ic} /> </Link>
+         
+       ))}
                   </div>
+                   </div>
                 </div>
-              </div> </Link> 
             ))}
           </Slider>
         </div>
@@ -333,45 +326,22 @@ const index = () => {
         <div className={styles.box2_carousel} >
           <Slider dots={true} {...settings}>
             {newdata.filter((elem) =>   elem.visibility  ).map((item,key) => (
-                 <Link href={`/${item.username}`} >  <div className={styles.card}>
-                <div className={styles.card_top} key={key}>
+                   <div className={styles.card}>
+               <Link href={`/${item.username}`} > <div className={styles.card_top} key={key}>
                   <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>
                   <h1>{item.name}</h1>
-                </div>
+                </div> </Link>
                 <div className={styles.card_bottom}>
-                  <h4>{item.category[0]}</h4>
+                  <h4>{item.category[0]},{item.category[1]}</h4>
                   <div className={styles.icon_btn_all}>
-                  <button>
-                      {" "}
-                      <Image style={{height:"15px",width:"15px"}}
-                        src={tube}
-                      className={styles.insta}
-                      />
-                    </button>
-                    <button>
-                      {" "}
-                      <Image style={{height:"15px",width:"15px"}}
-                        src={redbgfb}
-                      className={styles.insta}
-                      />
-                    </button>
-                    <button>
-                      {" "}
-                      <Image  style={{height:"15px",width:"15px"}}
-                        src={snap}
-                      className={styles.insta}
-                      />
-                    </button>
-                    <button>
-                      {" "}
-                      <Image  style={{height:"15px",width:"15px"}}
-                        src={redinsta}
-                      className={styles.insta}
-                      />
-                    </button>
-                  </div>
+                   
+                   {Object.entries(urls).map(([key, value]) => (
+                   <Link href={value} key={key}>  <Image src={obj[key]} id={styles.ic} /> </Link>
+         
+       ))}
                 </div>
-              </div> </Link>
+                </div>
+              </div> 
             ))}
           </Slider>
         </div>

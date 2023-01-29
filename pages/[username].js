@@ -8,7 +8,7 @@ import styles from "../styles/userDetails.module.css"
 import img from "../Images/img.jpg";
 import star from "../icons/star.svg"
 import music from "../icons/musicnote.svg"
-// import Instagram from "../icons/redinsta.svg"
+import Instagram from "../icons/redinsta.svg"
 import Facebook from "../icons/redfb.svg"
 import Snapchat from "../icons/Snapchatred.svg"
 import Tiktok from "../icons/TikTokred.svg"
@@ -23,8 +23,31 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import Instagram from "@fortawesome/free-brands-svg-icons/faInstagram";
+// import Instagram from "@fortawesome/free-brands-svg-icons/faInstagram";
 import axios from "axios";
+
+
+
+
+
+const obj={
+  Facebook,
+    Instagram,
+    Twitter,
+    Snapchat,
+    Linkdin,
+    Youtube,
+    Tiktok,
+    Pinterest,
+    Koo,
+    Moj
+   
+
+
+}
+
+
+
 
 
 export const getServerSideProps =async(params) =>{
@@ -70,6 +93,9 @@ const userDetails = ({data}) => {
       }
 
   },[])
+
+
+  
 
   
 
@@ -132,8 +158,9 @@ const userDetails = ({data}) => {
 
   {Object.entries(URLs).map(([key, value]) => (
         <button key={key}>
+        {  console.log(key)}
           
-        <Link href={value}>  <Image src={Twitter} id={styles.ic} width={400} height={300}/> </Link>
+        <Link href={value}>  <Image src={obj[key]} id={styles.ic} width={400} height={300}/> </Link>
         </button>
       ))}
 
