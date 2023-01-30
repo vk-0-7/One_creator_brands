@@ -358,10 +358,15 @@
 @media(max-width:450px) {
 
 
+    .card{
+        width: 275px;
+        margin: 0px auto;
+    }
+
+
     .filter_btn {
         cursor: pointer;
-        
-       visibility: visible;
+        visibility: visible;
         position: absolute;
         top: 8.7rem;
         left: 1rem;
@@ -404,7 +409,7 @@
         width: 80vw;
         /* left: 14vw; */
         /* right: 7vw; */
-        margin: 0px auto;
+        margin: 10px auto;
 
     }
 
@@ -483,10 +488,14 @@
         position: relative;
         left: -20px;
         top: 5px;
-        
-        
-    
       
+    }
+    .nodatafound {
+
+        position: absolute;
+        top: 15rem;
+        right: 6rem;
+        font-size: 0.8rem;
     
     }
 
@@ -504,8 +513,8 @@
 
 
     .card_top>h1 {
-        font-size: 1.05rem;
-        margin: 8px 15px;
+        font-size: 1.15rem;
+        margin: 8px 19px;
 
     }
 

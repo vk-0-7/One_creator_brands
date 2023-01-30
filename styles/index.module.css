@@ -516,14 +516,14 @@
     }
 
     .form>input {
-        font-size: 0.8rem;
-        padding-inline: 17px;
-
+        font-size: 0.83rem;
+        padding-left: 11px;
+        padding-right: 36px;
     }
 
     .search_icon {
         top: 15px;
-        right: 15px;
+        right: 11px;
         height: 19px;
         width: 19px;
     }
@@ -531,7 +531,7 @@
     .main_text2 {
         font-size: 1.05rem;
         
-        left: 10vw;
+        /* left: 10vw; */
         top: 212px;
     }
 
@@ -547,12 +547,12 @@
     }
     .txt {
         font-size: 1rem;
-        margin-left: 13px;
+        margin-left: 3px;
         margin-top: 5px;
     }
     .top_influencer {
        
-        font-size: 1.5rem;
+        font-size: 1.2rem;
        
     }
 
@@ -560,7 +560,7 @@
         display: flex;
         flex-direction: row;
         bottom: 25px;
-        height: 30px;
+        height: 37px;
         width: 105px;
         right: -3px;
        
@@ -569,7 +569,7 @@
         display: flex;
         flex-direction: row;
         bottom: 25px;
-        height: 30px;
+        height: 37px;
         width: 105px;
         right: -1px;
        

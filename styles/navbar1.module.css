@@ -91,7 +91,16 @@
         justify-content: center;
     
     }
-    
+    .btn:hover #hovericon{
+        display: block;
+        top: 8px;
+        left: 10px;
+  }
+  .btn:hover p{
+      position: relative;
+      top: 0px;
+      left: 5px;
+  }
    
     .usericon{
         height: 11px;
