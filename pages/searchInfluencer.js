@@ -20,7 +20,10 @@ import Navbar from "../components/navbar1"
 import { Coursesdata } from "../Data/data";
 import {influencerCategory} from "../Data/data"
 import {Interest} from "../Data/data"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faFilter } from '@fortawesome/free-solid-svg-icons'
+
 
 import Head from "next/head";
 import axios from "axios";
@@ -94,6 +97,8 @@ const searchInfluencer = () => {
   }
    
   callfunc();
+
+  // const [showfilter,setShowFilter] =useState(false)
   
 const [nodata,setNoData]=useState(false);
   const [socialMedia,setSocialMedia] =useState([])
@@ -231,6 +236,13 @@ const [nodata,setNoData]=useState(false);
    const datas=userData[0]
     if (datas != undefined)  
     var urls= datas.socialURLs[0]
+
+   const handlefilter=()=>{
+    document.getElementById('main_filter').style.display="block"
+   }
+    const handlecross=()=>{
+      document.getElementById('main_filter').style.display="none"
+    }
     
    
   return (
@@ -247,9 +259,12 @@ const [nodata,setNoData]=useState(false);
     
     <Navbar/>
    <div className={styles.main_heading}> <h2>Discover Influencer</h2></div>
-    <div className={styles.main_filter_div}>
+       <button className={styles.filter_btn} onClick={handlefilter}> <FontAwesomeIcon className={styles.filtericon} icon={faFilter}  /> Filter</button>
+    <div className={styles.main_filter_div} id='main_filter'>
+
         
       <div className={styles.filter_category1} id={styles.filters}>
+      <FontAwesomeIcon className={styles.crossIcon} icon={faXmark} onClick={()=>handlecross()} /> 
             <h3>Social media</h3>
             <input type="checkbox" id={styles.instagram} name="instagram" value="Instagram" onChange={(e)=>changeSocialMedia(e)}/>
              <label for="instagram"> Instagram</label><br/>
@@ -353,6 +368,8 @@ const [nodata,setNoData]=useState(false);
 
        
       </div>
+
+
       <form className={styles.form}>
           <input
             type="text"

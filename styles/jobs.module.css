@@ -1,113 +1,125 @@
-
-.main_heading{
+.main_heading {
     font-size: 1.6rem;
     position: absolute;
     top: 130px;
     left: 7vw;
 }
+.filter_btn{
+    visibility: hidden;
+}
 
-
-.main_filter_div{
- height:max-content;
- width: 20vw;
- position: absolute;
- top: 150px;
- left: 4vw;
- /* border: 1px solid black; */
- margin: 10px;
- padding: 10px;
+.main_filter_div {
+    height: max-content;
+    width: 20vw;
+    position: absolute;
+    top: 150px;
+    left: 4vw;
+    /* border: 1px solid black; */
+    margin: 10px;
+    padding: 10px;
 
 }
-#search{
+.crossIcon{
+    visibility: hidden;
+}
+
+#search {
     margin-top: 10px;
     /* border: 1px solid red; */
     width: max-content;
 }
 
 
-.influencer_checkbox{
+.influencer_checkbox {
     margin-top: 25px;
     /* border: 1px solid red; */
     height: 200px;
     overflow-y: auto;
-    
+
 }
+
 .influencer_checkbox::-webkit-scrollbar {
     width: 6px;
-  }
-  .influencer_checkbox::-webkit-scrollbar-track {
-    background: #dcdbdb; 
-    border-radius: 10px ;
-  }
-  .influencer_checkbox::-webkit-scrollbar-thumb {
-    background: rgb(0, 0, 0); 
-    border-radius: 5px;
-  }
+}
 
-   
-.industry_checkbox{
+.influencer_checkbox::-webkit-scrollbar-track {
+    background: #dcdbdb;
+    border-radius: 10px;
+}
+
+.influencer_checkbox::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 0);
+    border-radius: 5px;
+}
+
+
+.industry_checkbox {
     margin-top: 25px;
     /* border: 1px solid red; */
     height: 200px;
     overflow-y: auto;
-    
+
 }
 
 .industry_checkbox::-webkit-scrollbar {
     width: 6px;
-  }
-  .industry_checkbox::-webkit-scrollbar-track {
-    background: #dcdbdb; 
-    border-radius: 10px ;
-    
-  }
-  .industry_checkbox::-webkit-scrollbar-thumb {
-    background: rgb(0, 0, 0); 
-    border-radius: 5px;
-   
-  }
+}
 
-#filters{
+.industry_checkbox::-webkit-scrollbar-track {
+    background: #dcdbdb;
+    border-radius: 10px;
+
+}
+
+.industry_checkbox::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 0);
+    border-radius: 5px;
+
+}
+
+#filters {
     /* border: 1px solid red; */
     margin: 20px 20px;
     padding: 15px 10px;
     line-height: 22px;
-    
+
 }
-#filters label{
+
+#filters label {
     font-size: 0.88rem;
-    
-}
-
-#searchimg{
-  position: relative;
-  top: 8px;
-  left: 5px;
-  height: 12px;
-  width: 12px;
-  z-index: 100;
-}
-
-.citySearch{
-   height: 35px;
-   width: 195px;
-   padding-left: 35px;
-   position: relative;
-   left: -20px;
-   top: 5px;
-   /* z-index: -100; */
-   font-size: 0.9rem;
-   
-   border: none;
-   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-   border-radius: 12px;
 
 }
 
-.citySearch:focus{
+#searchimg {
+    position: relative;
+    top: 8px;
+    left: 5px;
+    height: 12px;
+    width: 12px;
+    z-index: 100;
+}
+
+.citySearch {
+    height: 35px;
+    width: 195px;
+    padding-left: 35px;
+    position: relative;
+    left: -20px;
+    top: 5px;
+    /* z-index: -100; */
+    font-size: 0.9rem;
+
+    border: none;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+
+}
+
+.citySearch:focus {
     outline: none;
 }
-.price_range >input{
+
+.price_range>input {
     height: 30px;
     width: 75px;
     margin: 5px 4px;
@@ -116,7 +128,8 @@
     box-shadow: 0px 1px 1px 1px grey;
     padding-left: 5px;
 }
-.apply_price{
+
+.apply_price {
     width: 100%;
     height: 40px;
     margin: 10px 0px;
@@ -148,11 +161,12 @@
     border-radius: 14px;
     font-size: 1rem;
     padding-inline: 40px;
-  background-color: rgba(255, 255, 255, 0.76);
-  /* box-shadow: 0px 1px 0.8px 0.9px rgb(183, 182, 182); */
+    background-color: rgba(255, 255, 255, 0.76);
+    /* box-shadow: 0px 1px 0.8px 0.9px rgb(183, 182, 182); */
 
 }
-.form>input:focus{
+
+.form>input:focus {
     outline: none;
 }
 
@@ -166,48 +180,50 @@
     border: none;
 }
 
-.nodatafound{
+.nodatafound {
 
- position: absolute;
- top: 18rem;
- right: 32rem;
+    position: absolute;
+    top: 18rem;
+    right: 32rem;
+
+}
+
+.all_profiles_div {
+    height: max-content;
+    width: 63vw;
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 190px;
+    right: 7vw;
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    /* flex-shrink: 0.5; */
+    padding-bottom: 20vh;
 
 }
 
-.all_profiles_div{
-   height: max-content;
-   width: 63vw;
-   /* border: 1px solid red; */
-   position: absolute;
-   top: 190px;
-   right: 7vw;
-   display: flex;
-   flex-direction: row;
-   
-   flex-wrap: wrap;
-   flex-shrink: 0.5;
-   padding-bottom: 20vh;
-
-}
 .card {
     margin: 10px 5px;
     border: 5px solid #F3F3F3;
-    background:  #292D32;
+    background: #292D32;
     border-radius: 8px;
     overflow: hidden;
     height: 350px;
     color: white;
     border-radius: 15px;
     width: 250px;
-   
+
 }
-.all_profiles_div a{
+
+.all_profiles_div a {
     text-decoration: none;
 }
 
 .card_top {
     height: 75%;
-   
+
 
 
 }
@@ -216,7 +232,7 @@
     font-size: 1.2rem;
     margin: 8px 20px;
     color: white;
-  
+
 
 
 }
@@ -228,26 +244,29 @@
     width: 100%;
     height: 90%;
     object-fit: cover;
-   
+
 }
 
 .card_bottom {
     height: 25%;
     margin: 5px 19px;
     padding-top: 5px;
-    
-   
-   
+
+
+
 }
-.card_bottom >h4{
+
+.card_bottom>h4 {
     font-weight: lighter;
 }
+
 .icon_btn_all {
     /* border: 1px solid white; */
     display: flex;
     margin-top: 12px;
 }
-.icon_btn_all a{
+
+.icon_btn_all a {
     pointer-events: all;
 }
 
@@ -256,13 +275,13 @@
     width: 17px;
     border: none;
     margin-inline: 3px;
-    background-color:transparent;
-   
+    background-color: transparent;
+
     cursor: pointer;
 }
 
 
-.load_more{
+.load_more {
     position: absolute;
     bottom: 70px;
     display: flex;
@@ -271,9 +290,10 @@
     /* right: 40%; */
     width: 100%;
     height: 46px;
-   /* border: 1px solid red; */
+    /* border: 1px solid red; */
 }
-.load_more > button{
+
+.load_more>button {
     display: flex;
     height: 100%;
     width: 18%;
@@ -285,10 +305,9 @@
     border-radius: 17px;
     cursor: pointer;
 }
-@media(max-width:900px){
-    .card{
-        width: 200px;
-    }
+
+/* @media(max-width:900px){
+    
     .all_profiles_div{
        
         width: 57vw;
@@ -307,9 +326,7 @@
 
 }
 @media(max-width:750px){
-    .card{
-        width: 190px;
-    }
+    
     .all_profiles_div{
        
         width: 59vw;
@@ -324,142 +341,206 @@
         position: absolute;
        
         left: 3vw;
-        /* border: 1px solid black; */
+        
         margin: 5px;
         padding: 10px;
        
        }
        #filters{
-           /* border: 1px solid red; */
+           
            margin: 20px 10px;
            padding: 15px 10px;
            line-height: 22px;
        }
 
 
+    } */
+@media(max-width:450px) {
+
+
+    .filter_btn {
+        cursor: pointer;
+        
+       visibility: visible;
+        position: absolute;
+        top: 8.7rem;
+        left: 1rem;
+        height: 2rem;
+        width: 80px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        border: none;
+        box-shadow: 0px 1px 1px 1px grey;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
     }
-       @media(max-width:450px){
-        
-        
-    .main_heading{
-    position: absolute;
-    top: 100px;
-    left: 5vw;
-    font-size: 0.8rem;
-     }
-        
-        .card{
-            width: 220px;
-        }
-        .all_profiles_div{
-           
-            width: 58vw;
-           
-            right: 2vw;
-           
-         
-         }
-         .main_filter_div{
-           
-            width: 32vw;
-            position: absolute;
-            
-            left: 1vw;
-            /* border: 1px solid black; */
-            margin: 5px 0px;
-            padding: 10px;
-           
-           }
-           #filters{
-               width: fit-content;
-               /* border: 1px solid red; */
-               margin: 10px 0px;
-               padding: 10px 0px;
-               overflow-x: auto;
-               font-size: 0.85rem;
-           }
-           .form {
-            height: 45px;
-            width: 55vw;
-            /* border: 1px solid black; */
-        
-            position: absolute;
-            top: 135px;
-            right: 7vw;
-        
-        }
-        
-        .form>input {
-           
-            font-size: 0.9rem;
-            padding-inline: 30px;
-         
-        
-        }
-        .search_icon {
-            top: 5px;
-            right: 6px;
-           
-        }
-        #search{
-            margin-top: 10px;
-            /* border: 1px solid red; */
-            
-            width: max-content;
-        }
+    .crossIcon{
+        visibility: visible;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        height: 15px;
+        width: 15px;
+        cursor: pointer;
 
-        .citySearch{
-            height: 30px;
-            width: 125px;
-           
-         }
+    }
 
-        .load_more{
-          
-            height: 35px;
-           /* border: 1px solid red; */
-        }
-        .load_more button{
-            width: 38%;
-            height: 35px;
-           /* border: 1px solid red; */
-        }
+
+    .main_heading {
+        position: absolute;
+        top: 100px;
+        left: 5vw;
+        font-size: 0.8rem;
+    }
+
+    
+    .all_profiles_div {
+
+        width: 80vw;
+        /* left: 14vw; */
+        /* right: 7vw; */
+        margin: 0px auto;
+
+    }
+
+    .main_filter_div {
+        display: none;
+        width: 65vw;
+        position: absolute;
+        z-index: 1000;
+        background-color: white;
+        left: 5vw;
+        top: 12rem;
+       
+       
+        border-radius: 10px;
+       
+
+    }
+    .filtericon{
+        height: 12px;
+        width: 12px;
+        margin-right: 4px;
+        color:  rgb(190, 52, 85);
+    }
+
+    #filters {
+        width: fit-content;
+        /* border: 1px solid red; */
+        margin: 10px 10px;
+        padding: 10px 15px;
+        overflow-x: hidden;
+        font-size: 0.85rem;
+    }
+
+    .form {
+        height: 52px;
+        width: 60vw;
+        /* border: 1px solid black; */
+
+        position: absolute;
+        top: 135px;
+        right: 7vw;
+
+    }
+
+    .form>input {
+
+        font-size: 0.67rem;
+        padding-left: 15px;
+        padding-right: 35px;
+
+
+    }
+
+    .search_icon {
+        top: 7px;
+        right: 6px;
         
+        
+    }
+    #search_Icon{
+        height: 14px;
+        width: 14px;
+    }
+
+    #search {
+        margin-top: 10px;
+        /* border: 1px solid rgb(57, 46, 46); */
+
+        width: 100%;
+    }
+
+    .citySearch {
+       height: 2rem;
+       width: 90%;
+        padding-left: 35px;
+        position: relative;
+        left: -20px;
+        top: 5px;
+        
+        
+    
       
-        .card_top>h1 {
-            font-size: 1.05rem;
-            margin: 8px 15px;
-          
-        }
+    
+    }
 
-        .card_bottom >h4{
-            font-size: 0.95rem;
-        }
+    .load_more {
 
-        .industry_checkbox::-webkit-scrollbar {
-           display: none;
-          }
-          .industry_checkbox::-webkit-scrollbar-track {
-            display: none;
-            
-          }
-          .industry_checkbox::-webkit-scrollbar-thumb {
-           display: none;
-           
-          }
+        height: 35px;
+        /* border: 1px solid red; */
+    }
 
-          .influencer_checkbox::-webkit-scrollbar {
-            display: none;
-          }
-          .influencer_checkbox::-webkit-scrollbar-track {
-            display: none;
-          }
-          .influencer_checkbox::-webkit-scrollbar-thumb {
-            display: none;
-          }
+    .load_more button {
+        width: 38%;
+        height: 35px;
+        /* border: 1px solid red; */
+    }
 
-          #filters>h3{
-            font-size: 0.85rem;
-          }
+
+    .card_top>h1 {
+        font-size: 1.05rem;
+        margin: 8px 15px;
 
     }
+
+    .card_bottom>h4 {
+        font-size: 0.95rem;
+    }
+
+    .industry_checkbox::-webkit-scrollbar {
+        display: none;
+    }
+
+    .industry_checkbox::-webkit-scrollbar-track {
+        display: none;
+
+    }
+
+    .industry_checkbox::-webkit-scrollbar-thumb {
+        display: none;
+
+    }
+
+    .influencer_checkbox::-webkit-scrollbar {
+        display: none;
+    }
+
+    .influencer_checkbox::-webkit-scrollbar-track {
+        display: none;
+    }
+
+    .influencer_checkbox::-webkit-scrollbar-thumb {
+        display: none;
+    }
+
+    #filters>h3 {
+        font-size: 0.85rem;
+    }
+
+}
