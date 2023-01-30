@@ -8,6 +8,10 @@ import Snapchat from "../icons/Snapchatred.svg"
 import Tiktok from "../icons/TikTokred.svg"
 import Twitter from "../icons/Twitterred.svg"
 import Youtube from "../icons/YouTubered.svg"
+import Pinterest from "../icons/Pinterestred.svg"
+import Linkedin from "../icons/LinkedInred.svg"
+import Koo from "../icons/Koo.svg"
+import Moj from "../icons/Moj.svg"
 import Navbar1 from "../components/navbar1";
 import SignIn from "../components/signin"
 import Forgetpassword from "../components/forgetpassword"
@@ -38,7 +42,12 @@ const obj={
   Instagram,
   Facebook,
   Youtube,
-  Snapchat
+  Snapchat,
+  Linkedin,
+  Pinterest,
+  Koo,
+  Moj,
+  Tiktok
 
 
 }
@@ -293,24 +302,25 @@ const index = () => {
         <p className={styles.txt}>Discover Top Influencers from the Country</p>
         <div className={styles.box2_carousel} >
           <Slider dots={true} {...settings}>
-            {topdata.filter((elem) =>   elem.visibility  ).map((item,key) => (
-                 <div className={styles.card}>
-                 <Link href={`/${item.username}`}> <div className={styles.card_top} key={key}>
+            {topdata.filter((elem) =>   elem.visibility).map((item,ind) => (
+                 <Link href={`/${item.username}`}> <div className={styles.card}>
+                 <div className={styles.card_top} key={ind}>
                   <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>
                   <h1>{item.name}</h1>
-                </div> </Link>
+                </div> 
                 <div className={styles.card_bottom}>
                   <h4>{item.category[0]},{item.category[1]}</h4>
                     
-                  <div className={styles.icon_btn_all}>
-                   
-                   {Object.entries(urls).map(([key, value]) => (
+                { topdata &&  <div className={styles.icon_btn_all}>
+                   {/* {console.log(topdata[ind].socialURLs[0])} */}
+                  {Object.entries(topdata[ind].socialURLs[0]).map(([key, value]) => (
         <Link href={value} key={key}>  <Image src={obj[key]} id={styles.ic} /> </Link>
          
-       ))}
-                  </div>
+       ))}    
+                  </div>}
+
                    </div>
-                </div>
+                </div> </Link>
             ))}
           </Slider>
         </div>
@@ -325,23 +335,23 @@ const index = () => {
         <p className={styles.txt}>Discover the Newest Influencers from the Country</p>
         <div className={styles.box2_carousel} >
           <Slider dots={true} {...settings}>
-            {newdata.filter((elem) =>   elem.visibility  ).map((item,key) => (
-                   <div className={styles.card}>
-               <Link href={`/${item.username}`} > <div className={styles.card_top} key={key}>
+            {newdata.filter((elem) =>   elem.visibility  ).map((item,ind) => (
+                <Link href={`/${item.username}`} >    <div className={styles.card}>
+               <div className={styles.card_top} key={ind}>
                   <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>
                   <h1>{item.name}</h1>
-                </div> </Link>
+                </div> 
                 <div className={styles.card_bottom}>
                   <h4>{item.category[0]},{item.category[1]}</h4>
-                  <div className={styles.icon_btn_all}>
+                { newdata &&  <div className={styles.icon_btn_all}>
                    
-                   {Object.entries(urls).map(([key, value]) => (
+                   {Object.entries(newdata[ind].socialURLs[0]).map(([key, value]) => (
                    <Link href={value} key={key}>  <Image src={obj[key]} id={styles.ic} /> </Link>
          
        ))}
+                </div>}
                 </div>
-                </div>
-              </div> 
+              </div> </Link>
             ))}
           </Slider>
         </div>

@@ -230,6 +230,9 @@
     margin-top: 12px;
     width: 100%;
 }
+.icon_btn_all a{
+    pointer-events: all;
+}
 
 #ic {
     height: 17px;

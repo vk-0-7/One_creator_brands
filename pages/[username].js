@@ -15,7 +15,7 @@ import Tiktok from "../icons/TikTokred.svg"
 import Twitter from "../icons/Twitterred.svg"
 import Youtube from "../icons/YouTubered.svg"
 import Pinterest from "../icons/Pinterestred.svg"
-import Linkdin from "../icons/LinkedInred.svg"
+import Linkedin from "../icons/LinkedInred.svg"
 import Koo from "../icons/Koo.svg"
 import Moj from "../icons/Moj.svg"
 import performance from "../icons/performance.svg"
@@ -35,7 +35,7 @@ const obj={
     Instagram,
     Twitter,
     Snapchat,
-    Linkdin,
+    Linkedin,
     Youtube,
     Tiktok,
     Pinterest,
@@ -112,7 +112,18 @@ const userDetails = ({data}) => {
     var today= new Date();
     const year=today.getFullYear();
      const arr=dob.split("-");
-     const age=year-arr[0];
+     var age=year-arr[0];
+     const month =(today.getMonth())+1;
+     const date=today.getDate();
+     if(month<arr[1]){
+            age=age-1;
+     }
+     else if (month==arr[1]){
+       if(date<arr[2]){
+        age=age-1;
+       }
+     }
+     
 
 
 
@@ -141,8 +152,8 @@ const userDetails = ({data}) => {
 
       <FontAwesomeIcon className={styles.crossIcon} icon={faXmark} onClick={()=>removeinfo()} /> 
       
-     <div className={styles.number}><h4> Contact Number : </h4><h3 id='num'>{datas.phoneNumber} </h3></div>
-        <div className={styles.email}><h4> Contact Email :</h4> <h3 id='eml'> {datas.email}</h3></div>
+     <div className={styles.number}><h4> Contact Number: </h4><h3 id='num'>{datas.phoneNumber} </h3></div>
+        <div className={styles.email}><h4 > Contact Email:</h4> <h3 id='eml'> {datas.email}</h3></div>
       
       </div>
        
@@ -210,7 +221,7 @@ const userDetails = ({data}) => {
       {services.map((elem,index)=>{
        return(
         <div id={styles.performance}> <div><Image src={performance} id={styles.performancesvg}/> 
-        <h5>{elem.socialmedia} {elem.service}</h5></div><h4>Starting price: ₹ {elem.price}</h4></div>
+        <h5>{elem.socialmedia} {elem.service}</h5></div><h4>Starting price: ₹{elem.price}</h4></div>
 
         )
       })}

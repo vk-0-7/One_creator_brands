@@ -4,11 +4,16 @@ import { useRouter } from "next/router";
 import Image from "next/image"
 import Link from "next/link"
 import searchn from "../icons/searchn.svg"
-import Facebook from "../icons/redbgfb.svg"
-import Twitter from '../icons/Twitterred.svg'
-import Snapchat from "../icons/snap.svg"
-import YouTube from "../icons/tube.svg"
 import Instagram from "../icons/redinsta.svg"
+import Facebook from "../icons/redfb.svg"
+import Snapchat from "../icons/Snapchatred.svg"
+import Tiktok from "../icons/TikTokred.svg"
+import Twitter from "../icons/Twitterred.svg"
+import Youtube from "../icons/YouTubered.svg"
+import Pinterest from "../icons/Pinterestred.svg"
+import Linkedin from "../icons/LinkedInred.svg"
+import Koo from "../icons/Koo.svg"
+import Moj from "../icons/Moj.svg"
 import arrow from "../icons/arrow-left.svg"
 import styles from "../styles/jobs.module.css"
 import Navbar from "../components/navbar1"
@@ -22,11 +27,16 @@ import axios from "axios";
 
  
 const obj={
-   Twitter,
-   Instagram,
-   Facebook,
-   YouTube,
-   Snapchat
+  Twitter,
+  Instagram,
+  Facebook,
+  Youtube,
+  Snapchat,
+  Linkedin,
+  Pinterest,
+  Koo,
+  Moj,
+  Tiktok
 
 
 }
@@ -359,17 +369,17 @@ const [nodata,setNoData]=useState(false);
    {   nodata  ?   <div className={styles.nodatafound}> <h2>No User Found...</h2></div>
    : <div className={styles.all_profiles_div}>
      
-    {userData.filter((elem) =>   elem.visibility  ).slice(0,count).map((item,key) => (
-             <div className={styles.card}>
-               <Link href={`/${item.username}`}> <div className={styles.card_top}>
+    {userData.filter((elem) =>   elem.visibility  ).slice(0,count).map((item,ind) => (
+            <Link href={`/${item.username}`}>  <div className={styles.card} key={ind}>
+               <div className={styles.card_top}>
                   <Image src={item.profilePic} alt={item.title} width="400" height="300"></Image>
                   <h1>{item.username}</h1>
-                </div> </Link> 
+                </div> 
                 <div className={styles.card_bottom}>
                   <h4>{item.category[0]},{item.category[1]}</h4>
                   <div className={styles.icon_btn_all}>
                    
-                  {Object.entries(urls).map(([key, value]) => (
+                  {Object.entries(userData[ind].socialURLs[0]).map(([key, value]) => (
        
         
           
@@ -379,8 +389,8 @@ const [nodata,setNoData]=useState(false);
                    
                    
                   </div>
-                </div>
-              </div> 
+                </div> 
+              </div> </Link> 
             ))}
     
 

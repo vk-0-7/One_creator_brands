@@ -66,12 +66,12 @@
 }
 
 .info{
-  border-radius: 10px;
+  border-radius: 15px;
   height: 20rem;
   width: 35vw;
   background-color: white;
   position: absolute;
-  top: 16.5rem;
+  top: 15.5rem;
   left: 0px;
   z-index: 1000;
   visibility: hidden;
@@ -96,11 +96,16 @@
    
    
 }
+.number >h4{
+    margin-right: 5px;
+}
 .email{
     display: flex;
     margin: 1rem;
 }
-
+.email >h4{
+    margin-right: 5px;
+}
 
 
 
