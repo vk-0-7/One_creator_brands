@@ -2,6 +2,7 @@ import { useState,useEffect ,useContext} from "react";
 import { MyContext } from './_app.js'
 import search from "../icons/search-normal.svg"
 import arrowleft from "../icons/arrow-left.svg"
+import arrowright from "../icons/arrowright.svg" 
 import Instagram from "../icons/redinsta.svg"
 import Facebook from "../icons/redfb.svg"
 import Snapchat from "../icons/Snapchatred.svg"
@@ -60,7 +61,7 @@ function SampleNextArrow(props) {
       className={className} id={styles.arrow_body}
       
       onClick={onClick}
-      > <FontAwesomeIcon icon={faChevronRight} id={styles.arrow}/> </div>
+      ><Image src={arrowright}  id={styles.arrow}/> </div>
   );
 }
 function SecondNextArrow(props) {
@@ -71,7 +72,7 @@ function SecondNextArrow(props) {
       className={className} id={styles.arrow_body}
       
       onClick={onClick}
-      > <FontAwesomeIcon icon={faChevronRight} id={styles.thirdarrow} /> </div>
+      > <Image src={arrowright}  id={styles.thirdarrow} /> </div>
   );
 }
 
@@ -90,7 +91,7 @@ function SecondPrevArrow(props) {
     <div
       className={className} id={styles.arrow_body}
       onClick={onClick}  style={{zIndex:"5"}}
-    ><FontAwesomeIcon icon={faChevronLeft}  id={styles.thirdarrw} /></div>
+    ><Image src={arrowleft}  id={styles.thirdarrw} /></div>
   );
 }
 
