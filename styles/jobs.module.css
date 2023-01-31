@@ -406,10 +406,12 @@
     
     .all_profiles_div {
 
-        width: 80vw;
-        /* left: 14vw; */
+        width: 76vw;
+         left: 12vw;
+         margin-top: 8px;
+         /* border: 1px solid red; */
         /* right: 7vw; */
-        margin: 10px auto;
+        
 
     }
 

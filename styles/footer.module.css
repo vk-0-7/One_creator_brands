@@ -74,7 +74,7 @@
       
        margin-top: 15px;
        position: absolute;
-       left: 22vw;
+       left: 16vw;
        font-size: 1.0rem;
       
     }
@@ -83,7 +83,7 @@
     .media_icons{
         /* border: 1px solid red; */
         position: absolute;
-        right: 42vw;
+        right: 46vw;
         display: flex;
         top: 90px;
     }
@@ -92,14 +92,14 @@
         width: 255px;
         height: 50px;
         position: absolute;
-        left: 17vw;
+        left: 15vw;
         top: 120px;
     }
 
     .copyright {
         position: absolute;
         top: 170px;
-        left: 30vw;
+        left: 26vw;
         text-align: center;
        
        
