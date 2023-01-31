@@ -171,7 +171,7 @@ const userDetails = ({data}) => {
         <button key={key}>
         {  console.log(key)}
           
-        <Link href={value}>  <Image src={obj[key]} id={styles.ic} width={400} height={300}/> </Link>
+        <Link href={value} target="_blank">  <Image src={obj[key]} id={styles.ic} width={400} height={300}/> </Link>
         </button>
       ))}
 

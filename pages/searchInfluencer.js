@@ -17,6 +17,7 @@ import Moj from "../icons/Moj.svg"
 import arrow from "../icons/arrow-left.svg"
 import styles from "../styles/jobs.module.css"
 import Navbar from "../components/navbar1"
+import languages from "../Data/language";
 import { Coursesdata } from "../Data/data";
 import {influencerCategory} from "../Data/data"
 import {Interest} from "../Data/data"
@@ -43,7 +44,7 @@ const obj={
 
 
 }
-
+ console.log(languages.name)
 
 
 const searchInfluencer = () => {
@@ -111,6 +112,7 @@ const [nodata,setNoData]=useState(false);
 
    const [searchInf,setSearchInf] =useState("")
    const [searchIndustry,setSearchIndustry] =useState("")
+   const [searchlanguage,setSearchLanguage] =useState("")
     const [count,setCount]=useState(9)
 
    const handleclick=()=>{
@@ -343,6 +345,37 @@ const [nodata,setNoData]=useState(false);
         
 
       </div>
+
+
+      <div className={styles.filter_language} id={styles.filters}>
+      <h3>Language</h3>
+      <div id={styles.search}>
+      <Image src={searchn} id={styles.searchimg}></Image>
+       <input type="text" className={styles.citySearch} onChange={(event)=>{setSearchLanguage(event.target.value)}}/>
+       </div>
+       <div className={styles.language_checkbox}>
+      {languages.filter((val)=>{
+             if (searchlanguage=="") {
+                  return val
+             }
+             else if(val.toLowerCase().includes(searchInf.toLowerCase()))
+             return val
+      }
+      
+      ).map((elem,key) =>(
+         <>
+       <input type="checkbox" id={styles.checkbox} className='ckbox' name="Influencer" value={elem.name} onChange={(e)=>changeCategory(e)}/>
+        <label for="influencer"> {elem.name}</label><br/>
+        </>
+       
+
+))} </div>
+
+
+       </div> 
+
+     
+
       <div className={styles.filter_category4} id={styles.filters}>
         <h3>City</h3>
         <div id={styles.search}>
@@ -374,8 +407,7 @@ const [nodata,setNoData]=useState(false);
           <input
             type="text"
             className={styles.search}
-            placeholder="Enter name,username,city 
-          or category"
+            placeholder="Yoga trainer from Mumbai who speaks Bengali..."
           />
           <button className={styles.search_icon}>
             <Image src={searchn} id={styles.search_Icon} />
@@ -387,11 +419,11 @@ const [nodata,setNoData]=useState(false);
    : <div className={styles.all_profiles_div}>
      
     {userData.filter((elem) =>   elem.visibility  ).slice(0,count).map((item,ind) => (
-            <Link href={`/${item.username}`}>  <div className={styles.card} key={ind}>
-               <div className={styles.card_top}>
+             <div className={styles.card} key={ind}>
+                <Link href={`/${item.username}`}> <div className={styles.card_top}>
                   <Image src={item.profilePic} alt={item.title} width="400" height="300"></Image>
                   <h1>{item.username}</h1>
-                </div> 
+                </div>   </Link> 
                 <div className={styles.card_bottom}>
                   <h4>{item.category[0]},{item.category[1]}</h4>
                   <div className={styles.icon_btn_all}>
@@ -400,14 +432,14 @@ const [nodata,setNoData]=useState(false);
        
         
           
-        <Link href={value} key={key}>  <Image src={obj[key]} id={styles.ic} /> </Link>
+        <Link href={value} key={key} target="_blank">  <Image src={obj[key]} id={styles.ic} /> </Link>
         
       ))}
                    
                    
                   </div>
                 </div> 
-              </div> </Link> 
+              </div>
             ))}
     
 

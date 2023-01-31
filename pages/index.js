@@ -304,24 +304,24 @@ const index = () => {
         <div className={styles.box2_carousel} >
           <Slider dots={true} {...settings}>
             {topdata.filter((elem) =>   elem.visibility).map((item,ind) => (
-                 <Link href={`/${item.username}`}> <div className={styles.card}>
-                 <div className={styles.card_top} key={ind}>
+                  <div className={styles.card}>
+                  <Link href={`/${item.username}`}><div className={styles.card_top} key={ind}>
                   <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>
                   <h1>{item.name}</h1>
-                </div> 
+                </div>   </Link>
                 <div className={styles.card_bottom}>
                   <h4>{item.category[0]},{item.category[1]}</h4>
                     
                 { topdata &&  <div className={styles.icon_btn_all}>
                    {/* {console.log(topdata[ind].socialURLs[0])} */}
                   {Object.entries(topdata[ind].socialURLs[0]).map(([key, value]) => (
-        <Link href={value} key={key}>  <Image src={obj[key]} id={styles.ic} /> </Link>
+        <Link href={value} key={key} target="_blank">  <Image src={obj[key]} id={styles.ic} /> </Link>
          
        ))}    
                   </div>}
 
                    </div>
-                </div> </Link>
+                </div> 
             ))}
           </Slider>
         </div>
@@ -337,22 +337,22 @@ const index = () => {
         <div className={styles.box2_carousel} >
           <Slider dots={true} {...settings}>
             {newdata.filter((elem) =>   elem.visibility  ).map((item,ind) => (
-                <Link href={`/${item.username}`} >    <div className={styles.card}>
-               <div className={styles.card_top} key={ind}>
+                   <div className={styles.card}>
+               <Link href={`/${item.username}`} >  <div className={styles.card_top} key={ind}>
                   <Image src={item.profilePic} alt={item.title} width="300" height="400" priority></Image>
                   <h1>{item.name}</h1>
-                </div> 
+                </div>   </Link>
                 <div className={styles.card_bottom}>
                   <h4>{item.category[0]},{item.category[1]}</h4>
                 { newdata &&  <div className={styles.icon_btn_all}>
                    
                    {Object.entries(newdata[ind].socialURLs[0]).map(([key, value]) => (
-                   <Link href={value} key={key}>  <Image src={obj[key]} id={styles.ic} /> </Link>
+                   <Link href={value} key={key} target='_blank'>  <Image src={obj[key]} id={styles.ic} /> </Link>
          
        ))}
                 </div>}
                 </div>
-              </div> </Link>
+              </div>
             ))}
           </Slider>
         </div>
