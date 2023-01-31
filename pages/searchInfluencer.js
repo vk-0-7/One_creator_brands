@@ -358,7 +358,7 @@ const [nodata,setNoData]=useState(false);
              if (searchlanguage=="") {
                   return val
              }
-             else if(val.toLowerCase().includes(searchInf.toLowerCase()))
+             else if(val.name.toLowerCase().includes(searchlanguage.toLowerCase()))
              return val
       }
       
