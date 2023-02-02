@@ -24,7 +24,7 @@ import styles from "../styles/index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Script from "next/script"
 import { faChevronRight ,faChevronLeft} from "@fortawesome/free-solid-svg-icons";
-
+import Homeskeleton from "../components/homeskeleton"
 
 import axios from 'axios';
 import Slider from "react-slick";
@@ -240,7 +240,7 @@ const index = () => {
   return (
     <>
     {console.log(topdata)}
-    {/* {console.log(newdata[0])} */}
+    {console.log(newdata)}
       <Head>
        <meta name="description" content="Discover Influencer"/>
        </Head>
@@ -263,8 +263,8 @@ const index = () => {
 
        
         
-       
-
+      { topdata.length==0 && newdata.length==0 ? <Homeskeleton/> : <div className={styles.container}>
+        
          <div className={styles.navbar} id='nav' ><Navbar1 show={showModal} set={setShowModal}/>  </div> 
         <div> <SignIn show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup} showForgotPassword={showForgotPassword} setShowForgotPassword={setShowForgotPassword}/> </div>
        { showsignup ? <div> <Signup show={showModal} set={setShowModal} showsignup={showsignup} setsignup={setShowSignup}/> </div> :null}
@@ -386,7 +386,7 @@ const index = () => {
 
 
 
-    
+     </div>}
      
     </>
   );

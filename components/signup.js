@@ -73,8 +73,7 @@ const signup = ({show,set,showsignup,setsignup}) => {
      
         const {name,email,password}=user;
         if(name && email && password){
-          // document.getElementById('signupbtn').disabled=false;
-          document.getElementById('signupbtn').style.cursor='pointer';
+         
           try {
            await axios.post(API_URL,user)
           } catch (error) {
@@ -93,9 +92,12 @@ const signup = ({show,set,showsignup,setsignup}) => {
         if(user.name && user.email && user.password && user.email.includes('@') && containsLetter(user.password) && containsNumbers(user.password) && isValid(user.password) && user.password.length>7 ){
         
         document.getElementById('signupbtn').style.backgroundColor=' rgb(190, 52, 85)'
+        document.getElementById('signupbtn').disabled=false;
+        document.getElementById('signupbtn').style.cursor='pointer';
       }
       else{
         document.getElementById('signupbtn').style.backgroundColor=' rgba(190, 52, 85,0.2)'
+        document.getElementById('signupbtn').disabled=true;
       }
 
        
@@ -150,7 +152,7 @@ return (
         </div> 
          
       
-      <Link href='/emailsent' id='sent'>  <button className={styles.signup_btn} id='signupbtn' onClick={signup} >Sign up</button> </Link>
+      <Link href='/emailsent' id='sent'>  <button className={styles.signup_btn} id='signupbtn' onClick={signup} disabled>Sign up</button> </Link>
        
         </div>
       

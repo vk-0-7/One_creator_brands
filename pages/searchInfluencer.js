@@ -17,6 +17,7 @@ import Moj from "../icons/Moj.svg"
 import arrow from "../icons/arrow-left.svg"
 import styles from "../styles/jobs.module.css"
 import Navbar from "../components/navbar1"
+import SearchInfluencerSkeleton from '../components/searchInfluencerSkeleton'
 import languages from "../Data/language";
 import { Coursesdata } from "../Data/data";
 import {influencerCategory} from "../Data/data"
@@ -50,12 +51,27 @@ const obj={
 const searchInfluencer = () => {
  const [showloader,setShowLoader] =useState(true)
     const [cat,setCat]=useState('');
+    const [nodata,setNoData]=useState(false);
+  const [socialMedia,setSocialMedia] =useState([])
+  const [category,setCategory] =useState([]);
+  const [interest,setInterest] =useState([])
+  const [city,setCity] =useState({city:""})
+  const [gender,setGender] =useState()
+  
+  const [userData,setUserData]=useState([]);
+
+   const [searchInf,setSearchInf] =useState("")
+   const [searchIndustry,setSearchIndustry] =useState("")
+   const [searchlanguage,setSearchLanguage] =useState("")
+    const [count,setCount]=useState(9)
   // console.log(globalState);
   // const router = useRouter()
  
     useEffect(() => {
       let tokken=window.location.href;
-     setCat(tokken.slice(56));
+    //  setCat(tokken.slice(56));
+    //  setCat(tokken.slice(44));
+    setCat(tokken.slice(44));
        
      
     }, [])
@@ -64,9 +80,11 @@ const searchInfluencer = () => {
   const callfunc=()=>{
     console.log(cat);
     if(cat.length>0){
+      // setcat(cat)
       if(cat=='Fashion'){
      const checkbox=document.querySelector("input[value='Fashion Model']")
       checkbox.setAttribute('checked', true)
+      console.log("hii");
 
       }
         
@@ -96,24 +114,18 @@ const searchInfluencer = () => {
      
     }
   }
+  // useEffect(() => {
    
+  // }, [])
   callfunc();
+ 
+   
+
+ 
 
   // const [showfilter,setShowFilter] =useState(false)
   
-const [nodata,setNoData]=useState(false);
-  const [socialMedia,setSocialMedia] =useState([])
-  const [category,setCategory] =useState([]);
-  const [interest,setInterest] =useState([])
-  const [city,setCity] =useState({city:""})
-  const [gender,setGender] =useState()
-  
-  const [userData,setUserData]=useState([]);
 
-   const [searchInf,setSearchInf] =useState("")
-   const [searchIndustry,setSearchIndustry] =useState("")
-   const [searchlanguage,setSearchLanguage] =useState("")
-    const [count,setCount]=useState(9)
 
    const handleclick=()=>{
         setCount(count+3)
@@ -132,7 +144,7 @@ const [nodata,setNoData]=useState(false);
         
 
  }
- console.log(socialMedia)
+//  console.log(socialMedia)
  const changeCategory=(e)=>{
 
       const {value,checked} =e.target;
@@ -176,7 +188,7 @@ const [nodata,setNoData]=useState(false);
 
       const response= await axios.get('https://backend.discoverinfluencer.in/user/all');
       const datas=response.data.users;
-      console.log(datas);
+      // console.log(datas);
       setUserData(datas);
       setNoData(false)
      
@@ -216,6 +228,26 @@ const [nodata,setNoData]=useState(false);
   
  }
  
+ const getcategoryfilter= async()=>{
+       try {
+        console.log(cat)
+        const res=await axios.post('https://backend.discoverinfluencer.in/home/influencer_filters',{category:cat})
+        const response=res.data;
+        console.log(response)
+        
+       } catch (error) {
+          console.log("error while filtering categorysection",error.message)
+       }
+    
+
+
+ }
+
+ useEffect(() => {
+  if(cat)
+  getcategoryfilter()
+   
+ }, [cat])
  
 
     
@@ -226,10 +258,8 @@ const [nodata,setNoData]=useState(false);
 
   if(socialMedia.length==0 && category.length==0 && interest.length==0 ){
                   getallData()
-  
   }
-   
-    else{
+   else{
      getFilteredData()
 
   }
@@ -249,7 +279,7 @@ const [nodata,setNoData]=useState(false);
    
   return (
     <>
-      
+      {console.log(userData)}
     <Head>
         <title> SearchInfluencer-Filter</title>
         
@@ -414,7 +444,7 @@ const [nodata,setNoData]=useState(false);
           </button>
         </form>
 
-    
+    { userData.length==0 && nodata==false ? <SearchInfluencerSkeleton/> : <div className="main_div">
    {   nodata  ?   <div className={styles.nodatafound}> <h2>No User Found...</h2></div>
    : <div className={styles.all_profiles_div}>
      
@@ -453,7 +483,7 @@ const [nodata,setNoData]=useState(false);
 
 
     </div>}
-    
+    </div>}
     </>
   )
 }

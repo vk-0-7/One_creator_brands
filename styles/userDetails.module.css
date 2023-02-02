@@ -359,6 +359,18 @@ position: absolute;
             border-radius: 20px;
             object-fit: cover;
         }
+
+        .info{
+            
+            height: 16rem;
+            width: 80vw;
+           font-size: 0.8rem;
+            position: absolute;
+            top: 9.1rem;
+            
+          
+          }
+
         .name{
            
             font-size: 1.3rem;
@@ -512,8 +524,9 @@ position: absolute;
             }
         
             .footer{
-                position: relative;
-                top: 67rem;
+                position: absolute;
+                top: 67rem ;
+                /* bottom: 0rem; */
             }
             .experience{
                 margin-inline: 10px;
@@ -538,8 +551,8 @@ position: absolute;
        
     }
     .icons > button{
-        height: 25px;
-        width: 25px;
+        height: 30px;
+        width: 30px;
         margin: 5px;
        
     }

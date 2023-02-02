@@ -91,7 +91,7 @@
 .thirdInput > p{
     font-size: 0.9rem;
 }
-.thirdInput > p::after{
+.thirdInput > p::after{ 
     content: "*";
 }
 .thirdInput > input {
@@ -135,10 +135,11 @@
 @media(max-width:450px){
 
     .signin_box{
+        margin-top: -3rem;
         z-index: 1000;
-        height: 450px;
-        width: 90vw;
-        background-color: white;
+        height: 530px;
+        width: 92vw;
+       
         /* border: 2px solid rgb(7, 7, 7); */
         color: rgb(8, 8, 8);
         border-radius: 20px;
