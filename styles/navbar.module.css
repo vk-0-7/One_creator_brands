@@ -1,0 +1,10 @@
+.nav{
+    height: 6rem;
+    width: 100vw;
+    background-color: var(--primary-main-brown);
+}
+.nav img{
+    height: 4.5rem;
+    width: auto;
+    margin: 10px 0px 0px 8rem;
+}

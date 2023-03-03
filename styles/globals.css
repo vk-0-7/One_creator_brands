@@ -9,15 +9,27 @@ html{
   
   overflow-x: hidden;
   background-color: #F3F3F3;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Gilroy-Medium', sans-serif;
 font-style: normal;
 -webkit-font-smoothing: subpixel-antialiased !important; 
 text-rendering: geometricPrecision !important; 
 }
 
-/* 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-} */
+:root{
+  --whitish-text:#F8F3EB;
+  --primary-reddish:#AF2D3E;
+  --primary-darkred:#6F061F;
+  --primary-blueish:#018AFF;
+  --primary-darkgreen:#0C563E;
+  --primary-blackblue:#062743;
+  --primary-lightgreen:#13D295;
+  --primary-red-900:#BE3455;
+  --primary-white:#FFFFFF;
+  --primary-main-brown:#201315;
+  --primary-facecolor:#F8F3EB;
+  --primary-h1:4.0rem;
+  --primary-section-h1:4.4rem;
+  --primary-h3:1.8rem;
+  --primary-p:1.4rem;
+
+}

@@ -1,107 +1,56 @@
+.centreDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
-#footer{
-    background-color: transparent;
-    border-top: 1px solid rgb(224, 224, 224);
-    height: 80px;
+.footer{
+    height: 20vh;
     width: 100vw;
-    display: flex;
-    color: #101010;
+    background-color: #1E1E1E;
+    /* color: var(--primaryColor); */
+    /* background-color: var(--primaryColor); */
     
 }
-.copyright{
-    font-size: 0.99rem;
-    position: absolute;
-    top: 32px;
-    left: 90px;
-
-}
-.policies{
-    /* border: 1px solid red; */
-    display: flex;
-   line-height: 37px;
-   margin-top: 3px;
-   position: absolute;
-   left: 22vw;
-   font-size: 1.0rem;
-  
-}
-.first_column{
-    padding-right: 50px;
-}
-.media_icons{
-    /* border: 1px solid red; */
-    position: absolute;
-    right: 24vw;
-    display: flex;
-    top: 20px;
+.leftfooter{
+    width: 50%;
+    /* border: 1px solid white; */
 }
 
-#icon_box{
-    margin-inline: 2px;
-    padding: 12px;
-    /* border: 1px solid red; */
+.leftfooter img{
+    height: auto;
+    width: 10rem;
+    margin-left: 12rem;
 }
+.rightfooter{
+    width: 50%;
+    /* border: 1px solid white; */
+    height: 5rem;
+}
+
+.icons{
+    margin-top: 1.5rem;
+    float: right;
+    margin-right: 13rem;
+  width: max-content;
+    /* border: 1px solid white; */
+    
+}
+
+
 #icon{
-    height: 15px;
-    width: 15px;
-
-}
-.footerIm{ 
-    width: 255px;
-    height: 50px;
-    position: absolute;
-    right: 5vw;
-    top: 15px;
-}
-.ftr{
-    width: 100%;
-    height: 100%;
-}
-
-@media(max-width:450px){
-
-    #footer{
-        
-        height: 200px;
-        width: 100vw;
-       
-        
-    }
-
-    .policies{
-        /* border: 1px solid red; */
-      
-       margin-top: 15px;
-       position: absolute;
-       left: 16vw;
-       font-size: 1.0rem;
-      
-    }
-
+    margin-inline: 15px;
+    width: 20px;
+    height: 20px;
+    /* border: 1px solid green; */
     
-    .media_icons{
-        /* border: 1px solid red; */
-        position: absolute;
-        right: 46vw;
-        display: flex;
-        top: 90px;
-    }
-
-    .footerIm{ 
-        width: 255px;
-        height: 50px;
-        position: absolute;
-        left: 15vw;
-        top: 120px;
-    }
-
-    .copyright {
-        position: absolute;
-        top: 170px;
-        left: 26vw;
-        text-align: center;
-       
-       
-    }
+    
+}
+#sms{
+    height: 21px;
+    /* width: 25px; */
+}
+#inst{
+    height: 20px;
 }
