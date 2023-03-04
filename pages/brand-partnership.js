@@ -3,7 +3,7 @@ import styles from '../styles/brand-partnership.module.css'
 import {category} from "../database/data"
 import {industry} from "../database/data"
 import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+
 
 const brandpartnership = () => {
   return (<>

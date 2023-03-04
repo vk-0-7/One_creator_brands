@@ -99,9 +99,10 @@
     color: var(--primary-darkgreen);
     font-weight: bolder;
 }
-.section4 h1 span{
+.section4 h1 >span{
     color: var(--primary-reddish);
     font-weight: bolder;
+    /* font-stretch: 200%; */
 }
 .access_btn{
     margin-top: 2rem;
@@ -148,6 +149,7 @@
     width: 100vw;
     background-color: var(--primary-main-brown);
 
+
 }
 .split{
     height: max-content;
@@ -193,12 +195,7 @@
 }
 
 .part1{
-    width: 60vw;
-}
-.part2{
-    height: 100vh;
-    width: 30vw;
-    /* border: 1px solid white; */
-
-
+    width: max-content;
+    border: 1px solid white;
+    text-align: center;
 }
