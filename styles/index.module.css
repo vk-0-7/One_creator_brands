@@ -195,7 +195,7 @@
 }
 
 .part1{
-    width: max-content;
-    border: 1px solid white;
+    width: 60vw;
+    /* border: 1px solid white; */
     text-align: center;
 }
