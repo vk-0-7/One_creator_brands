@@ -228,7 +228,11 @@
 
 @media (max-width:500px) {
 
-   
+    .first_box {
+        height: 100vh;
+        /* background-color: #201315; */
+    
+    }
 
     .banner_imgsm {
         display: block;
@@ -241,13 +245,11 @@
         display: none;
 
     }
-.banner{
-    height: 120vh;
-}
+
 
 
     .first_box {
-        height: 120vh;
+        height: 100vh;
         /* background-color: #201315; */
 
     }
