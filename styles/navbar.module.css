@@ -8,3 +8,10 @@
     width: auto;
     margin: 10px 0px 0px 8rem;
 }
+
+@media(max-width:500px){
+   .nav img{
+    margin-left: 5vw;
+   }
+
+}

@@ -12,6 +12,11 @@
     margin-bottom: 1rem;
     /* line-height: 25px; */
 }
+
+#mark{
+    color: var(--primary-main-brown);
+    font-weight:500;
+}
 #mark::after{
     content: "*";
 }
@@ -22,25 +27,66 @@
     margin-block:2.5rem;
 }
 
+#select{
+    position: relative;
+    /* border: 1px solid red; */
+}
+
+#select img{
+    position: absolute;
+    top: 55%;
+    right: 15%;
+    height: 15px;
+    width: 15px;
+}
+.categories img{
+    position: absolute;
+    top: 40% !important;
+   
+}
 
 
 .main_div select{
+    padding-block: 10px;
+    appearance: none;
     margin-top: 0.3rem;
     height: 2.9rem;
     width: 30rem;
+    font-size: 0.8rem;
     border-radius: 12px;
-    border: 2px solid rgba(240, 240, 240,1);
-    color: rgba(43, 43, 43,0.5);
+    border: 1.5px solid rgba(240, 240, 240,1);
+    color: var(--input-color);
+    line-height: 20px;
+    text-indent: 10px;
+ 
+   
+    
+
 }
+.main_div option{
+    border: 1.5px solid grey;
+    padding-top: 10px;
+  
+    
+
+}
+
 .main_div input{
-    padding-left: 0.5rem;
+    padding-left: 0.8rem;
     margin-top: 0.3rem;
     margin-bottom: 1rem;
     height: 2.9rem;
     width: 30rem;
     border-radius: 12px;
     border: 2px solid rgba(240, 240, 240,1);
-    color: rgba(43, 43, 43,0.5);
+    color: var(--input-color);
+    font-family: 'Gilroy-Medium', sans-serif;
+}
+.main_div input:focus{
+   outline: none;
+}
+.main_div select:focus{
+   outline: none;
 }
 
 
@@ -58,12 +104,13 @@
     align-items: center;
     justify-content: center;
     font-size: 0.9rem;
-    color: rgb(5, 5, 5);
+    color: var(--primary-main-brown);
 }
 
 .terms_and_condition input{
     /* margin-right: 5px; */
     /* border: 1px solid blue; */
+    accent-color: black;
     height: 13px;
     width: 20px;
     margin-top: 14px;
@@ -74,7 +121,7 @@
    
     height: 40px;
     width: 30rem;
-    margin: 10px 0px 50px 0px;
+    margin: 10px 0px 0px 0px;
 }
 .create_profile button{
     height: 100%;
@@ -83,4 +130,85 @@
     border: none;
    background-color: rgba(175, 45, 62,0.5);
     color: white;
+}
+
+
+@media(max-width:500px){
+
+    .main_div{
+       
+        width: 90vw;
+        /* border: 1px solid red; */
+        margin-left: 5vw;
+    }
+
+    .main_heading{
+        color: var(--primary-reddish);
+        font-size: 1.8rem;
+        margin-block:2.5rem;
+    }
+    .main_div h3{
+       font-weight: lighter;
+        font-size: 0.9rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        /* line-height: 25px; */
+    }
+
+    #select img{
+        position: absolute;
+        top: 55%;
+        right: 8px;
+    }
+    #mark{
+        font-size: 0.87rem;
+        margin-left: 5px;
+    }
+
+    
+.main_div select{
+   
+    width: 100%;
+    font-size: 0.8rem;
+   
+}
+.main_div option{
+    border: 1.5px solid grey;
+    padding-top: 10px;
+  
+}
+
+.main_div input{
+   
+    width: 100%;   
+}
+
+.terms_and_condition{
+    display: flex;
+    height: max-content;
+    width: 100%;
+    margin-top: 15px;
+    /* border: 1px solid red; */
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: var(--primary-main-brown);
+}
+.terms_and_condition input{
+   
+    accent-color: black;
+    height: 13px;
+    width: 20px;
+    margin-top: 10px;
+}
+.terms_and_condition p{
+    font-size: 0.7rem;
+}
+
+.create_profile{
+   
+    height: 40px;
+    width: 100%;
+    margin: 5px 0px 0px 0px;
+}
 }

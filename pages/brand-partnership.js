@@ -2,12 +2,13 @@ import React from 'react'
 import styles from '../styles/brand-partnership.module.css'
 import {category} from "../database/data"
 import {industry} from "../database/data"
+import Image from 'next/image'
 import Navbar from '../components/Navbar'
-
+import arrow_down from '../public/assets/icons/arrow-down.svg'
 
 const brandpartnership = () => {
   return (<>
-    <div style={{backgroundColor:"var(--primary-facecolor)"}} >
+    <div style={{backgroundColor:"var(--primary-facecolor)" ,paddingBottom:"3rem"}} >
   <Navbar/>
 
        <div className={styles.main_div} id='main_div'>
@@ -17,7 +18,7 @@ const brandpartnership = () => {
            <h3>thank you for showcasing your interest in becoming a partner on,</h3>
             
            
-              <div className={styles.language} id={styles.select}  >
+              <div className={styles.categories} id={styles.select} >
                 <select 
                   id={styles.selection}
                   name="category"
@@ -33,7 +34,9 @@ const brandpartnership = () => {
                   ))}
                  
                 </select>
+                <Image src={arrow_down}/>
                 </div>
+               
           </div>
 
 
@@ -77,7 +80,7 @@ const brandpartnership = () => {
               <input
                 type="text"
                 id={styles.inpt}
-                placeholder="enter Email"
+                placeholder="enter email"
                 name="email"
                
                 
@@ -135,16 +138,16 @@ const brandpartnership = () => {
             />
           </div>
 
-          <div id={styles.industry} >
+          <div id={styles.dropdown} >
            
-              <div className={styles.language} id={styles.select}  >
+              <div className={styles.industry} id={styles.select}  >
               <label for="name">
               <b id={styles.mark}>industry</b>
             </label>
             <br />
                 <select 
                   id={styles.selection}
-                  name="category"
+                  name="industry"
                  
                 >
                   <option value="" disabled hidden selected>
@@ -157,7 +160,9 @@ const brandpartnership = () => {
                   ))}
                  
                 </select>
+                <Image src={arrow_down}/>
                 </div>
+                
           </div>
  <br />
             <div className={styles.email}>
@@ -168,7 +173,7 @@ const brandpartnership = () => {
               <input
                 type="text"
                 id={styles.inpt}
-                placeholder="Enter Email"
+                placeholder="https://www.instagram.com/"
                 name="email"
                
                 

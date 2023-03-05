@@ -5,6 +5,7 @@ import Head from 'next/head'
 import axios from 'axios'
 import Link from 'next/link'
 import banner from "../public/assets/Images/topimage.webp"
+import bannersm from '../public/assets/Images/partner_banner_mobile.webp'
 import Footer from '../components/footer'
 
 
@@ -28,7 +29,7 @@ const index = () => {
             <Image   src={logo}    />
         </div>
                  <div className={styles.inside_banner} >
-                 <h1>partner with us. <br /> <span> experience new frontiers </span></h1>
+                 <h1>partner with us. <br /> <b> experience new frontiers </b></h1>
     <h3>get direct access to the top 1% creators  <br />
 by partnering with us</h3>
                     <div className={styles.access_btn}>
@@ -41,7 +42,7 @@ by partnering with us</h3>
                  
                     </div> 
              <Image src={banner}className={styles.banner_img} /> 
-                     {/* <Image src={bannersm} className={styles.banner_imgsm}/>  */}
+                     <Image src={bannersm} className={styles.banner_imgsm}/> 
                     
              </div>
            
@@ -52,7 +53,7 @@ by partnering with us</h3>
         <div className={styles.split}>
   <div className={styles.split1}>
     <div className={styles.innerdiv}> <h1>where <br />
-   <span>  the 1% </span>  <br />
+   <b>  the 1% </b>  <br />
 shop</h1>
      <p>list your products on the ONE store,  <br />
 a shopping experience exclusive to members</p>
@@ -74,7 +75,7 @@ a shopping experience exclusive to members</p>
        
        <div className={` ${styles.bodySection3} ${styles.split} `}>
  <div className={`${styles.split1} `}>
-   <div className={styles.content}> <h1>  <span> collaborations</span>  <br />
+   <div className={styles.content}> <h1>  <b> collaborations</b>  <br />
 made easy</h1>
     <p>partner with ONE to get direct access of <br />
 the top 1% creators</p> 
@@ -94,7 +95,7 @@ the top 1% creators</p>
        
        <div className={` ${styles.bodySection3} ${styles.split} `}>
  <div className={`${styles.split1} `}>
-   <div className={styles.content}> <h1>redefine <br /> <span> rewards </span> for <br /> creative ones</h1>
+   <div className={styles.content}> <h1>redefine <br /> <b> rewards </b> for <br /> creative ones</h1>
     <p>give out your products as rewards to ONE members</p>
     <Link href='/brand-partnership'> <button className={styles.partner_btn}>become a partner</button> </Link> </div> 
  </div>
@@ -112,8 +113,8 @@ the top 1% creators</p>
    <h1>
    turn into a
 brand that <br />
- <span> creators 
-follow. </span>
+ <b> creators 
+follow. </b>
    </h1>  
      <p>get India’s top 1% creators to discover your brand on a platform that makes shopping entertaining, rewarding and exclusive.
 </p>  </div>  
