@@ -228,6 +228,8 @@
 
 @media (max-width:500px) {
 
+   
+
     .banner_imgsm {
         display: block;
         width: 100vw;
@@ -239,11 +241,13 @@
         display: none;
 
     }
-
+.banner{
+    height: 120vh;
+}
 
 
     .first_box {
-        height: 100vh;
+        height: 120vh;
         /* background-color: #201315; */
 
     }
