@@ -28,6 +28,7 @@
 }
 
 #select{
+   
     position: relative;
     /* border: 1px solid red; */
 }
@@ -35,7 +36,7 @@
 #select img{
     position: absolute;
     top: 55%;
-    right: 15%;
+    left: 28rem;
     height: 15px;
     width: 15px;
 }
@@ -47,6 +48,7 @@
 
 
 .main_div select{
+    background-color: white;
     padding-block: 10px;
     appearance: none;
     margin-top: 0.3rem;
