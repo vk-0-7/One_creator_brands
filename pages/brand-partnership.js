@@ -1,12 +1,36 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import styles from '../styles/brand-partnership.module.css'
 import {category} from "../database/data"
 import {industry} from "../database/data"
 import Image from 'next/image'
 import Navbar from '../components/Navbar'
 import arrow_down from '../public/assets/icons/arrow-down.svg'
+import { brandRequest } from './api/index'
 
 const brandpartnership = () => {
+
+  const [user,setUser]=useState({
+    partnerOn:"",
+    fullName:"",
+    email:"",
+    mobileNumber:"",
+    brandName:"",
+    leaglName:"",
+    dateOfRegistration:"",
+    industry:"",
+    website:""
+  })
+
+  const hndlechange=(e)=>{
+    const {name,value}=e.target
+    setUser({
+    ...user,
+    [name]:value
+    })
+  }
+
+
+
   return (<>
     <div style={{backgroundColor:"var(--primary-facecolor)" ,paddingBottom:"3rem"}} >
   <Navbar/>
@@ -122,7 +146,7 @@ const brandpartnership = () => {
               />
             </div>
 
-            <div className={styles.dob} id={styles.register}>
+            <div className={styles.dob} >
             <label for="name">
               <b id={styles.mark}>date of incorporation/registration</b>
             </label>

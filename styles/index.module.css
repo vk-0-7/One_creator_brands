@@ -256,13 +256,13 @@
 
     .logo {
         left: 7.5vw;
-         width: 9rem;
+         width: 7.5rem;
     }
 
     .inside_banner {
         /* border: 1px solid black; */
         height: 60vh;
-        height: 70vh;
+        height: 75vh;
         width: 85vw;
         position: absolute;
         color: white;
@@ -301,8 +301,8 @@
     .access_btn {
         margin-top: 1.5rem;
         text-align: center;
-        height: 2.7rem;
-        width: 9rem;
+        height: 2.5rem;
+        width: 8rem;
     
     }
 
@@ -312,8 +312,8 @@
         /* border: 1px solid red; */
         display: flex;
         flex-direction: column;
-        position: relative;
-        transform: translateY(-2.7rem);
+        /* position: relative; */
+        /* transform: translateY(-2.7rem); */
     }
 
     .split1 {
@@ -337,14 +337,14 @@
     }
     
     .partner_btn {
-        margin-top: 0rem;
+        margin-top: 3rem;
        
         height: 2.7rem;
         width: 10rem;
        
         font-size: 1.05rem;
-       position: absolute;
-         bottom: -3rem;
+       /* position: absolute;
+         bottom: -3rem; */
     }
 
    

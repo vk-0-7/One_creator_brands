@@ -29,11 +29,11 @@ text-rendering: geometricPrecision !important;
   --primary-facecolor:#F8F3EB;
 
   --primary-h1:4.0rem;
-  --primary-h1-mobile:1.8rem;
-  --primary-section-h1:4.4rem;
+  --primary-h1-mobile:1.6rem;
+  --primary-section-h1:4.0rem;
   --primary-section-h1-mobile:2.3rem;
   --primary-h3:1.8rem;
-  --primary-h3-mobile:1.1rem;
+  --primary-h3-mobile:1.0rem;
   --primary-p:1.4rem;
   --primary-p-mobile:0.9rem;
  --input-color: rgba(43, 43, 43,0.5);
