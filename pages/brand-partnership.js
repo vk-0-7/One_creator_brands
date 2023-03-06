@@ -3,32 +3,91 @@ import styles from '../styles/brand-partnership.module.css'
 import {category} from "../database/data"
 import {industry} from "../database/data"
 import Image from 'next/image'
+import axios from "axios";
 import Navbar from '../components/Navbar'
 import arrow_down from '../public/assets/icons/arrow-down.svg'
-import { brandRequest } from './api/index'
+// import  brandRequest  from './api/index'
+import callApi from './api/index'
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 const brandpartnership = () => {
 
+  const [btnLoader,setBtnLoader]=useState(false);
+  const [color,setColor] =useState("#ffffff")
+
   const [user,setUser]=useState({
-    partnerOn:"",
-    fullName:"",
-    email:"",
-    mobileNumber:"",
-    brandName:"",
-    leaglName:"",
-    dateOfRegistration:"",
-    industry:"",
-    website:""
+    
+      partnerOn:"",
+      fullName:"",
+      email:"",
+      mobileNumber:"",
+      brandName:"",
+      leaglName:"",
+      dateOfRegistration:"",
+      industry:"",
+      socialLinks:{
+          facebook:"",
+          twitter:"",
+          linkedIn:"",
+          instagram:"",
+          youtube:""
+      },
+      website:"",
+      services:[]
   })
 
-  const hndlechange=(e)=>{
-    const {name,value}=e.target
-    setUser({
-    ...user,
-    [name]:value
+  // ******************
+  const handlechange = (e)=>{
+    // console.log('editing ', e.target.name)
+    setUser((old)=>{
+      if(e.target.name ==='instagram'||e.target.name ==='facebook'||e.target.name ==='youtube'||e.target.name ==='linkedIn'){
+        return { ...old, socialLinks:{...old.socialLinks, [e.target.name] : e.target.value}}
+      } else{
+        return { ...old, [e.target.name] : e.target.value}
+      }
     })
   }
 
+  const handleCall = ()=>{
+    if(user.fullName && user.email &&user.brandName &&user.dateOfRegistration && user.industry && user.mobileNumber && user.leaglName){
+      setBtnLoader(true);
+      callApi('post','user/partner-brand-request', user)
+      .then((res)=>{
+        console.log('response : ', res)
+        setBtnLoader(false)
+        alert("suceess")
+      })
+      .catch((error)=>{
+        console.log('error : ', error)
+        setBtnLoader(false)
+        alert("failed")
+      })
+    }
+  }
+  // ******************
+
+
+
+  // const handlechange=(e)=>{
+  //   const {name,value}=e.target
+  //   setUser({
+  //   ...user,
+  //   [name]:value
+  //   })
+  // }
+
+  useEffect(() => {
+    console.log(user)
+  }, [user])
+  
+// const reqBody={
+//   user:user,
+//   socialLinks:socialLinks
+// }
+ 
+
+ 
 
 
   return (<>
@@ -45,8 +104,8 @@ const brandpartnership = () => {
               <div className={styles.categories} id={styles.select} >
                 <select 
                   id={styles.selection}
-                  name="category"
-                 
+                  name="partnerOn"
+                 onChange={handlechange}
                 >
                   <option value="" disabled hidden selected>
                     Select
@@ -73,10 +132,10 @@ const brandpartnership = () => {
             <br />
             <input
               type="text"
-             
+              onChange={handlechange}
               id={styles.inpt}
               placeholder="enter name"
-              name="name" 
+              name="fullName" 
               required
             />
           </div>
@@ -90,8 +149,8 @@ const brandpartnership = () => {
                 type="number"
                 id={styles.inpt}
                 placeholder="enter mobile number(+91-4726482345)"
-                name="number"
-               
+                name="mobileNumber"
+                onChange={handlechange}
                 required
               />
             </div>
@@ -106,7 +165,7 @@ const brandpartnership = () => {
                 id={styles.inpt}
                 placeholder="enter email"
                 name="email"
-               
+                onChange={handlechange}
                 
                 required
               />
@@ -114,8 +173,8 @@ const brandpartnership = () => {
 
    <h3>lets get to know your brand a little better shall we?</h3> <br />
 
-   <div className={styles.email}>
-              <label for="email">
+   <div className={styles.brand}>
+              <label for="brand name">
                 <b id={styles.mark}>brand name</b>
               </label>
               <br />
@@ -123,15 +182,15 @@ const brandpartnership = () => {
                 type="text"
                 id={styles.inpt}
                 placeholder="enter your brand name here"
-                name="email"
-               
+                name="brandName"
+                onChange={handlechange}
                 
                 required
               />
             </div>
 
-   <div className={styles.email}>
-              <label for="email">
+   <div className={styles.companyName}>
+              <label for="company name">
                 <b id={styles.mark}>legal name</b>
               </label>
               <br />
@@ -139,8 +198,8 @@ const brandpartnership = () => {
                 type="text"
                 id={styles.inpt}
                 placeholder="enter your company's legal name here"
-                name="email"
-               
+                name="leaglName"
+                onChange={handlechange}
                 
                 required
               />
@@ -152,12 +211,12 @@ const brandpartnership = () => {
             </label>
             <br />
             <input
-            
+               style={{paddingRight:"10px"}}
               type="date"
               // id={styles.inpt}
               // placeholder="dd/mm/yyyy"
-              name="dob"
-              
+              name="dateOfRegistration"
+              onChange={handlechange}
               required
             />
           </div>
@@ -172,7 +231,8 @@ const brandpartnership = () => {
                 <select 
                   id={styles.selection}
                   name="industry"
-                 
+                  onChange={handlechange}
+                  
                 >
                   <option value="" disabled hidden selected>
                     Select
@@ -198,7 +258,8 @@ const brandpartnership = () => {
                 type="text"
                 id={styles.inpt}
                 placeholder="https://www.instagram.com/"
-                name="email"
+                name="instagram"
+                onChange={handlechange}
                
                 
                 required
@@ -209,7 +270,16 @@ const brandpartnership = () => {
             <p>By checking the box, you are agreeing to our terms of service</p>
           </div>
           <div className={styles.create_profile}>
-            <button id="createprofile_btn" >submit form</button>
+            <button id="createprofile_btn" onClick={
+              handleCall
+            } >{ btnLoader ?  <ClipLoader
+              color={color}
+              loading={btnLoader}
+              // cssOverride={override}
+              size={25}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            /> : <span> request access</span>}</button>
           </div>
 
 

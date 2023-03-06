@@ -238,6 +238,7 @@
         display: block;
         width: 100vw;
         height: 100%;
+        /* border: 2px solid red; */
         object-fit: cover;
     }
 
@@ -251,6 +252,7 @@
     .first_box {
         height: 100vh;
         /* background-color: #201315; */
+        /* border: 2px solid red; */
 
     }
 
