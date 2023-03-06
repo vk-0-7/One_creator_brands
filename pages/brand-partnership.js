@@ -153,7 +153,7 @@ const brandpartnership = () => {
             <br />
             <input
               // style={{ paddingRight: "10px" }}
-              type="date"
+              type="number"
               // id={styles.inpt}
               placeholder="dd/mm/yyyy"
               name="dob"
