@@ -147,12 +147,12 @@ const brandpartnership = () => {
             </div>
 
             <div className={styles.dob} >
-            <label for="name">
+            <label for="date">
               <b id={styles.mark}>date of incorporation/registration</b>
             </label>
             <br />
             <input
-              style={{ paddingRight: "10px" }}
+              // style={{ paddingRight: "10px" }}
               type="date"
               // id={styles.inpt}
               placeholder="dd/mm/yyyy"
