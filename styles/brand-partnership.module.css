@@ -180,6 +180,10 @@
     padding-top: 10px;
   
 }
+.main_div input[type="date"]{
+    background-color: white;
+    z-index: 1000 !important;
+}
 
 .main_div input{
    

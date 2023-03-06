@@ -295,7 +295,7 @@
     .section4 h1 {
         font-size: var(--primary-section-h1-mobile);
 
-        line-height: 45px;
+        line-height: 35px;
     }
 
     .access_btn {
@@ -337,12 +337,12 @@
     }
     
     .partner_btn {
-        margin-top: 3rem;
+        margin-top: 1rem;
        
-        height: 2.7rem;
-        width: 10rem;
+        height: 2.6rem;
+        width: 9rem;
        
-        font-size: 1.05rem;
+        font-size: 1.0rem;
        /* position: absolute;
          bottom: -3rem; */
     }
