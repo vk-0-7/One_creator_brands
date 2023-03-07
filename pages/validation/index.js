@@ -2,12 +2,8 @@
 const validateEmail=(email)=>{
 
 
-    if (email.trim() === '') {
-        return false;
-      }
-     
     
-      else if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+       if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         return true;
       }
     else{
