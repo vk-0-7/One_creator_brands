@@ -8,10 +8,31 @@ import Navbar from '../components/Navbar'
 import arrow_down from '../public/assets/icons/arrow-down.svg'
 // import  brandRequest  from './api/index'
 import callApi from './api/index'
+import validateEmail from './validation/index'
 import ClipLoader from "react-spinners/ClipLoader";
+import BrandRegistered from '../components/modal/brandRegistered'
 
 
 const brandpartnership = () => {
+
+  const [isConfirm,setisConfirm]=useState(false)
+
+  useEffect(() => {
+    let checkbox= document.getElementById('checkbox') 
+    if(checkbox.checked){
+      
+      document.getElementById('createprofile_btn').style.backgroundColor='rgba(175, 45, 62,1)'
+    }
+    else{
+      document.getElementById('createprofile_btn').style.backgroundColor='rgba(175, 45, 62,0.5)'
+    }
+    
+   
+
+  }, [isConfirm])
+  
+
+  const[showRegisteredModal,setShowRegisteredModal]=useState(false)
 
   const [btnLoader,setBtnLoader]=useState(false);
   const [color,setColor] =useState("#ffffff")
@@ -39,7 +60,7 @@ const brandpartnership = () => {
 
   // ******************
   const handlechange = (e)=>{
-    // console.log('editing ', e.target.name)
+   
     setUser((old)=>{
       if(e.target.name ==='instagram'||e.target.name ==='facebook'||e.target.name ==='youtube'||e.target.name ==='linkedIn'){
         return { ...old, socialLinks:{...old.socialLinks, [e.target.name] : e.target.value}}
@@ -50,13 +71,13 @@ const brandpartnership = () => {
   }
 
   const handleCall = ()=>{
-    if(user.fullName && user.email &&user.brandName &&user.dateOfRegistration && user.industry && user.mobileNumber && user.leaglName){
+    if(user.fullName && user.email &&user.brandName && user.dateOfRegistration && user.industry && user.mobileNumber && user.leaglName && validateEmail(user.email)){
       setBtnLoader(true);
       callApi('post','user/partner-brand-request', user)
       .then((res)=>{
         console.log('response : ', res)
         setBtnLoader(false)
-        alert("suceess")
+        setShowRegisteredModal(true)
       })
       .catch((error)=>{
         console.log('error : ', error)
@@ -66,34 +87,18 @@ const brandpartnership = () => {
     }
   }
   // ******************
-
-
-
-  // const handlechange=(e)=>{
-  //   const {name,value}=e.target
-  //   setUser({
-  //   ...user,
-  //   [name]:value
-  //   })
-  // }
-
-  useEffect(() => {
-    console.log(user)
-  }, [user])
   
-// const reqBody={
-//   user:user,
-//   socialLinks:socialLinks
-// }
- 
-
+  
+  
  
 
 
   return (<>
+{showRegisteredModal ? <BrandRegistered setShowRegisteredModal={setShowRegisteredModal}/> :null }
+
     <div style={{backgroundColor:"var(--primary-facecolor)" ,paddingBottom:"3rem"}} >
   <Navbar/>
-
+     
        <div className={styles.main_div} id='main_div'>
         <h2 className={styles.main_heading}>become a partner</h2>
           <div className={styles.inputSection}>
@@ -266,7 +271,7 @@ const brandpartnership = () => {
               />
             </div>
             <div className={styles.terms_and_condition}>
-            <input type="checkbox" id={styles.checkbox} name="terms" value="true"  />
+            <input type="checkbox" id='checkbox'name="terms" value="true" onClick={(e)=>{setisConfirm(!isConfirm)}} />
             <p>By checking the box, you are agreeing to our terms of service</p>
           </div>
           <div className={styles.create_profile}>
