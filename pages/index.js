@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Head from 'next/head'
 import axios from 'axios'
 import Link from 'next/link'
-import banner from "../public/assets/Images/topimage.webp"
+import banner from "../public/assets/Images/4.webp"
 import bannersm from '../public/assets/Images/partner_banner_mobile.webp'
 import Footer from '../components/footer'
 
