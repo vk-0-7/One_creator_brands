@@ -11,9 +11,17 @@ import callApi from './api/index'
 import validateEmail from './validation/index'
 import ClipLoader from "react-spinners/ClipLoader";
 import BrandRegistered from '../components/modal/brandRegistered'
+import { useRouter } from 'next/router'
 
 
 const brandpartnership = () => {
+  const router = useRouter()
+  
+  // const [partneronData,setPartneronData]=useState('');
+
+  // if(router.query.$value) {
+  //       setPartneronData(router.query.$value)
+  // }
 
   const [isConfirm,setisConfirm]=useState(false)
 
@@ -30,6 +38,9 @@ const brandpartnership = () => {
    
 
   }, [isConfirm])
+
+
+  // console.log(partneronData);
   
 
   const[showRegisteredModal,setShowRegisteredModal]=useState(false)
@@ -111,6 +122,7 @@ const brandpartnership = () => {
                   id={styles.selection}
                   name="partnerOn"
                  onChange={handlechange}
+                 value={router.query.$value}
                 >
                   <option value="" disabled hidden selected>
                     Select

@@ -1,9 +1,7 @@
 
 const validateEmail=(email)=>{
 
-
-    
-       if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+ if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         return true;
       }
     else{

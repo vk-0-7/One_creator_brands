@@ -57,7 +57,7 @@ by partnering with us</h3>
 shop</h1>
      <p>list your products on the ONE store,  <br />
 a shopping experience exclusive to members</p>
-  <Link href='/brand-partnership'> <button className={styles.partner_btn}>become a partner</button> </Link>
+  <Link href='/brand-partnership?$value=store' > <button className={styles.partner_btn}>become a partner</button> </Link>
  </div> 
   </div>
   <div  className={styles.split2}>
@@ -79,7 +79,7 @@ a shopping experience exclusive to members</p>
 made easy</h1>
     <p>partner with ONE to get direct access of <br />
 the top 1% creators</p> 
-<Link href='/brand-partnership'> <button className={styles.partner_btn}>become a partner</button> </Link>
+<Link href='/brand-partnership?$value=collabs'> <button className={styles.partner_btn}>become a partner</button> </Link>
 </div> 
  </div>
  <div  className={styles.split2}>
@@ -97,7 +97,7 @@ the top 1% creators</p>
  <div className={`${styles.split1} `}>
    <div className={styles.content}> <h1>redefine <br /> <b> rewards </b> for <br /> creative ones</h1>
     <p>give out your products as rewards to ONE members</p>
-    <Link href='/brand-partnership'> <button className={styles.partner_btn}>become a partner</button> </Link> </div> 
+    <Link href='/brand-partnership?$value=rewards'> <button className={styles.partner_btn}>become a partner</button> </Link> </div> 
  </div>
  <div  className={styles.split2}>
    <Image src={rewards}/>
