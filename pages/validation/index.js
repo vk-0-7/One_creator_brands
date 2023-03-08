@@ -1,5 +1,5 @@
 
-const validateEmail=(email)=>{
+ export const validateEmail=(email)=>{
 
  if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         return true;
@@ -9,7 +9,7 @@ const validateEmail=(email)=>{
     }
 
 }
-function isValidUrl(str) {
+ export function isValidUrl(str) {
     var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
       '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
       '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
@@ -21,6 +21,6 @@ function isValidUrl(str) {
 
 
 
-export  {validateEmail, isValidUrl}
+// export  {validateEmail, isValidUrl}
 
 // export default isValidUrl
