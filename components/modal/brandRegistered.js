@@ -34,14 +34,15 @@ const handleHome=()=>{
     }} onClick={handlecross}/>  */}
         
        <div className='main_body'>  <h2 >
-      Congratulations! <br /> You have registered for brand partnership. 
+       we have received your request for brand partnership. <br />
+our team shall connect with you in next 24 hrs. 
           </h2>  
       <br /> <br />
          
          
            <button className='btn'  onClick={handleHome}
            
-           > go to Homescreen</button> </div> 
+           > go back to homescreen</button> </div> 
         
         </div> 
 
@@ -61,7 +62,7 @@ const handleHome=()=>{
    h2{
     text-align:center;
     line-height:35px;
-    fontSize:1.2rem;
+    font-size:1.23rem;
     color:white;
    }
   .btn{

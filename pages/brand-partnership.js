@@ -8,7 +8,8 @@ import Navbar from '../components/Navbar'
 import arrow_down from '../public/assets/icons/arrow-down.svg'
 // import  brandRequest  from './api/index'
 import callApi from './api/index'
-import validateEmail from './validation/index'
+import {validateEmail} from './validation/index'
+import {isValidUrl} from './validation/index'
 import ClipLoader from "react-spinners/ClipLoader";
 import BrandRegistered from '../components/modal/brandRegistered'
 import { useRouter } from 'next/router'
@@ -17,30 +18,7 @@ import { useRouter } from 'next/router'
 const brandpartnership = () => {
   const router = useRouter()
   
-  // const [partneronData,setPartneronData]=useState('');
-
-  // if(router.query.$value) {
-  //       setPartneronData(router.query.$value)
-  // }
-
-  const [isConfirm,setisConfirm]=useState(false)
-
-  useEffect(() => {
-    let checkbox= document.getElementById('checkbox') 
-    if(checkbox.checked){
-      
-      document.getElementById('createprofile_btn').style.backgroundColor='rgba(175, 45, 62,1)'
-    }
-    else{
-      document.getElementById('createprofile_btn').style.backgroundColor='rgba(175, 45, 62,0.5)'
-    }
-    
-   
-
-  }, [isConfirm])
-
-
-  // console.log(partneronData);
+  
   
 
   const[showRegisteredModal,setShowRegisteredModal]=useState(false)
@@ -68,6 +46,26 @@ const brandpartnership = () => {
       website:"",
       services:[]
   })
+ 
+ 
+
+  useEffect(() => {
+    // let checkbox= document.getElementById('checkbox') 
+   
+
+    if (user.fullName && user.email &&user.brandName && user.dateOfRegistration && user.industry && user.mobileNumber && user.leaglName && validateEmail(user.email) && isValidUrl(user.socialLinks.instagram)){
+      
+      document.getElementById('createprofile_btn').style.backgroundColor='rgba(175, 45, 62,1)'
+    }
+    else{
+      document.getElementById('createprofile_btn').style.backgroundColor='rgba(175, 45, 62,0.5)'
+    }
+    
+   
+
+  }, [user])
+
+
 
   // ******************
   const handlechange = (e)=>{
@@ -82,7 +80,7 @@ const brandpartnership = () => {
   }
 
   const handleCall = ()=>{
-    if(user.fullName && user.email &&user.brandName && user.dateOfRegistration && user.industry && user.mobileNumber && user.leaglName && validateEmail(user.email)){
+    if(user.fullName && user.email &&user.brandName && user.dateOfRegistration && user.industry && user.mobileNumber && user.leaglName && validateEmail(user.email) && isValidUrl(user.socialLinks.instagram)){
       setBtnLoader(true);
       callApi('post','user/partner-brand-request', user)
       .then((res)=>{
@@ -282,10 +280,10 @@ const brandpartnership = () => {
                 required
               />
             </div>
-            <div className={styles.terms_and_condition}>
+            {/* <div className={styles.terms_and_condition}>
             <input type="checkbox" id='checkbox'name="terms" value="true" onClick={(e)=>{setisConfirm(!isConfirm)}} />
             <p>By checking the box, you are agreeing to our terms of service</p>
-          </div>
+          </div> */}
           <div className={styles.create_profile}>
             <button id="createprofile_btn" onClick={
               handleCall
@@ -296,7 +294,7 @@ const brandpartnership = () => {
               size={25}
               aria-label="Loading Spinner"
               data-testid="loader"
-            /> : <span> request access</span>}</button>
+            /> : <span> submit</span>}</button>
           </div>
 
 
