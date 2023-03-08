@@ -8,7 +8,7 @@ import Navbar from '../components/Navbar'
 import arrow_down from '../public/assets/icons/arrow-down.svg'
 // import  brandRequest  from './api/index'
 import callApi from './api/index'
-import {isValidUrl,validateEmail} from './validation/index'
+import isValidUrl,{validateEmail} from './validation/index'
 
 import ClipLoader from "react-spinners/ClipLoader";
 import BrandRegistered from '../components/modal/brandRegistered'
